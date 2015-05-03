@@ -1,0 +1,20 @@
+﻿@model LuckyMe.CMS.Web.Models.OverviewViewModel
+
+@{
+    ViewBag.Title = "UserOverview";
+    ViewBag.SubTitle = "User Name";
+    Layout = "~/Views/Shared/_DashboardLayout.cshtml";
+}
+
+<div>
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+
+    </dl>
+</div>

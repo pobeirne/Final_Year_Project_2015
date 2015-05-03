@@ -1,0 +1,67 @@
+﻿html, body
+{
+    height: 100%;
+    background-color: #000000;
+    background: url("../Content/Images/black_background_1.png") repeat scroll 0% 0% transparent;
+}
+
+.x-body {
+    background: url("../Content/Images/black_background_1.png") repeat scroll 0% 0% transparent;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+
+#footer{
+    margin-bottom:0px;
+}
+
+
+.push {
+    height: 50px;
+}
+
+.maincontent
+{
+    background-color: #ffffff;
+    padding: 20px;
+    min-height: 85%;
+    overflow: hidden;
+}
+
+.glyphicon { margin-right:10px; }
+.panel-body { padding:0px; }
+.panel-body table tr td { padding-left: 15px }
+.panel-body .table {margin-bottom: 0px; }
+
+
+
+ .panel-body{
+    	padding: 20px;
+    }
+
+ .float-right {
+     float: right;
+ }
+
+ .status-active {
+     color: #32cd32;
+     font-weight: bold;
+ }

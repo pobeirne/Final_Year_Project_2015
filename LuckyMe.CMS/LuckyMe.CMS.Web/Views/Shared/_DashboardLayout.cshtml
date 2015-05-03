@@ -1,0 +1,58 @@
+﻿@using System.Web.Optimization
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    @Scripts.Render("~/bundles/modernizr")
+
+    <script src="~/Sencha/library/ext-all.js"></script>
+    <link href="~/Sencha/library/resources/css/ext-all-neptune.css" rel="stylesheet"/>
+    @Styles.Render("~/Content/css")
+    @RenderSection("extjs", required: false)
+
+</head>
+<body>
+@Html.Partial("_TopNavbar")
+<div class="push"></div>
+<div class="container maincontent">
+    <div class="row">
+        <div class="col-lg-3 col-md-3 col-sm-12">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h4 class="page-header">
+                        Navigation
+                    </h4>
+                </div>
+            </div>
+            @Html.Partial("_SidebarNav")
+        </div>
+        <!-- /.row -->
+        <div class="col-lg-9 col-md-9 col-sm-12 ">
+            <div class="row">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h4 class="page-header">
+                            @ViewBag.Title <small>@ViewBag.SubTitle</small>
+                        </h4>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-12">
+                        @RenderBody()
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@Html.Partial("_Footer")
+
+@Scripts.Render("~/bundles/jquery")
+@Scripts.Render("~/bundles/bootstrap")
+@RenderSection("scripts", required: false)
+</body>
+</html>
