@@ -1,7 +1,7 @@
 ﻿using System.Diagnostics;
+using LuckyMe.CMS.Common.Models.DTO;
 using LuckyMe.CMS.Data.Repository;
 using LuckyMe.CMS.Data.Repository.Interfaces;
-using LuckyMe.CMS.Entity.DTO;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace LuckyMe.CMS.Data.Tests
@@ -61,7 +61,7 @@ namespace LuckyMe.CMS.Data.Tests
         [TestMethod]
         public void InsertUserClaimAsync()
         {
-            var claim = new UserClaimDTO
+            var claim = new UserClaimDto
             {
                 ClaimType = "FaceBook_Data",
                 ClaimValue = "Test1",
@@ -74,7 +74,7 @@ namespace LuckyMe.CMS.Data.Tests
         [TestMethod]
         public void UpdateUserClaimAsync()
         {
-            var claim = new UserClaimDTO
+            var claim = new UserClaimDto
             {
                 ClaimType = "FaceBook_Data",
                 ClaimValue = "Test1",
@@ -87,7 +87,7 @@ namespace LuckyMe.CMS.Data.Tests
         [TestMethod]
         public void DeleteUserClaimAsync()
         {
-            var claim = new UserClaimDTO
+            var claim = new UserClaimDto
             {
                 ClaimType = "FaceBook_Data",
                 ClaimValue = "Test1",

@@ -1,8 +1,7 @@
-﻿using System;
-using System.ComponentModel.DataAnnotations;
-using LuckyMe.CMS.WebAPI.Attributes;
+﻿using System.ComponentModel.DataAnnotations;
+using LuckyMe.CMS.Entity.Attributes;
 
-namespace LuckyMe.CMS.WebAPI.Models
+namespace LuckyMe.CMS.Common.Models.ViewModels
 {
     public class FacebookProfileViewModel
     {

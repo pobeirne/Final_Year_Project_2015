@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
-using LuckyMe.CMS.Entity.DTO;
+using LuckyMe.CMS.Common.Models.DTO;
 
 namespace LuckyMe.CMS.Service.Services.Interfaces
 {
@@ -8,20 +8,20 @@ namespace LuckyMe.CMS.Service.Services.Interfaces
     {
 
         // Get
-        Task<IEnumerable<UserDTO>> GetAllUsersAsync();
+        Task<IEnumerable<UserDto>> GetAllUsersAsync();
 
-        Task<UserDTO> GetUserByIdAsync(string id);
+        Task<UserDto> GetUserByIdAsync(string id);
 
         // Inserts
-        Task<bool> InsertUserClaimAsync(UserClaimDTO entry);
+        Task<bool> InsertUserClaimAsync(UserClaimDto entry);
 
         // Updates
-        Task<bool> UpdateUserClaimAsync(UserClaimDTO entry);
+        Task<bool> UpdateUserClaimAsync(UserClaimDto entry);
 
         // Deletes
-        Task<bool> DeleteUserClaimAsync(UserClaimDTO entry);
+        Task<bool> DeleteUserClaimAsync(UserClaimDto entry);
 
-        Task<bool> DeleteUserAsync(UserDTO user);
+        Task<bool> DeleteUserAsync(UserDto user);
 
 
 

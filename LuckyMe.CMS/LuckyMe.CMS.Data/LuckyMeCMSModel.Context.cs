@@ -7,10 +7,12 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
+using LuckyMe.CMS.Entity;
+
 namespace LuckyMe.CMS.Data
 {
     using System;
-    using LuckyMe.CMS.Entity;
+    using LuckyMe.CMS.Common.Models;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     

@@ -297,29 +297,21 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\SampleDirection.cs" />
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
-    <Compile Include="Attributes\FacebookMappingAttribute.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\FacebookController.cs" />
+    <Compile Include="Providers\FacebookGraph.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
-    <Compile Include="Extensions\DynamicExtension.cs" />
-    <Compile Include="Extensions\StringExtension.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountBindingModels.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
-    <Compile Include="Models\FacebookAlbumViewModel.cs" />
-    <Compile Include="Models\FacebookPhotoViewModel.cs" />
-    <Compile Include="Models\FacebookProfileViewModel.cs" />
-    <Compile Include="Models\FacebookVideoViewModel.cs" />
     <Compile Include="Models\IdentityModels.cs" />
-    <Compile Include="Models\UserBindingModel.cs" />
-    <Compile Include="Models\ViewModels.cs" />
+    <Compile Include="Models\ViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Providers\ApplicationOAuthProvider.cs" />
-    <Compile Include="Providers\FacebookGraphApi.cs" />
     <Compile Include="Results\ChallengeResult.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -399,13 +391,13 @@
     <None Include="Project_Readme.html" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\LuckyMe.CMS.Common\LuckyMe.CMS.Common.csproj">
+      <Project>{ed180087-4dbb-481f-bcb3-9e6f291e2d74}</Project>
+      <Name>LuckyMe.CMS.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\LuckyMe.CMS.Data\LuckyMe.CMS.Data.csproj">
       <Project>{29CDA3D0-3726-4BA6-BBEE-EE3AF47834C0}</Project>
       <Name>LuckyMe.CMS.Data</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\LuckyMe.CMS.Entity\LuckyMe.CMS.Entity.csproj">
-      <Project>{ED180087-4DBB-481F-BCB3-9E6F291E2D74}</Project>
-      <Name>LuckyMe.CMS.Entity</Name>
     </ProjectReference>
     <ProjectReference Include="..\LuckyMe.CMS.Services\LuckyMe.CMS.Service.csproj">
       <Project>{C07F40C9-0BA8-4182-91AD-9BA740740DA6}</Project>

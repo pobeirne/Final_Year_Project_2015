@@ -1,4 +1,3 @@
-﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
 VisualStudioVersion = 12.0.31101.0
@@ -33,7 +32,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Web", "Web", "{FEBBC3C0-8B7
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Service", "Service", "{1D534291-E61B-4546-9E7A-1255A62160C3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LuckyMe.CMS.Entity", "LuckyMe.CMS.Entity\LuckyMe.CMS.Entity.csproj", "{ED180087-4DBB-481F-BCB3-9E6F291E2D74}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LuckyMe.CMS.Common", "LuckyMe.CMS.Common\LuckyMe.CMS.Common.csproj", "{ED180087-4DBB-481F-BCB3-9E6F291E2D74}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LuckyMe.CMS.Data.Tests", "LuckyMe.CMS.Data.Tests\LuckyMe.CMS.Data.Tests.csproj", "{1EDE7A6C-1E6C-4256-875B-2EA41C8C9F93}"
 EndProject

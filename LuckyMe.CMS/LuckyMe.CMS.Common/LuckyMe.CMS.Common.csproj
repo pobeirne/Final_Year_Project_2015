@@ -7,8 +7,8 @@
     <ProjectGuid>{ED180087-4DBB-481F-BCB3-9E6F291E2D74}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>LuckyMe.CMS.Entity</RootNamespace>
-    <AssemblyName>LuckyMe.CMS.Entity</AssemblyName>
+    <RootNamespace>LuckyMe.CMS.Common</RootNamespace>
+    <AssemblyName>LuckyMe.CMS.Common</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -30,7 +30,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.Build.Framework" />
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -39,34 +42,45 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DTO\UserClaimDTO.cs" />
-    <Compile Include="DTO\UserProviderDTO.cs" />
-    <Compile Include="Interfaces\BaseEntity.cs" />
-    <Compile Include="AspNetRole.cs">
+    <Compile Include="Attributes\FacebookMappingAttribute.cs" />
+    <Compile Include="Models\DTO\AlbumDto.cs" />
+    <Compile Include="Models\DTO\PhotoDto.cs" />
+    <Compile Include="Models\DTO\UserContentDto.cs" />
+    <Compile Include="Models\DTO\UserProfileDto.cs" />
+    <Compile Include="Models\DTO\UserClaimDto.cs" />
+    <Compile Include="Models\AspNetRole.cs">
       <DependentUpon>Entity.tt</DependentUpon>
     </Compile>
-    <Compile Include="AspNetUser.cs">
+    <Compile Include="Models\AspNetUser.cs">
       <DependentUpon>Entity.tt</DependentUpon>
     </Compile>
-    <Compile Include="AspNetUserClaim.cs">
+    <Compile Include="Models\AspNetUserClaim.cs">
       <DependentUpon>Entity.tt</DependentUpon>
     </Compile>
-    <Compile Include="AspNetUserLogin.cs">
+    <Compile Include="Models\AspNetUserLogin.cs">
       <DependentUpon>Entity.tt</DependentUpon>
     </Compile>
-    <Compile Include="C__MigrationHistory.cs">
+    <Compile Include="Models\C__MigrationHistory.cs">
       <DependentUpon>Entity.tt</DependentUpon>
     </Compile>
-    <Compile Include="DTO\UserDTO.cs" />
-    <Compile Include="Entity.cs">
+    <Compile Include="Models\DTO\UserDto.cs" />
+    <Compile Include="Models\DTO\VideoDto.cs" />
+    <Compile Include="Models\Entity.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Entity.tt</DependentUpon>
     </Compile>
+    <Compile Include="Extensions\DynamicExtension.cs" />
+    <Compile Include="Extensions\StringExtension.cs" />
+    <Compile Include="Models\ViewModels\FacebookAlbumViewModel.cs" />
+    <Compile Include="Models\ViewModels\FacebookPhotoViewModel.cs" />
+    <Compile Include="Models\ViewModels\FacebookProfileViewModel.cs" />
+    <Compile Include="Models\ViewModels\FacebookVideoViewModel.cs" />
+    <Compile Include="Models\ViewModels\UserClaimsViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Entity.tt">
+    <None Include="Models\Entity.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>Entity.cs</LastGenOutput>
     </None>
@@ -74,6 +88,7 @@
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

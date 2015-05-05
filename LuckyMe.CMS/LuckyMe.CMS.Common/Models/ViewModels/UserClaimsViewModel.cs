@@ -2,7 +2,7 @@
 
 namespace LuckyMe.CMS.WebAPI.Models
 {
-    public class UserClaimsBindingModel
+    public class UserClaimsViewModel
     {
         [Required]
         [Display(Name = "External provider name")]

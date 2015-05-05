@@ -1,6 +1,6 @@
-﻿namespace LuckyMe.CMS.Entity.DTO
+﻿namespace LuckyMe.CMS.Common.Models.DTO
 {
-    public class UserClaimDTO
+    public class UserClaimDto
     {
         public int Id { get; set; }
         public string UserId { get; set; }

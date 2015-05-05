@@ -1,15 +1,15 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
-using LuckyMe.CMS.WebAPI.Attributes;
+using LuckyMe.CMS.Entity.Attributes;
 
-namespace LuckyMe.CMS.WebAPI.Models
+namespace LuckyMe.CMS.Common.Models.ViewModels
 {public class FacebookAlbumViewModel
     {
-        [Required]
+        [Microsoft.Build.Framework.Required]
         [FacebookMapping("id")]
         public string Id { get; set; }
 
-        [Required]
+        [Microsoft.Build.Framework.Required]
         [Display(Name = "Album Name")]
         [FacebookMapping("name")]
         public string Name { get; set; }

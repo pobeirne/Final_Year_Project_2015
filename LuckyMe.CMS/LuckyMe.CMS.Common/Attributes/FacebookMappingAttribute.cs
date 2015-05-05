@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace LuckyMe.CMS.WebAPI.Attributes
+namespace LuckyMe.CMS.Entity.Attributes
 {
     [AttributeUsage(AttributeTargets.Property, AllowMultiple = true)]
     public class FacebookMapping : Attribute

@@ -1,8 +1,8 @@
 ﻿using System.Data.Entity;
 using System.Linq;
 using System.Threading.Tasks;
+using LuckyMe.CMS.Common.Models.DTO;
 using LuckyMe.CMS.Data.Repository.Interfaces;
-using LuckyMe.CMS.Entity.DTO;
 
 namespace LuckyMe.CMS.Data.Repository
 {
@@ -15,17 +15,17 @@ namespace LuckyMe.CMS.Data.Repository
             _context = context;
         }
 
-        public async Task<IQueryable<UserDTO>> GetAllUsersAsync()
+        public async Task<IQueryable<UserDto>> GetAllUsersAsync()
         {
             var users = await _context.AspNetUsers.ToListAsync();
 
-            var userList = users.Select(user => new UserDTO
+            var userList = users.Select(user => new UserDto
             {
                 Id = user.Id,
                 Email = user.Email,
                 UserName = user.UserName,
                 UserClaims =
-                    _context.AspNetUserClaims.Where(x => x.UserId == user.Id).Select(claim => new UserClaimDTO()
+                    _context.AspNetUserClaims.Where(x => x.UserId == user.Id).Select(claim => new UserClaimDto()
                     {
                         Id = claim.Id,
                         ClaimType = claim.ClaimType,
@@ -37,17 +37,17 @@ namespace LuckyMe.CMS.Data.Repository
             return userList.AsQueryable();
         }
 
-        public async Task<UserDTO> GetUserByIdAsync(string id)
+        public async Task<UserDto> GetUserByIdAsync(string id)
         {
             var query = await _context.AspNetUsers.FindAsync(id);
             if (query == null) return null;
-            var user = new UserDTO()
+            var user = new UserDto()
             {
                 Id = query.Id,
                 Email = query.Email,
                 UserName = query.UserName,
                 UserClaims =
-                    _context.AspNetUserClaims.Where(x => x.UserId == query.Id).Select(claim => new UserClaimDTO()
+                    _context.AspNetUserClaims.Where(x => x.UserId == query.Id).Select(claim => new UserClaimDto()
                     {
                         Id = claim.Id,
                         ClaimType = claim.ClaimType,
@@ -59,7 +59,7 @@ namespace LuckyMe.CMS.Data.Repository
             return user;
         }
 
-        public async Task<bool> InsertUserClaimAsync(UserClaimDTO entry)
+        public async Task<bool> InsertUserClaimAsync(UserClaimDto entry)
         {
             try
             {
@@ -76,7 +76,7 @@ namespace LuckyMe.CMS.Data.Repository
             }
         }
 
-        public async Task<bool> UpdateUserClaimAsync(UserClaimDTO entry)
+        public async Task<bool> UpdateUserClaimAsync(UserClaimDto entry)
         {
             try
             {
@@ -97,7 +97,7 @@ namespace LuckyMe.CMS.Data.Repository
             }
         }
 
-        public async Task<bool> DeleteUserClaimAsync(UserClaimDTO entry)
+        public async Task<bool> DeleteUserClaimAsync(UserClaimDto entry)
         {
             try
             {
@@ -118,7 +118,7 @@ namespace LuckyMe.CMS.Data.Repository
             }
         }
 
-        public async Task<bool> DeleteUserAsync(UserDTO entry)
+        public async Task<bool> DeleteUserAsync(UserDto entry)
         {
             try
             {

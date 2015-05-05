@@ -44,13 +44,13 @@
     <Compile Include="Services\UserService.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\LuckyMe.CMS.Common\LuckyMe.CMS.Common.csproj">
+      <Project>{ed180087-4dbb-481f-bcb3-9e6f291e2d74}</Project>
+      <Name>LuckyMe.CMS.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\LuckyMe.CMS.Data\LuckyMe.CMS.Data.csproj">
       <Project>{29CDA3D0-3726-4BA6-BBEE-EE3AF47834C0}</Project>
       <Name>LuckyMe.CMS.Data</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\LuckyMe.CMS.Entity\LuckyMe.CMS.Entity.csproj">
-      <Project>{ED180087-4DBB-481F-BCB3-9E6F291E2D74}</Project>
-      <Name>LuckyMe.CMS.Entity</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

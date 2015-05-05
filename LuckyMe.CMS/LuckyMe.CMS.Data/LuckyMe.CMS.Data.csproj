@@ -94,9 +94,9 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\LuckyMe.CMS.Entity\LuckyMe.CMS.Entity.csproj">
+    <ProjectReference Include="..\LuckyMe.CMS.Common\LuckyMe.CMS.Common.csproj">
       <Project>{ed180087-4dbb-481f-bcb3-9e6f291e2d74}</Project>
-      <Name>LuckyMe.CMS.Entity</Name>
+      <Name>LuckyMe.CMS.Common</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
