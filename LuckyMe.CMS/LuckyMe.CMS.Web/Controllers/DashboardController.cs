@@ -11,7 +11,7 @@ namespace LuckyMe.CMS.Web.Controllers
     {
         private UserSession _curruser;
         private readonly LuckyMeClient _client;
-        
+
         public DashboardController()
         {
             _curruser = new UserSession();
@@ -21,7 +21,6 @@ namespace LuckyMe.CMS.Web.Controllers
         public async Task<ActionResult> UserOverview()
         {
             _curruser = (UserSession) Session["UserSession"];
-            _client.BaseAddress = _curruser.BaseAddress;
             _client.AccessToken = _curruser.Token;
             OverviewViewModel overview = await _client.GetUserOverviewAsync();
             return View(overview);
@@ -30,7 +29,6 @@ namespace LuckyMe.CMS.Web.Controllers
         public async Task<ActionResult> UserProfile()
         {
             _curruser = (UserSession) Session["UserSession"];
-            _client.BaseAddress = _curruser.BaseAddress;
             _client.AccessToken = _curruser.Token;
             ProfileViewModel profile = await _client.GetUserProfileAsync();
             return View(profile);
@@ -39,7 +37,6 @@ namespace LuckyMe.CMS.Web.Controllers
         public async Task<ActionResult> UserAccount()
         {
             _curruser = (UserSession) Session["UserSession"];
-            _client.BaseAddress = _curruser.BaseAddress;
             _client.AccessToken = _curruser.Token;
             AccountViewModel account = await _client.GetUserAccountAsync();
             return View(account);

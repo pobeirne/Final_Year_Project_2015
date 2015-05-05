@@ -6,18 +6,25 @@ namespace LuckyMe.CMS.Service.Services.Interfaces
 {
     public interface IUserService
     {
+
         // Get
         Task<IEnumerable<UserDTO>> GetAllUsersAsync();
-        UserDTO GetUserById(string id);
+
+        Task<UserDTO> GetUserByIdAsync(string id);
 
         // Inserts
-        bool InsertUserExternalLoginEntry(UserProviderDTO entry);
+        Task<bool> InsertUserClaimAsync(UserClaimDTO entry);
 
         // Updates
-        bool UpdateUserExternalLoginEntry(UserProviderDTO entry);
+        Task<bool> UpdateUserClaimAsync(UserClaimDTO entry);
 
         // Deletes
-        bool DeleteUserExternalLoginEntry(UserProviderDTO entry);
-        
+        Task<bool> DeleteUserClaimAsync(UserClaimDTO entry);
+
+        Task<bool> DeleteUserAsync(UserDTO user);
+
+
+
+
     }
 }

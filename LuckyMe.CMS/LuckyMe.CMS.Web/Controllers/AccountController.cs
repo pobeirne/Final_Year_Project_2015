@@ -1,32 +1,31 @@
 ﻿using System;
 using System.Threading.Tasks;
+using System.Web.Configuration;
 using System.Web.Mvc;
-using LuckyMe.CMS.Web.Client;
 using LuckyMe.CMS.Web.Clients;
 using LuckyMe.CMS.Web.Filters;
 using LuckyMe.CMS.Web.Models;
 
 namespace LuckyMe.CMS.Web.Controllers
 {
-    
     public class AccountController : Controller
     {
         private UserSession _curruser;
 
         private readonly LuckyMeClient _client;
-        private readonly FBClient _myfbClient;
-        private static Uri _baseAddressUri;
-        
+        private readonly FbClient _myfbClient;
+        private static Uri _baseAddress;
+
         public AccountController()
         {
             _curruser = new UserSession();
             _client = new LuckyMeClient();
-            _myfbClient = new FBClient();
-            _baseAddressUri = new Uri("http://localhost:4797");
+            _myfbClient = new FbClient();
+            _baseAddress = new Uri(WebConfigurationManager.AppSettings["Base_Address"]);
         }
 
 
-        //#1 Register
+        // Register -working
 
         #region Register
 
@@ -44,7 +43,7 @@ namespace LuckyMe.CMS.Web.Controllers
             {
                 return View(model);
             }
-            _client.BaseAddress = _baseAddressUri;
+            //_client.BaseAddress = _baseAddressUri;
             var result = await _client.RegisterAsync(model);
             if (result == "OK")
             {
@@ -57,7 +56,7 @@ namespace LuckyMe.CMS.Web.Controllers
 
         #endregion
 
-        //#2 Login
+        // Login -working
 
         #region Login
 
@@ -75,12 +74,12 @@ namespace LuckyMe.CMS.Web.Controllers
             {
                 return View(model);
             }
-            _client.BaseAddress = _baseAddressUri;
+            // _client.BaseAddress = _baseAddressUri;
             var bearertoken = await _client.LoginAsync(model);
-            if (bearertoken != "")
+            if (bearertoken != null)
             {
                 _client.AccessToken = bearertoken;
-                _curruser = new UserSession {Token = bearertoken, BaseAddress = _baseAddressUri};
+                _curruser = new UserSession {Token = bearertoken, BaseAddress = _baseAddress};
                 Session["UserSession"] = _curruser;
                 return RedirectToAction("UserOverview", "Dashboard");
             }
@@ -90,7 +89,7 @@ namespace LuckyMe.CMS.Web.Controllers
 
         #endregion
 
-        //#3 Logout
+        // Logout -working
 
         #region Logout
 
@@ -101,24 +100,22 @@ namespace LuckyMe.CMS.Web.Controllers
         {
             Session.Clear();
             _curruser = (UserSession) Session["UserSession"];
-            if (_curruser == null)
-            {
-                return RedirectToAction("Login", "Account");
-            }
-            return RedirectToAction("UserOverview", "Dashboard");
+            return _curruser == null
+                ? RedirectToAction("Login", "Account")
+                : RedirectToAction("UserOverview", "Dashboard");
         }
 
         #endregion
 
-        
+        // Account settings
 
+        #region Account settings
 
         [HttpGet]
         [UserValidation]
         public async Task<ActionResult> ChangePassword()
         {
-            _curruser = (UserSession)Session["UserSession"];
-            _client.BaseAddress = _curruser.BaseAddress;
+            _curruser = (UserSession) Session["UserSession"];
             _client.AccessToken = _curruser.Token;
             ChangePasswordModel model = await _client.GetUserCurrentPasswordAsync();
             return View(model);
@@ -134,8 +131,7 @@ namespace LuckyMe.CMS.Web.Controllers
                 return View(model);
             }
 
-            _curruser = (UserSession)Session["UserSession"];
-            _client.BaseAddress = _curruser.BaseAddress;
+            _curruser = (UserSession) Session["UserSession"];
             _client.AccessToken = _curruser.Token;
             var result = await _client.UpdatePasswordAsync(model);
 
@@ -152,8 +148,7 @@ namespace LuckyMe.CMS.Web.Controllers
         [UserValidation]
         public async Task<ActionResult> DeleteAccount()
         {
-            _curruser = (UserSession)Session["UserSession"];
-            _client.BaseAddress = _curruser.BaseAddress;
+            _curruser = (UserSession) Session["UserSession"];
             _client.AccessToken = _curruser.Token;
             AccountViewModel account = await _client.GetUserAccountAsync();
             return View(account);
@@ -168,30 +163,35 @@ namespace LuckyMe.CMS.Web.Controllers
                 return View(model);
             }
 
-            _curruser = (UserSession)Session["UserSession"];
-            _client.BaseAddress = _curruser.BaseAddress;
+            _curruser = (UserSession) Session["UserSession"];
             _client.AccessToken = _curruser.Token;
             var result = await _client.DeleteAccountAsync(model);
 
             if (result == "OK")
             {
-                return RedirectToAction("Index", "Home");
+                Session.Clear();
+                _curruser = (UserSession) Session["UserSession"];
+                if (_curruser == null)
+                {
+                    return RedirectToAction("Login", "Account");
+                }
             }
 
             ModelState.AddModelError("", "Invalid attempt.");
             return View(model);
         }
 
-       
-        
-        //External login
+        #endregion
 
+        // External login
+
+        #region External logins
 
         [HttpGet]
         [UserValidation]
         public async Task<ActionResult> ManageExternalLogin()
         {
-            ViewBag.HasExternalLogin = true;
+            ViewBag.HasExternalLogin = false;
             return View();
         }
 
@@ -208,43 +208,38 @@ namespace LuckyMe.CMS.Web.Controllers
         {
             return RedirectToAction("ManageExternalLogin", "Account");
         }
-        
 
+        #endregion
 
+        // Facebook login
 
+        #region Facebook login
 
-
-
-        [HttpPost]
         [UserValidation]
         public async Task<ActionResult> FacebookAccountLogin()
         {
-            if (string.IsNullOrEmpty(Request.QueryString["code"]))
-            {
-                var callbackUrl = await _myfbClient.GetLoginUrl();
-                return Redirect(callbackUrl);
-            }
-            //Some Error Display needed
-            return RedirectToAction("UserOverview", "Dashboard");
+            if (!string.IsNullOrEmpty(Request.QueryString["code"]))
+                return RedirectToAction("ManageExternalLogin", "Account");
+            var callbackUrl = await _myfbClient.GetLoginUrl();
+            return Redirect(callbackUrl);
         }
 
-        [HttpPost]
+
         [UserValidation]
         public async Task<ActionResult> FacebookAccountCallBack()
         {
-            if (!string.IsNullOrEmpty(Request.QueryString["code"]))
-            {
-                _curruser = (UserSession)Session["UserSession"];
-                _client.BaseAddress = _curruser.BaseAddress;
-                _client.AccessToken = _curruser.Token;
-                var response = await _client.AddExternalLoginTokenToUser("Facebook", Request.QueryString["code"]);
+            if (string.IsNullOrEmpty(Request.QueryString["code"]))
+                return RedirectToAction("ManageExternalLogin", "Account");
 
-                if (response == "OK")
-                {
-                    return RedirectToAction("UserOverview", "Dashboard");
-                }
-            }
-            return RedirectToAction("index", "Home");
+            _curruser = (UserSession) Session["UserSession"];
+            _client.AccessToken = _curruser.Token;
+            var token = await _myfbClient.GetAccessToken(Request.QueryString["code"]);
+
+            var response = await _client.InsertExternalLoginUserClaim("FacebookAccessToken", token);
+            if (response != "OK") RedirectToAction("ManageExternalLogin", "Account");
+            return RedirectToAction("ManageExternalLogin", "Account");
         }
+
+        #endregion
     }
 }

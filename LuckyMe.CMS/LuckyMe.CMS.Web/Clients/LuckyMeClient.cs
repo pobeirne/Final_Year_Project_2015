@@ -4,6 +4,7 @@ using System.Net.Http;
 using System.Net.Http.Formatting;
 using System.Net.Http.Headers;
 using System.Threading.Tasks;
+using System.Web.Configuration;
 using LuckyMe.CMS.Web.Models;
 using Newtonsoft.Json.Linq;
 
@@ -11,8 +12,12 @@ namespace LuckyMe.CMS.Web.Clients
 {
     public class LuckyMeClient
     {
-        private static readonly string _accessTokenKey = "access_token";
-        public Uri BaseAddress { get; set; }
+        private const string AccessTokenKey = "access_token";
+
+        private static readonly Uri BaseAddress =
+            new Uri(WebConfigurationManager.AppSettings["Base_Address"]);
+
+
         public string AccessToken { get; set; }
 
         private readonly List<MediaTypeFormatter> _formatters = new List<MediaTypeFormatter>()
@@ -21,7 +26,7 @@ namespace LuckyMe.CMS.Web.Clients
             new XmlMediaTypeFormatter()
         };
 
-        //#1 Register - working
+        // Register - working
         public async Task<string> RegisterAsync(RegisterModel model)
         {
             using (var httpClient = new HttpClient())
@@ -36,7 +41,7 @@ namespace LuckyMe.CMS.Web.Clients
             }
         }
 
-        //#2 Login    - working
+        // Login    - working
         public async Task<string> LoginAsync(LoginModel model)
         {
             using (var httpClient = new HttpClient())
@@ -51,15 +56,14 @@ namespace LuckyMe.CMS.Web.Clients
                         {"username", model.Email},
                         {"password", model.Password}
                     });
-
                     var response = await httpClient.SendAsync(request);
                     var result = await response.Content.ReadAsAsync<JObject>(_formatters);
-                    return (string) result[_accessTokenKey];
+                    return (string) result[AccessTokenKey];
                 }
             }
         }
 
-        //#3 User Validation    - working but attribute needs to be verified
+        // User Validation    - working but attribute needs to be tested
         public async Task<bool> ValidateUserAsync()
         {
             using (var httpClient = new HttpClient())
@@ -67,41 +71,71 @@ namespace LuckyMe.CMS.Web.Clients
                 httpClient.BaseAddress = BaseAddress;
                 httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", AccessToken);
 
-                var response = httpClient.GetAsync("/api/User/IsAuthenticated").Result;
-                response.EnsureSuccessStatusCode();
+                var response = httpClient.GetAsync("/api/Account/IsAuthenticated").Result;
+                //response.EnsureSuccessStatusCode();
                 var userinfo = await response.Content.ReadAsAsync<bool>();
                 return userinfo;
             }
         }
-
-
-
-
-
-
-
-
-
-
-
-
-
         
-        
-        public async Task<string> AddExternalLoginTokenToUser(string provider, string code)
+        // External login claims 
+
+        public async Task<string> InsertExternalLoginUserClaim(string provider, string code)
         {
             using (var httpClient = new HttpClient())
             {
                 httpClient.BaseAddress = BaseAddress;
                 httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", AccessToken);
-                var model = new UserExternalLoginsModel { LoginProvider = provider, ProviderKey = code };
-                using (var response = await httpClient.PostAsJsonAsync(new Uri(BaseAddress, "/api/User/AddExternalLoginToUser"), model))
+                var model = new UserClaimsBindingModel { ClaimType= provider, ClaimValue = code };
+                using (
+                    var response =
+                        await
+                            httpClient.PostAsJsonAsync(new Uri(BaseAddress, "/api/User/InsertUserClaim"), model))
                 {
                     return response.StatusCode.ToString();
                 }
             }
         }
-        
+
+
+        public async Task<string> UpdateExternalLoginUserClaim(string provider, string code)
+        {
+            using (var httpClient = new HttpClient())
+            {
+                httpClient.BaseAddress = BaseAddress;
+                httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", AccessToken);
+                var model = new UserClaimsBindingModel { ClaimType = provider, ClaimValue = code };
+                using (
+                    var response =
+                        await
+                            httpClient.PostAsJsonAsync(new Uri(BaseAddress, "/api/User/UpdateUserClaim"), model))
+                {
+                    return response.StatusCode.ToString();
+                }
+            }
+        }
+
+        public async Task<string> DeleteExternalLoginUserClaim(string provider, string code)
+        {
+            using (var httpClient = new HttpClient())
+            {
+                httpClient.BaseAddress = BaseAddress;
+                httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", AccessToken);
+                var model = new UserClaimsBindingModel { ClaimType = provider, ClaimValue = code };
+                using (
+                    var response =
+                        await
+                            httpClient.PostAsJsonAsync(new Uri(BaseAddress, "/api/User/DeleteUserClaim"), model))
+                {
+                    return response.StatusCode.ToString();
+                }
+            }
+        }
+
+
+
+        //Overview
+
         public async Task<UserInfoViewModel> GetCurrentUserInfoAsync()
         {
             using (var httpClient = new HttpClient())
@@ -119,8 +153,6 @@ namespace LuckyMe.CMS.Web.Clients
             }
         }
 
-        //Overview
-        
         public async Task<OverviewViewModel> GetUserOverviewAsync()
         {
             using (var httpClient = new HttpClient())
@@ -171,7 +203,7 @@ namespace LuckyMe.CMS.Web.Clients
                 }
             }
         }
-        
+
         public async Task<ChangePasswordModel> GetUserCurrentPasswordAsync()
         {
             using (var httpClient = new HttpClient())
@@ -188,16 +220,19 @@ namespace LuckyMe.CMS.Web.Clients
                 }
             }
         }
-        
+
         //Account
-        
+
         public async Task<string> UpdateProfileAsync(ProfileViewModel model)
         {
             using (var httpClient = new HttpClient())
             {
                 httpClient.BaseAddress = BaseAddress;
                 httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", AccessToken);
-                using (var response = await httpClient.PostAsJsonAsync(new Uri(BaseAddress, "/api/User/AddExternalLoginToUser"), model))
+                using (
+                    var response =
+                        await
+                            httpClient.PostAsJsonAsync(new Uri(BaseAddress, "/api/User/AddExternalLoginToUser"), model))
                 {
                     return response.StatusCode.ToString();
                 }
@@ -210,7 +245,9 @@ namespace LuckyMe.CMS.Web.Clients
             {
                 httpClient.BaseAddress = BaseAddress;
                 httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", AccessToken);
-                using (var response = await httpClient.PostAsJsonAsync(new Uri(BaseAddress, "/api/User/AddExternalLoginToUser"), model))
+                using (
+                    var response =
+                        await httpClient.PostAsJsonAsync(new Uri(BaseAddress, "/api/Account/ChangePassword"), model))
                 {
                     return response.StatusCode.ToString();
                 }
@@ -223,12 +260,14 @@ namespace LuckyMe.CMS.Web.Clients
             {
                 httpClient.BaseAddress = BaseAddress;
                 httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", AccessToken);
-                using (var response = await httpClient.PostAsJsonAsync(new Uri(BaseAddress, "/api/User/AddExternalLoginToUser"), model))
+                using (
+                    var response =
+                        await
+                            httpClient.PostAsJsonAsync(new Uri(BaseAddress, "/api/User/AddExternalLoginToUser"), model))
                 {
                     return response.StatusCode.ToString();
                 }
             }
         }
-        
     }
 }

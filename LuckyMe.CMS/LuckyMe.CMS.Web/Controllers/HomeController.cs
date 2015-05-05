@@ -19,6 +19,5 @@ namespace LuckyMe.CMS.Web.Controllers
             ViewBag.Message = "Your contact page.";
             return View();
         }
-
     }
 }

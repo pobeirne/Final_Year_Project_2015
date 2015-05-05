@@ -18,7 +18,8 @@
 
     </dl>
 
-    @using (Html.BeginForm()) {
+    @using (Html.BeginForm("DeleteAccount", "Account", routeValues: null, method: FormMethod.Post, htmlAttributes: new { @class = "form-horizontal", role = "form" }))
+    {
         @Html.AntiForgeryToken()
 
         <div class="form-actions no-color">

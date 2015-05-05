@@ -13,12 +13,11 @@ namespace LuckyMe.CMS.Web.Filters
             if (httpContext.Session != null)
             {
                 var user = (UserSession) httpContext.Session["UserSession"];
-                if (user != null)
+                if (user.Token != null)
                 {
                     var client = new LuckyMeClient()
                     {
-                        AccessToken = user.Token,
-                        BaseAddress = user.BaseAddress
+                        AccessToken = user.Token
                     };
 
                     if (client.ValidateUserAsync().Result)

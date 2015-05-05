@@ -1,5 +1,4 @@
-﻿using System;
-using System.Data.Entity;
+﻿using System.Data.Entity;
 using System.Linq;
 using System.Threading.Tasks;
 using LuckyMe.CMS.Data.Repository.Interfaces;
@@ -9,106 +8,12 @@ namespace LuckyMe.CMS.Data.Repository
 {
     public class UserRepository : IUserRepository
     {
-        private readonly LuckyMeCMSEntityContext _context;
+        private static LuckyMeCMSEntityContext _context;
+
         public UserRepository(LuckyMeCMSEntityContext context)
         {
             _context = context;
         }
-
-        public IQueryable<UserDTO> GetAllUsers()
-        {
-            var users = _context.AspNetUsers;
-
-            var userList = users.Select(user => new UserDTO
-            {
-                Id = user.Id,
-                Email = user.Email,
-                UserName = user.UserName,
-                UserProviders =
-                    _context.AspNetUserLogins.Where(x => x.UserId == user.Id).Select(p => new UserProviderDTO
-                    {
-                        LoginProvider = p.LoginProvider,
-                        ProviderKey = p.ProviderKey,
-                        UserId = p.UserId
-                    }).ToList()
-            });
-
-            return userList;
-        }
-
-        public UserDTO GetUserById(string id)
-        {
-            return GetAllUsers().FirstOrDefault(x => x.Id == id);
-        }
-
-        public bool InsertUserExternalLoginEntry(UserProviderDTO entry)
-        {
-            try
-            {
-                var record = _context.AspNetUserLogins.Create();
-                record.UserId = entry.UserId;
-                record.LoginProvider = entry.LoginProvider;
-                record.ProviderKey = entry.ProviderKey;
-                _context.AspNetUserLogins.Add(record);
-                return true;
-            }
-            catch
-            {
-                return false;
-            }
-        }
-
-        public bool UpdateUserExternalLoginEntry(UserProviderDTO entry)
-        {
-            try
-            {
-                var userlogin =
-                    _context.AspNetUserLogins.FirstOrDefault(
-                        x =>
-                            x.UserId == entry.UserId && x.LoginProvider == entry.LoginProvider);
-
-                if (userlogin != null)
-                {
-                    userlogin.ProviderKey = entry.ProviderKey;
-                    _context.AspNetUserLogins.Attach(userlogin);
-                    return true;
-                }
-                return false;
-            }
-            catch
-            {
-                return false;
-            }
-        }
-
-        public bool DeleteUserExternalLoginEntry(UserProviderDTO entry)
-        {
-            try
-            {
-                var userlogin =
-                    _context.AspNetUserLogins.FirstOrDefault(
-                        x =>
-                            x.UserId == entry.UserId && x.LoginProvider == entry.LoginProvider);
-
-                if (userlogin != null)
-                {
-                    userlogin.ProviderKey = entry.ProviderKey;
-                    _context.AspNetUserLogins.Remove(userlogin);
-                    return true;
-                }
-                return false;
-            }
-            catch
-            {
-                return false;
-            }
-        }
-
-        public bool SaveAll()
-        {
-            return _context.SaveChanges() > 0;
-        }
-
 
         public async Task<IQueryable<UserDTO>> GetAllUsersAsync()
         {
@@ -119,16 +24,130 @@ namespace LuckyMe.CMS.Data.Repository
                 Id = user.Id,
                 Email = user.Email,
                 UserName = user.UserName,
-                UserProviders =
-                    _context.AspNetUserLogins.Where(x => x.UserId == user.Id).Select(p => new UserProviderDTO
+                UserClaims =
+                    _context.AspNetUserClaims.Where(x => x.UserId == user.Id).Select(claim => new UserClaimDTO()
                     {
-                        LoginProvider = p.LoginProvider,
-                        ProviderKey = p.ProviderKey,
-                        UserId = p.UserId
+                        Id = claim.Id,
+                        ClaimType = claim.ClaimType,
+                        ClaimValue = claim.ClaimValue,
+                        UserId = claim.UserId
                     }).ToList()
             });
 
             return userList.AsQueryable();
+        }
+
+        public async Task<UserDTO> GetUserByIdAsync(string id)
+        {
+            var query = await _context.AspNetUsers.FindAsync(id);
+            if (query == null) return null;
+            var user = new UserDTO()
+            {
+                Id = query.Id,
+                Email = query.Email,
+                UserName = query.UserName,
+                UserClaims =
+                    _context.AspNetUserClaims.Where(x => x.UserId == query.Id).Select(claim => new UserClaimDTO()
+                    {
+                        Id = claim.Id,
+                        ClaimType = claim.ClaimType,
+                        ClaimValue = claim.ClaimValue,
+                        UserId = claim.UserId
+                    }).ToList()
+            };
+
+            return user;
+        }
+
+        public async Task<bool> InsertUserClaimAsync(UserClaimDTO entry)
+        {
+            try
+            {
+                var record = _context.AspNetUserClaims.Create();
+                record.UserId = entry.UserId;
+                record.ClaimType = entry.ClaimType;
+                record.ClaimValue = entry.ClaimValue;
+                _context.AspNetUserClaims.Add(record);
+                return await SaveAllAsync();
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
+        public async Task<bool> UpdateUserClaimAsync(UserClaimDTO entry)
+        {
+            try
+            {
+                var claim = await _context.AspNetUserClaims.FirstOrDefaultAsync(x =>
+                    x.UserId == entry.UserId && x.ClaimType == entry.ClaimType);
+
+                if (claim != null)
+                {
+                    claim.ClaimValue = entry.ClaimValue;
+                    _context.AspNetUserClaims.Attach(claim);
+                    return await SaveAllAsync();
+                }
+                return false;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
+        public async Task<bool> DeleteUserClaimAsync(UserClaimDTO entry)
+        {
+            try
+            {
+                var claim = await _context.AspNetUserClaims.FirstOrDefaultAsync(
+                    x =>
+                        x.UserId == entry.UserId && x.ClaimType == entry.ClaimType);
+
+                if (claim != null)
+                {
+                    _context.AspNetUserClaims.Remove(claim);
+                    return await SaveAllAsync();
+                }
+                return false;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
+        public async Task<bool> DeleteUserAsync(UserDTO entry)
+        {
+            try
+            {
+                var user = await _context.AspNetUsers.FirstOrDefaultAsync(x => x.Id == entry.Id);
+
+                if (user != null)
+                {
+                    _context.AspNetUsers.Remove(user);
+                    return await SaveAllAsync();
+                }
+                return false;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
+        public async Task<bool> SaveAllAsync()
+        {
+            try
+            {
+                await _context.SaveChangesAsync();
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
         }
     }
 }

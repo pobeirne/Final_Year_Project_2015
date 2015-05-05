@@ -6,22 +6,23 @@ namespace LuckyMe.CMS.Data.Repository.Interfaces
 {
     public interface IUserRepository
     {
-
         // Get
         Task<IQueryable<UserDTO>> GetAllUsersAsync();
-        UserDTO GetUserById(string id);
+
+        Task<UserDTO> GetUserByIdAsync(string id);
 
         // Inserts
-        bool InsertUserExternalLoginEntry(UserProviderDTO entry);
+        Task<bool> InsertUserClaimAsync(UserClaimDTO entry);
 
         // Updates
-        bool UpdateUserExternalLoginEntry(UserProviderDTO entry);
+        Task<bool> UpdateUserClaimAsync(UserClaimDTO entry);
 
         // Deletes
-        bool DeleteUserExternalLoginEntry(UserProviderDTO entry);
-  
-        // General
-        bool SaveAll();
+        Task<bool> DeleteUserClaimAsync(UserClaimDTO entry);
 
+        Task<bool> DeleteUserAsync(UserDTO user);
+
+        // Save
+        Task<bool> SaveAllAsync();
     }
 }

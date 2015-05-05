@@ -7,9 +7,6 @@
         public bool HasRegistered { get; set; }
     }
 
-
-
-
     public class OverviewViewModel
     {
         public string Email { get; set; }

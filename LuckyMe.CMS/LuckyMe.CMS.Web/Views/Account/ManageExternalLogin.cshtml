@@ -10,15 +10,16 @@
         <div class="panel panel-default">
             <div class="panel-heading">
                 <h3 class="panel-title">
-                    Facebook <span class="float-right">Status : 
-                    @if (ViewBag.HasExternalLogin)
-                    {
-                        <span class="status-active">Active</span>
-                    }
-                    else
-                    {
-                        <span class="status-inactive">Active</span>
-                    }
+                    Facebook <span class="float-right">
+                        Status :
+                        @if (ViewBag.HasExternalLogin)
+                        {
+                            <span class="status-active">Active</span>
+                        }
+                        else
+                        {
+                            <span class="status-inactive">Active</span>
+                        }
                     </span>
                 </h3>
             </div>
@@ -30,7 +31,7 @@
                     as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions
                     have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).
                 </p>
-                <h4 >Required Permissions</h4>
+                <h4>Required Permissions</h4>
                 <div class="list-group">
                     <div class="list-group-item disable">
                         <h4 class="list-group-item-heading">Permission 1 </h4>
@@ -47,25 +48,20 @@
                 </div>
             </div>
             <div class="panel-footer">
-
                 @if (ViewBag.HasExternalLogin)
                 {
-                    @Html.ActionLink("Delete Facebook login", "DeleteExternalLogin", "Account",
-                        routeValues: null, htmlAttributes: new {id = "facebook_link", @class = "btn btn-danger float-right"})
                     @Html.ActionLink("Refresh Facebook login", "RefreshExternalLogin", "Account",
                         routeValues: null, htmlAttributes: new {id = "facebook_link", @class = "btn btn-success"})
+                    @Html.ActionLink("Delete Facebook login", "DeleteExternalLogin", "Account",
+                        routeValues: null, htmlAttributes: new {id = "facebook_link", @class = "btn btn-danger float-right"})
                 }
                 else
                 {
+
                     @Html.ActionLink("Add Facebook login", "FacebookAccountLogin", "Account",
-                        routeValues: null, htmlAttributes: new {id = "facebook_link", @class = "btn btn-success float-right"})
+                             routeValues: null, htmlAttributes: new { id = "facebook_link", @class = "btn btn-success" })
                 }
             </div>
         </div>
     </div>
 </div>
-
-
-
-
-

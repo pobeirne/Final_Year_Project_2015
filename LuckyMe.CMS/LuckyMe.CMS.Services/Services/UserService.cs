@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 using LuckyMe.CMS.Data.Repository.Interfaces;
 using LuckyMe.CMS.Entity.DTO;
@@ -15,66 +14,52 @@ namespace LuckyMe.CMS.Service.Services
         {
             _respository = respository;
         }
-
-        //public IEnumerable<UserDTO> GetAllUsers()
-        //{
-        //    return _respository.GetAllUsers();
-        //}
-
-        public UserDTO GetUserById(string id)
-        {
-            return _respository.GetUserById(id);
-        }
-
-        public bool InsertUserExternalLoginEntry(UserProviderDTO entry)
-        {
-            var user = GetUserById(entry.UserId);
-            if (user != null)
-            {
-                if (!user.UserProviders.Any(x => x.LoginProvider == entry.LoginProvider
-                                                 && x.ProviderKey == entry.ProviderKey))
-                {
-                    if (_respository.InsertUserExternalLoginEntry(entry))
-                    {
-                        if (_respository.SaveAll())
-                        {
-                            return true;
-                        }
-                    }
-                }
-            }
-            return false;
-        }
-
-        public bool UpdateUserExternalLoginEntry(UserProviderDTO entry)
-        {
-            if (_respository.UpdateUserExternalLoginEntry(entry))
-            {
-                if (_respository.SaveAll())
-                {
-                    return true;
-                }
-            }
-
-            return false;
-        }
-
-        public bool DeleteUserExternalLoginEntry(UserProviderDTO entry)
-        {
-            if (_respository.DeleteUserExternalLoginEntry(entry))
-            {
-                if (_respository.SaveAll())
-                {
-                    return true;
-                }
-            }
-
-            return false;
-        }
-
+        
         public async Task<IEnumerable<UserDTO>> GetAllUsersAsync()
         {
             return await _respository.GetAllUsersAsync();
         }
+
+        public async Task<UserDTO> GetUserByIdAsync(string id)
+        {
+            return await _respository.GetUserByIdAsync(id);
+        }
+
+        public async Task<bool> InsertUserClaimAsync(UserClaimDTO claim)
+        {
+            var user = await GetUserByIdAsync(claim.UserId);
+            if (user == null) return false;
+
+            if (user.UserClaims.Exists(x => x.ClaimType == claim.ClaimType))
+            {
+                await _respository.UpdateUserClaimAsync(claim);
+                return await _respository.SaveAllAsync();
+            }
+            if (await _respository.InsertUserClaimAsync(claim))
+            {
+                return await _respository.SaveAllAsync();
+            }
+            return false;
+        }
+
+        public async Task<bool> UpdateUserClaimAsync(UserClaimDTO claim)
+        {
+            if (!await _respository.UpdateUserClaimAsync(claim)) return false;
+            return await _respository.SaveAllAsync();
+        }
+
+        public async Task<bool> DeleteUserClaimAsync(UserClaimDTO claim)
+        {
+            if (!await _respository.DeleteUserClaimAsync(claim)) return false;
+            return await _respository.SaveAllAsync();
+        }
+
+        public async Task<bool> DeleteUserAsync(UserDTO user)
+        {
+            if (!await _respository.DeleteUserAsync(user)) return false;
+            return await _respository.SaveAllAsync();
+        }
+
+
     }
 }

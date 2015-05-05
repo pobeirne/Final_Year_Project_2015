@@ -7,6 +7,6 @@ namespace LuckyMe.CMS.Entity.DTO
         public string Id { get; set; }
         public string Email { get; set; }
         public string UserName { get; set; }
-        public virtual List<UserProviderDTO> UserProviders { get; set; }
+        public virtual List<UserClaimDTO> UserClaims { get; set; }
     }
 }

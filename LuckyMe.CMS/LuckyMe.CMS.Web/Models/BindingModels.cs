@@ -40,15 +40,15 @@ namespace LuckyMe.CMS.Web.Models
         public bool RememberMe { get; set; }
     }
 
-    public class UserExternalLoginsModel
+    public class UserClaimsBindingModel
     {
         [Required]
         [Display(Name = "External provider name")]
-        public string LoginProvider { get; set; }
+        public string ClaimType { get; set; }
 
         [Required]
         [Display(Name = "External provider access token")]
-        public string ProviderKey { get; set; }
+        public string ClaimValue { get; set; }
     }
 
     public class ExternalAccountModel

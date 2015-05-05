@@ -2,15 +2,14 @@
 
 namespace LuckyMe.CMS.WebAPI.Models
 {
-    public class UserProviderBindingModel
+    public class UserClaimsBindingModel
     {
         [Required]
         [Display(Name = "External provider name")]
-        public string LoginProvider { get; set; }
+        public string ClaimType { get; set; }
 
         [Required]
         [Display(Name = "External provider access token")]
-        public string ProviderKey { get; set; }
-
+        public string ClaimValue { get; set; }
     }
 }

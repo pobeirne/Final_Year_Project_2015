@@ -39,6 +39,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DTO\UserClaimDTO.cs" />
     <Compile Include="DTO\UserProviderDTO.cs" />
     <Compile Include="Interfaces\BaseEntity.cs" />
     <Compile Include="AspNetRole.cs">

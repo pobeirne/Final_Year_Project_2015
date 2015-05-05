@@ -22,7 +22,6 @@ namespace LuckyMe.CMS.Web.Controllers
         public async Task<ActionResult> EditProfile()
         {
             _curruser = (UserSession) Session["UserSession"];
-            _client.BaseAddress = _curruser.BaseAddress;
             _client.AccessToken = _curruser.Token;
             ProfileViewModel model = await _client.GetUserProfileAsync();
             return View(model);
@@ -38,7 +37,6 @@ namespace LuckyMe.CMS.Web.Controllers
             }
 
             _curruser = (UserSession) Session["UserSession"];
-            _client.BaseAddress = _curruser.BaseAddress;
             _client.AccessToken = _curruser.Token;
             var result = await _client.UpdateProfileAsync(model);
 

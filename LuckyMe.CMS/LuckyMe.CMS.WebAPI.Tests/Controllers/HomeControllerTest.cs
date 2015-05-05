@@ -1,7 +1,6 @@
 ﻿using System.Web.Mvc;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using LuckyMe.CMS.WebAPI;
 using LuckyMe.CMS.WebAPI.Controllers;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace LuckyMe.CMS.WebAPI.Tests.Controllers
 {

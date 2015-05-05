@@ -50,6 +50,21 @@ namespace LuckyMe.CMS.WebAPI.Controllers
 
         public ISecureDataFormat<AuthenticationTicket> AccessTokenFormat { get; private set; }
 
+
+
+        [Route("IsAuthenticated")]
+        public bool GetUserAuthentication()
+        {
+            return User.Identity.IsAuthenticated;
+        }
+
+
+
+
+
+
+
+
         // GET api/Account/UserInfo
         [HostAuthentication(DefaultAuthenticationTypes.ExternalBearer)]
         [Route("UserInfo")]
@@ -122,15 +137,10 @@ namespace LuckyMe.CMS.WebAPI.Controllers
                 return BadRequest(ModelState);
             }
 
-            IdentityResult result = await UserManager.ChangePasswordAsync(User.Identity.GetUserId(), model.OldPassword,
+            var result = await UserManager.ChangePasswordAsync(User.Identity.GetUserId(), model.OldPassword,
                 model.NewPassword);
             
-            if (!result.Succeeded)
-            {
-                return GetErrorResult(result);
-            }
-
-            return Ok();
+            return result != null && !result.Succeeded ? GetErrorResult(result) : Ok();
         }
 
         // POST api/Account/SetPassword
@@ -329,14 +339,9 @@ namespace LuckyMe.CMS.WebAPI.Controllers
 
             var user = new ApplicationUser() { UserName = model.Email, Email = model.Email };
 
-            IdentityResult result = await UserManager.CreateAsync(user, model.Password);
+            var result = await UserManager.CreateAsync(user, model.Password);
 
-            if (!result.Succeeded)
-            {
-                return GetErrorResult(result);
-            }
-
-            return Ok();
+            return !result.Succeeded ? GetErrorResult(result) : Ok();
         }
 
         // POST api/Account/RegisterExternal
