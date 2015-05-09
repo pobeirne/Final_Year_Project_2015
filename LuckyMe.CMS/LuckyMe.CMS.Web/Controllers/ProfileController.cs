@@ -23,7 +23,7 @@ namespace LuckyMe.CMS.Web.Controllers
         {
             _curruser = (UserSession) Session["UserSession"];
             _client.AccessToken = _curruser.Token;
-            ProfileViewModel model = await _client.GetUserProfileAsync();
+            var model = await _client.GetUserProfileAsync();
             return View(model);
         }
 

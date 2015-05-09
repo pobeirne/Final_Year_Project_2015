@@ -80,6 +80,7 @@
       <LastGenOutput>LuckyMeCMSModel.Designer.cs</LastGenOutput>
     </EntityDeploy>
     <None Include="App.Config" />
+    <None Include="ClassDiagram1.cd" />
     <None Include="LuckyMeCMSModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>LuckyMeCMSModel.edmx</DependentUpon>
@@ -95,7 +96,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\LuckyMe.CMS.Common\LuckyMe.CMS.Common.csproj">
-      <Project>{ed180087-4dbb-481f-bcb3-9e6f291e2d74}</Project>
+      <Project>{ED180087-4DBB-481F-BCB3-9E6F291E2D74}</Project>
       <Name>LuckyMe.CMS.Common</Name>
     </ProjectReference>
   </ItemGroup>

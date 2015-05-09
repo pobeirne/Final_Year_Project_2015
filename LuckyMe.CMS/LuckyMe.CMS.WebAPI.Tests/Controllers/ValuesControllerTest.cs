@@ -1,12 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Net.Http;
-using System.Text;
-using System.Web.Http;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using LuckyMe.CMS.WebAPI;
 using LuckyMe.CMS.WebAPI.Controllers;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace LuckyMe.CMS.WebAPI.Tests.Controllers
 {

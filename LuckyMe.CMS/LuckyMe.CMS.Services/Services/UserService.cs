@@ -15,12 +15,12 @@ namespace LuckyMe.CMS.Service.Services
             _respository = respository;
         }
         
-        public async Task<IEnumerable<UserDto>> GetAllUsersAsync()
+        public async Task<IEnumerable<UserAccountDto>> GetAllUsersAsync()
         {
             return await _respository.GetAllUsersAsync();
         }
 
-        public async Task<UserDto> GetUserByIdAsync(string id)
+        public async Task<UserAccountDto> GetUserByIdAsync(string id)
         {
             return await _respository.GetUserByIdAsync(id);
         }
@@ -54,7 +54,7 @@ namespace LuckyMe.CMS.Service.Services
             return await _respository.SaveAllAsync();
         }
 
-        public async Task<bool> DeleteUserAsync(UserDto user)
+        public async Task<bool> DeleteUserAsync(UserAccountDto user)
         {
             if (!await _respository.DeleteUserAsync(user)) return false;
             return await _respository.SaveAllAsync();

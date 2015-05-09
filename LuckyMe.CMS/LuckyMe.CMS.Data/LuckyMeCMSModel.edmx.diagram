@@ -13,6 +13,8 @@
         <AssociationConnector Association="LuckyMe.CMS.Data.Repository.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
         <AssociationConnector Association="LuckyMe.CMS.Data.Repository.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
         <AssociationConnector Association="LuckyMe.CMS.Data.Repository.AspNetUserRoles" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="LuckyMe.CMS.Data.Repository.Profile" Width="1.5" PointX="5.25" PointY="7" />
+        <AssociationConnector Association="LuckyMe.CMS.Data.Repository.FK_dbo_Profiles_dbo_AspNetUsers_UserId" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

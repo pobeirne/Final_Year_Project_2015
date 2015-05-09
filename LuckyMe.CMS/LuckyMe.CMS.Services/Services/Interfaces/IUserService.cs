@@ -8,9 +8,9 @@ namespace LuckyMe.CMS.Service.Services.Interfaces
     {
 
         // Get
-        Task<IEnumerable<UserDto>> GetAllUsersAsync();
+        Task<IEnumerable<UserAccountDto>> GetAllUsersAsync();
 
-        Task<UserDto> GetUserByIdAsync(string id);
+        Task<UserAccountDto> GetUserByIdAsync(string id);
 
         // Inserts
         Task<bool> InsertUserClaimAsync(UserClaimDto entry);
@@ -21,7 +21,7 @@ namespace LuckyMe.CMS.Service.Services.Interfaces
         // Deletes
         Task<bool> DeleteUserClaimAsync(UserClaimDto entry);
 
-        Task<bool> DeleteUserAsync(UserDto user);
+        Task<bool> DeleteUserAsync(UserAccountDto user);
 
 
 

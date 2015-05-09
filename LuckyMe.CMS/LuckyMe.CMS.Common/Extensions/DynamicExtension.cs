@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
-using LuckyMe.CMS.Entity.Attributes;
+using LuckyMe.CMS.Common.Attributes;
 
-namespace LuckyMe.CMS.Entity.Extensions
+namespace LuckyMe.CMS.Common.Extensions
 {
     public class Propertycontainer
     {

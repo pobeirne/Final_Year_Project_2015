@@ -2,7 +2,7 @@
 <#@ include file="EF6.Utility.CS.ttinclude"#><#@ 
  output extension=".cs"#><#
 
-const string inputFile = @"..\LuckyMe.CMS.Data.Repository\LuckyMeCMSModel.edmx";
+const string inputFile = @"..\LuckyMe.CMS.Data\LuckyMeCMSModel.edmx";
 var textTransform = DynamicTextTransformation.Create(this);
 var code = new CodeGenerationTools(this);
 var ef = new MetadataTools(this);

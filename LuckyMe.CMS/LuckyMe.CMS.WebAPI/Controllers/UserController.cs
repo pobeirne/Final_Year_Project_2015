@@ -3,6 +3,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Web.Http;
 using LuckyMe.CMS.Common.Models.DTO;
+using LuckyMe.CMS.Common.Models.ViewModels;
 using LuckyMe.CMS.Service.Services.Interfaces;
 using LuckyMe.CMS.WebAPI.Models;
 using LuckyMe.CMS.WebAPI.Providers;

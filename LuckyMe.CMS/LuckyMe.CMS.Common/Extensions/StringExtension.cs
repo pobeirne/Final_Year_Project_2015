@@ -4,7 +4,7 @@ using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
 
-namespace LuckyMe.CMS.Entity.Extensions
+namespace LuckyMe.CMS.Common.Extensions
 {
     public static class StringExtension
     {

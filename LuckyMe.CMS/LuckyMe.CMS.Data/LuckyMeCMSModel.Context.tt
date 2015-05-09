@@ -41,7 +41,7 @@ namespace <#=code.EscapeNamespace(codeNamespace)#>
 
 #>
 using System;
-using LuckyMe.CMS.Common.Models;
+using LuckyMe.CMS.Common;
 using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
 <#

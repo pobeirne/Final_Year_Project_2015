@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace LuckyMe.CMS.WebAPI.Models
+namespace LuckyMe.CMS.Common.Models.ViewModels
 {
     public class UserClaimsViewModel
     {

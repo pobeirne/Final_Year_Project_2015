@@ -1,9 +1,10 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using Facebook;
-using LuckyMe.CMS.Common.Models.ViewModels;
-using LuckyMe.CMS.Entity.Extensions;
+using LuckyMe.CMS.Common.Extensions;
+using LuckyMe.CMS.Common.Models.ViewModels.fb;
 
 namespace LuckyMe.CMS.WebAPI.Providers
 {
@@ -69,6 +70,23 @@ namespace LuckyMe.CMS.WebAPI.Providers
             }
         }
 
+        public async Task<FacebookAlbumViewModel> GetAlbumAsync(string accesstoken, string albumId)
+        {
+            try
+            {
+                if (accesstoken == null) return null;
+
+                var albums = await GetAlbumsAsync(accesstoken);
+                var album = albums.FirstOrDefault(x => x.Id == albumId);
+
+                return album;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
         public async Task<List<FacebookPhotoViewModel>> GetAlbumPhotosAsync(string accesstoken, string albumId)
         {
             try
@@ -94,6 +112,23 @@ namespace LuckyMe.CMS.WebAPI.Providers
             }
         }
 
+        public async Task<FacebookPhotoViewModel> GetAlbumPhotoAsync(string accesstoken, string albumId, string photoId)
+        {
+            try
+            {
+                if (accesstoken == null) return null;
+
+                var photos = await GetAlbumPhotosAsync(accesstoken, albumId);
+                var photo = photos.FirstOrDefault(x => x.Id == photoId);
+
+                return photo;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
         public async Task<List<FacebookVideoViewModel>> GetVideosAsync(string accesstoken)
         {
             try
@@ -112,6 +147,23 @@ namespace LuckyMe.CMS.WebAPI.Providers
                 var videoList = HydrateVideoList(videos);
 
                 return videoList;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public async Task<FacebookVideoViewModel> GetVideoAsync(string accesstoken, string videoId)
+        {
+            try
+            {
+                if (accesstoken == null) return null;
+
+                var videos = await GetVideosAsync(accesstoken);
+                var video = videos.FirstOrDefault(x => x.Id == videoId);
+
+                return video;
             }
             catch (Exception ex)
             {

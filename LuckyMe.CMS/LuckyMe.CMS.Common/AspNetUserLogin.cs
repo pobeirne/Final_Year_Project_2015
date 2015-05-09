@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace LuckyMe.CMS.Entity
+namespace LuckyMe.CMS.Common
 {
     using System;
     using System.Collections.Generic;

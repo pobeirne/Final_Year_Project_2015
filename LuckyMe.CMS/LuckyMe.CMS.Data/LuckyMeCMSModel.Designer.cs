@@ -1,4 +1,4 @@
-﻿// T4 code generation is enabled for model 'D:\Project_x10203800\Main_Project_x10203800\LuckyMe.CMS\LuckyMe.CMS.Data.Repository\LuckyMeCMSModel.edmx'. 
+﻿// T4 code generation is enabled for model 'C:\Users\pobeirne\Documents\GitHub\Final_Year_Project_2015\LuckyMe.CMS\LuckyMe.CMS.Data\LuckyMeCMSModel.edmx'. 
 // To enable legacy code generation, change the value of the 'Code Generation Strategy' designer
 // property to 'Legacy ObjectContext'. This property is available in the Properties Window when the model
 // is open in the designer.

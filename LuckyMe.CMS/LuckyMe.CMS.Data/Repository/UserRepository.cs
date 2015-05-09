@@ -15,11 +15,11 @@ namespace LuckyMe.CMS.Data.Repository
             _context = context;
         }
 
-        public async Task<IQueryable<UserDto>> GetAllUsersAsync()
+        public async Task<IQueryable<UserAccountDto>> GetAllUsersAsync()
         {
             var users = await _context.AspNetUsers.ToListAsync();
 
-            var userList = users.Select(user => new UserDto
+            var userList = users.Select(user => new UserAccountDto
             {
                 Id = user.Id,
                 Email = user.Email,
@@ -37,11 +37,11 @@ namespace LuckyMe.CMS.Data.Repository
             return userList.AsQueryable();
         }
 
-        public async Task<UserDto> GetUserByIdAsync(string id)
+        public async Task<UserAccountDto> GetUserByIdAsync(string id)
         {
             var query = await _context.AspNetUsers.FindAsync(id);
             if (query == null) return null;
-            var user = new UserDto()
+            var user = new UserAccountDto()
             {
                 Id = query.Id,
                 Email = query.Email,
@@ -118,7 +118,7 @@ namespace LuckyMe.CMS.Data.Repository
             }
         }
 
-        public async Task<bool> DeleteUserAsync(UserDto entry)
+        public async Task<bool> DeleteUserAsync(UserAccountDto entry)
         {
             try
             {

@@ -7,12 +7,10 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-using LuckyMe.CMS.Entity;
-
 namespace LuckyMe.CMS.Data
 {
     using System;
-    using LuckyMe.CMS.Common.Models;
+    using LuckyMe.CMS.Common;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
@@ -33,5 +31,6 @@ namespace LuckyMe.CMS.Data
         public virtual DbSet<AspNetUserClaim> AspNetUserClaims { get; set; }
         public virtual DbSet<AspNetUserLogin> AspNetUserLogins { get; set; }
         public virtual DbSet<AspNetUser> AspNetUsers { get; set; }
+        public virtual DbSet<Profile> Profiles { get; set; }
     }
 }

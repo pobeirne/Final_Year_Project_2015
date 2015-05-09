@@ -7,21 +7,23 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace LuckyMe.CMS.Entity
+namespace LuckyMe.CMS.Common
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class AspNetRole
+    public partial class Profile
     {
-        public AspNetRole()
-        {
-            this.AspNetUsers = new HashSet<AspNetUser>();
-        }
-    
-        public string Id { get; set; }
+        public int Id { get; set; }
+        public string UserId { get; set; }
+        public string AccountId { get; set; }
+        public string AccountEmail { get; set; }
         public string Name { get; set; }
+        public string First_Name { get; set; }
+        public string Last_Name { get; set; }
+        public string Link { get; set; }
+        public string ImageUrl { get; set; }
     
-        public virtual ICollection<AspNetUser> AspNetUsers { get; set; }
+        public virtual AspNetUser AspNetUser { get; set; }
     }
 }

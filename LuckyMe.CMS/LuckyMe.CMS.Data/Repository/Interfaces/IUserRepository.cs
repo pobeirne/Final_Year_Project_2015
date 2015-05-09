@@ -7,9 +7,9 @@ namespace LuckyMe.CMS.Data.Repository.Interfaces
     public interface IUserRepository
     {
         // Get
-        Task<IQueryable<UserDto>> GetAllUsersAsync();
+        Task<IQueryable<UserAccountDto>> GetAllUsersAsync();
 
-        Task<UserDto> GetUserByIdAsync(string id);
+        Task<UserAccountDto> GetUserByIdAsync(string id);
 
         // Inserts
         Task<bool> InsertUserClaimAsync(UserClaimDto entry);
@@ -20,7 +20,7 @@ namespace LuckyMe.CMS.Data.Repository.Interfaces
         // Deletes
         Task<bool> DeleteUserClaimAsync(UserClaimDto entry);
 
-        Task<bool> DeleteUserAsync(UserDto user);
+        Task<bool> DeleteUserAsync(UserAccountDto user);
 
         // Save
         Task<bool> SaveAllAsync();

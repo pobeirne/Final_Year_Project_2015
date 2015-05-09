@@ -49,21 +49,12 @@ namespace LuckyMe.CMS.WebAPI.Controllers
         }
 
         public ISecureDataFormat<AuthenticationTicket> AccessTokenFormat { get; private set; }
-
-
-
+        
         [Route("IsAuthenticated")]
         public bool GetUserAuthentication()
         {
             return User.Identity.IsAuthenticated;
         }
-
-
-
-
-
-
-
 
         // GET api/Account/UserInfo
         [HostAuthentication(DefaultAuthenticationTypes.ExternalBearer)]
@@ -339,11 +330,22 @@ namespace LuckyMe.CMS.WebAPI.Controllers
 
             var user = new ApplicationUser() { UserName = model.Email, Email = model.Email };
 
-            var result = await UserManager.CreateAsync(user, model.Password);
+            IdentityResult result = await UserManager.CreateAsync(user, model.Password);
+            if (result.Succeeded)
+            {
+                await OnUserRegisterSuccess(model.Email);
+            }
 
             return !result.Succeeded ? GetErrorResult(result) : Ok();
         }
 
+        private async Task OnUserRegisterSuccess(string email)
+        {
+            //Find user by email
+
+            //Generate tables by user id
+        }
+        
         // POST api/Account/RegisterExternal
         [OverrideAuthentication]
         [HostAuthentication(DefaultAuthenticationTypes.ExternalBearer)]

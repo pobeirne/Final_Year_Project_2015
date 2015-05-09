@@ -10,23 +10,15 @@ namespace LuckyMe.CMS.Web.Filters
     {
         protected override bool AuthorizeCore(HttpContextBase httpContext)
         {
-            if (httpContext.Session != null)
+            if (httpContext.Session == null) return false;
+            var user = (UserSession) httpContext.Session["UserSession"];
+            if (user.Token == null) return false;
+            var client = new LuckyMeClient()
             {
-                var user = (UserSession) httpContext.Session["UserSession"];
-                if (user.Token != null)
-                {
-                    var client = new LuckyMeClient()
-                    {
-                        AccessToken = user.Token
-                    };
+                AccessToken = user.Token
+            };
 
-                    if (client.ValidateUserAsync().Result)
-                    {
-                        return true;
-                    }
-                }
-             }
-            return false;
+            return client.ValidateUserAsync().Result;
         }
 
         protected override void HandleUnauthorizedRequest(AuthorizationContext filterContext)

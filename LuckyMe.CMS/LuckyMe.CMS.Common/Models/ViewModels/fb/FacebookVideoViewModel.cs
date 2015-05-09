@@ -1,8 +1,8 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
-using LuckyMe.CMS.Entity.Attributes;
+using LuckyMe.CMS.Common.Attributes;
 
-namespace LuckyMe.CMS.Common.Models.ViewModels
+namespace LuckyMe.CMS.Common.Models.ViewModels.fb
 {
     public class FacebookVideoViewModel
     {

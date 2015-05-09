@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace LuckyMe.CMS.Entity
+namespace LuckyMe.CMS.Common
 {
     using System;
     using System.Collections.Generic;
@@ -19,6 +19,7 @@ namespace LuckyMe.CMS.Entity
             this.AspNetUserClaims = new HashSet<AspNetUserClaim>();
             this.AspNetUserLogins = new HashSet<AspNetUserLogin>();
             this.AspNetRoles = new HashSet<AspNetRole>();
+            this.Profiles = new HashSet<Profile>();
         }
     
         public string Id { get; set; }
@@ -37,5 +38,6 @@ namespace LuckyMe.CMS.Entity
         public virtual ICollection<AspNetUserClaim> AspNetUserClaims { get; set; }
         public virtual ICollection<AspNetUserLogin> AspNetUserLogins { get; set; }
         public virtual ICollection<AspNetRole> AspNetRoles { get; set; }
+        public virtual ICollection<Profile> Profiles { get; set; }
     }
 }

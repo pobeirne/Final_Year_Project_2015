@@ -5,8 +5,10 @@ using System.Net.Http.Formatting;
 using System.Net.Http.Headers;
 using System.Threading.Tasks;
 using System.Web.Configuration;
+using LuckyMe.CMS.Common.Models.ViewModels;
 using LuckyMe.CMS.Web.Models;
 using Newtonsoft.Json.Linq;
+using LuckyMe.CMS.Common.Models.ViewModels.fb;
 
 namespace LuckyMe.CMS.Web.Clients
 {
@@ -14,9 +16,7 @@ namespace LuckyMe.CMS.Web.Clients
     {
         private const string AccessTokenKey = "access_token";
 
-        private static readonly Uri BaseAddress =
-            new Uri(WebConfigurationManager.AppSettings["Base_Address"]);
-
+        private static readonly Uri BaseAddress = new Uri(WebConfigurationManager.AppSettings["Base_Address"]);
 
         public string AccessToken { get; set; }
 
@@ -25,6 +25,8 @@ namespace LuckyMe.CMS.Web.Clients
             new JsonMediaTypeFormatter(),
             new XmlMediaTypeFormatter()
         };
+
+        #region Login & Register
 
         // Register - working
         public async Task<string> RegisterAsync(RegisterModel model)
@@ -63,6 +65,10 @@ namespace LuckyMe.CMS.Web.Clients
             }
         }
 
+        #endregion
+
+        #region Security
+
         // User Validation    - working but attribute needs to be tested
         public async Task<bool> ValidateUserAsync()
         {
@@ -77,8 +83,10 @@ namespace LuckyMe.CMS.Web.Clients
                 return userinfo;
             }
         }
-        
-        // External login claims 
+
+        #endregion
+
+        #region External logins
 
         public async Task<string> InsertExternalLoginUserClaim(string provider, string code)
         {
@@ -86,7 +94,7 @@ namespace LuckyMe.CMS.Web.Clients
             {
                 httpClient.BaseAddress = BaseAddress;
                 httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", AccessToken);
-                var model = new UserClaimsBindingModel { ClaimType= provider, ClaimValue = code };
+                var model = new UserClaimsBindingModel {ClaimType = provider, ClaimValue = code};
                 using (
                     var response =
                         await
@@ -97,14 +105,13 @@ namespace LuckyMe.CMS.Web.Clients
             }
         }
 
-
         public async Task<string> UpdateExternalLoginUserClaim(string provider, string code)
         {
             using (var httpClient = new HttpClient())
             {
                 httpClient.BaseAddress = BaseAddress;
                 httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", AccessToken);
-                var model = new UserClaimsBindingModel { ClaimType = provider, ClaimValue = code };
+                var model = new UserClaimsBindingModel {ClaimType = provider, ClaimValue = code};
                 using (
                     var response =
                         await
@@ -121,7 +128,7 @@ namespace LuckyMe.CMS.Web.Clients
             {
                 httpClient.BaseAddress = BaseAddress;
                 httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", AccessToken);
-                var model = new UserClaimsBindingModel { ClaimType = provider, ClaimValue = code };
+                var model = new UserClaimsBindingModel {ClaimType = provider, ClaimValue = code};
                 using (
                     var response =
                         await
@@ -132,26 +139,9 @@ namespace LuckyMe.CMS.Web.Clients
             }
         }
 
+        #endregion
 
-
-        //Overview
-
-        public async Task<UserInfoViewModel> GetCurrentUserInfoAsync()
-        {
-            using (var httpClient = new HttpClient())
-            {
-                httpClient.BaseAddress = BaseAddress;
-                httpClient.DefaultRequestHeaders.Authorization =
-                    new AuthenticationHeaderValue("Bearer", AccessToken);
-
-                using (var response = await httpClient.GetAsync("/api/User/UserInfo"))
-                {
-                    response.EnsureSuccessStatusCode();
-                    var userinfo = await response.Content.ReadAsAsync<UserInfoViewModel>();
-                    return userinfo;
-                }
-            }
-        }
+        #region DashBoard
 
         public async Task<OverviewViewModel> GetUserOverviewAsync()
         {
@@ -204,6 +194,27 @@ namespace LuckyMe.CMS.Web.Clients
             }
         }
 
+        #endregion
+
+        #region Account Settings
+
+        public async Task<UserInfoViewModel> GetCurrentUserInfoAsync()
+        {
+            using (var httpClient = new HttpClient())
+            {
+                httpClient.BaseAddress = BaseAddress;
+                httpClient.DefaultRequestHeaders.Authorization =
+                    new AuthenticationHeaderValue("Bearer", AccessToken);
+
+                using (var response = await httpClient.GetAsync("/api/User/UserInfo"))
+                {
+                    response.EnsureSuccessStatusCode();
+                    var userinfo = await response.Content.ReadAsAsync<UserInfoViewModel>();
+                    return userinfo;
+                }
+            }
+        }
+
         public async Task<ChangePasswordModel> GetUserCurrentPasswordAsync()
         {
             using (var httpClient = new HttpClient())
@@ -220,8 +231,6 @@ namespace LuckyMe.CMS.Web.Clients
                 }
             }
         }
-
-        //Account
 
         public async Task<string> UpdateProfileAsync(ProfileViewModel model)
         {
@@ -269,5 +278,207 @@ namespace LuckyMe.CMS.Web.Clients
                 }
             }
         }
+
+        #endregion
+
+        #region Facebook Methods
+
+        //GetProfile
+        public async Task<FacebookProfileViewModel> GetFacebookProfileAsync()
+        {
+            using (var httpClient = new HttpClient())
+            {
+                httpClient.BaseAddress = BaseAddress;
+                httpClient.DefaultRequestHeaders.Authorization =
+                    new AuthenticationHeaderValue("Bearer", AccessToken);
+
+                using (var response = await httpClient.GetAsync("/api/FaceBook/GetProfile"))
+                {
+                    var result = await response.Content.ReadAsAsync<FacebookProfileViewModel>(_formatters);
+                    return result;
+                }
+            }
+        }
+
+        //GetAllAlbums
+        public async Task<List<FacebookAlbumViewModel>> GetAllFacebookAlbumsAsync()
+        {
+            using (var httpClient = new HttpClient())
+            {
+                httpClient.BaseAddress = BaseAddress;
+                httpClient.DefaultRequestHeaders.Authorization =
+                    new AuthenticationHeaderValue("Bearer", AccessToken);
+
+                using (var response = await httpClient.GetAsync("/api/FaceBook/GetAllAlbums"))
+                {
+                    var result = await response.Content.ReadAsAsync<List<FacebookAlbumViewModel>>(_formatters);
+                    return result;
+                }
+            }
+        }
+
+        //GetAlbum
+        public async Task<FacebookAlbumViewModel> GetFacebookAlbumAsync(string albumId)
+        {
+            using (var httpClient = new HttpClient())
+            {
+                httpClient.BaseAddress = BaseAddress;
+                httpClient.DefaultRequestHeaders.Authorization =
+                    new AuthenticationHeaderValue("Bearer", AccessToken);
+
+                using (var response = await httpClient.GetAsync("/api/FaceBook/GetAlbum?albumId=" + albumId))
+                {
+                    var result = await response.Content.ReadAsAsync<FacebookAlbumViewModel>(_formatters);
+                    return result;
+                }
+            }
+        }
+
+        //GetAlbumPhotos
+        public async Task<List<FacebookPhotoViewModel>> GetAlbumPhotosAsync(string albumId)
+        {
+            using (var httpClient = new HttpClient())
+            {
+                httpClient.BaseAddress = BaseAddress;
+                httpClient.DefaultRequestHeaders.Authorization =
+                    new AuthenticationHeaderValue("Bearer", AccessToken);
+
+                using (var response = await httpClient.GetAsync("/api/FaceBook/GetAlbumPhotos?albumId=" + albumId))
+                {
+                    var result = await response.Content.ReadAsAsync<List<FacebookPhotoViewModel>>(_formatters);
+                    return result;
+                }
+            }
+        }
+
+        //GetAlbumPhoto
+        public async Task<FacebookPhotoViewModel> GetAlbumPhotoAsync(string albumId, string photoId)
+        {
+            using (var httpClient = new HttpClient())
+            {
+                httpClient.BaseAddress = BaseAddress;
+                httpClient.DefaultRequestHeaders.Authorization =
+                    new AuthenticationHeaderValue("Bearer", AccessToken);
+
+                using (
+                    var response =
+                        await
+                            httpClient.GetAsync("/api/FaceBook/GetAlbumPhoto?albumId=" + albumId + "&photoId=" +
+                                                photoId))
+                {
+                    var result = await response.Content.ReadAsAsync<FacebookPhotoViewModel>(_formatters);
+                    return result;
+                }
+            }
+        }
+
+        //GetAllVideos
+        public async Task<List<FacebookVideoViewModel>> GetAllVideosAsync()
+        {
+            using (var httpClient = new HttpClient())
+            {
+                httpClient.BaseAddress = BaseAddress;
+                httpClient.DefaultRequestHeaders.Authorization =
+                    new AuthenticationHeaderValue("Bearer", AccessToken);
+
+                using (var response = await httpClient.GetAsync("/api/FaceBook/GetAllVideos"))
+                {
+                    var result = await response.Content.ReadAsAsync<List<FacebookVideoViewModel>>(_formatters);
+                    return result;
+                }
+            }
+        }
+
+        //GetVideo
+
+        public async Task<FacebookVideoViewModel> GetVideoAsync(string videoId)
+        {
+            using (var httpClient = new HttpClient())
+            {
+                httpClient.BaseAddress = BaseAddress;
+                httpClient.DefaultRequestHeaders.Authorization =
+                    new AuthenticationHeaderValue("Bearer", AccessToken);
+
+                using (var response = await httpClient.GetAsync("/api/FaceBook/GetVideo?videoId=" + videoId))
+                {
+                    var result = await response.Content.ReadAsAsync<FacebookVideoViewModel>(_formatters);
+                    return result;
+                }
+            }
+        }
+
+        #endregion
+
+        #region Blob methods
+
+        //UploadPhotoToAlbum
+        public async Task<string> UploadPhotoToAlbumAsync(BlobFileViewModel model)
+        {
+            using (var httpClient = new HttpClient())
+            {
+                httpClient.BaseAddress = BaseAddress;
+                httpClient.DefaultRequestHeaders.Authorization =
+                    new AuthenticationHeaderValue("Bearer", AccessToken);
+                using (
+                    var response =
+                        await httpClient.PostAsJsonAsync(new Uri(BaseAddress, "/api/Blob/UploadPhotoToAlbum"), model))
+                {
+                    return response.StatusCode.ToString();
+                }
+            }
+        }
+
+        //UploadPhotoToAlbum
+        public async Task<string> UploadPhotosToAlbumAsync(List<BlobFileViewModel> photoList)
+        {
+            using (var httpClient = new HttpClient())
+            {
+                httpClient.BaseAddress = BaseAddress;
+                httpClient.DefaultRequestHeaders.Authorization =
+                    new AuthenticationHeaderValue("Bearer", AccessToken);
+                using (
+                    var response =
+                        await httpClient.PostAsJsonAsync(new Uri(BaseAddress, "/api/Blob/UploadPhotosToAlbum"), photoList))
+                {
+                    return response.StatusCode.ToString();
+                }
+            }
+        }
+
+        //UploadVideoToAlbum
+        public async Task<string> UploadVideoToAlbumAsync(BlobFileViewModel video)
+        {
+            using (var httpClient = new HttpClient())
+            {
+                httpClient.BaseAddress = BaseAddress;
+                httpClient.DefaultRequestHeaders.Authorization =
+                    new AuthenticationHeaderValue("Bearer", AccessToken);
+                using (
+                    var response =
+                        await httpClient.PostAsJsonAsync(new Uri(BaseAddress, "/api/Blob/UploadVideoToAlbum"), video))
+                {
+                    return response.StatusCode.ToString();
+                }
+            }
+        }
+
+        //UploadVideoToAlbum
+        public async Task<string> UploadVideosToAlbumAsync(List<BlobFileViewModel> videoList)
+        {
+            using (var httpClient = new HttpClient())
+            {
+                httpClient.BaseAddress = BaseAddress;
+                httpClient.DefaultRequestHeaders.Authorization =
+                    new AuthenticationHeaderValue("Bearer", AccessToken);
+                using (
+                    var response =
+                        await httpClient.PostAsJsonAsync(new Uri(BaseAddress, "/api/Blob/UploadVideosToAlbum"), videoList))
+                {
+                    return response.StatusCode.ToString();
+                }
+            }
+        }
+        #endregion
+
     }
 }
