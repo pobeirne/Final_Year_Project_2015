@@ -412,7 +412,7 @@ namespace LuckyMe.CMS.Web.Clients
         #region Blob methods
 
         //UploadPhotoToAlbum
-        public async Task<string> UploadPhotoToAlbumAsync(BlobFileViewModel model)
+        public async Task<string> UploadPhotoToAlbumAsync(BlobFileViewModel photo)
         {
             using (var httpClient = new HttpClient())
             {
@@ -421,7 +421,7 @@ namespace LuckyMe.CMS.Web.Clients
                     new AuthenticationHeaderValue("Bearer", AccessToken);
                 using (
                     var response =
-                        await httpClient.PostAsJsonAsync(new Uri(BaseAddress, "/api/Blob/UploadPhotoToAlbum"), model))
+                        await httpClient.PostAsJsonAsync(new Uri(BaseAddress, "/api/Blob/UploadPhotoToAlbum"), photo))
                 {
                     return response.StatusCode.ToString();
                 }
@@ -478,6 +478,24 @@ namespace LuckyMe.CMS.Web.Clients
                 }
             }
         }
+        
+        //RemovePhotoFromAlbum
+        public async Task<string> RemovePhotoFromAlbumAsync(BlobFileViewModel photo)
+        {
+            using (var httpClient = new HttpClient())
+            {
+                httpClient.BaseAddress = BaseAddress;
+                httpClient.DefaultRequestHeaders.Authorization =
+                    new AuthenticationHeaderValue("Bearer", AccessToken);
+                using (
+                    var response =
+                        await httpClient.PostAsJsonAsync(new Uri(BaseAddress, "/api/Blob/RemovePhotoFromAlbum"), photo))
+                {
+                    return response.StatusCode.ToString();
+                }
+            }
+        }
+
         #endregion
 
     }

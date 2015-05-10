@@ -6,31 +6,13 @@
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - My ASP.NET Application</title>
-    @Styles.Render("~/Content/css")
+
     @Scripts.Render("~/bundles/modernizr")
 
-    <script type="text/javascript">
-        var appInsights = window.appInsights || function(config) {
-            function s(config) {
-                t[config] = function() {
-                    var i = arguments;
-                    t.queue.push(function() { t[config].apply(t, i) })
-                }
-            }
-
-            var t = { config: config }, r = document, f = window, e = "script", o = r.createElement(e), i, u;
-            for (o.src = config.url || "//az416426.vo.msecnd.net/scripts/a/ai.0.js", r.getElementsByTagName(e)[0].parentNode.appendChild(o), t.cookie = r.cookie, t.queue = [], i = ["Event", "Exception", "Metric", "PageView", "Trace"]; i.length;)s("track" + i.pop());
-            return config.disableExceptionTracking || (i = "onerror", s("_" + i), u = f[i], f[i] = function(config, r, f, e, o) {
-                var s = u && u(config, r, f, e, o);
-                return s !== !0 && t["_" + i](config, r, f, e, o), s
-            }), t
-        }({
-            instrumentationKey: "bb3599cd-2848-4c9b-813f-2459e7434fac"
-        });
-
-        window.appInsights = appInsights;
-        appInsights.trackPageView();
-    </script>
+    <script src="~/Sencha/library/ext-all.js"></script>
+    <link href="~/Sencha/library/resources/css/ext-all-neptune.css" rel="stylesheet" />
+    @Styles.Render("~/Content/css")
+    @RenderSection("extjs", required: false)
 </head>
 <body>
 <div class="navbar navbar-inverse navbar-fixed-top">

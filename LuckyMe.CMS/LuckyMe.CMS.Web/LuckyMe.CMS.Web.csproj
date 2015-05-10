@@ -193,18 +193,16 @@
     <Content Include="Scripts\respond.matchmedia.addListener.min.js" />
     <Content Include="Scripts\respond.min.js" />
     <None Include="Scripts\_references.js" />
-    <Content Include="Sencha\app\Account_Main.js" />
     <Content Include="Sencha\app\app.js" />
+    <Content Include="Sencha\app\controller\BlobController.js" />
     <Content Include="Sencha\app\controller\StudentMaster.js" />
-    <Content Include="Sencha\app\controller\Users.js" />
-    <Content Include="Sencha\app\Login_main.js" />
+    <Content Include="Sencha\app\model\Blob.js" />
     <Content Include="Sencha\app\model\Student.js" />
-    <Content Include="Sencha\app\model\User.js" />
-    <Content Include="Sencha\app\store\Users.js" />
-    <Content Include="Sencha\app\view\StudentMaster.js" />
-    <Content Include="Sencha\app\view\user\Add.js" />
-    <Content Include="Sencha\app\view\user\Edit.js" />
-    <Content Include="Sencha\app\view\user\List.js" />
+    <Content Include="Sencha\app\storage_main.js" />
+    <Content Include="Sencha\app\store\Student.js" />
+    <Content Include="Sencha\app\view\Blob\Form.js" />
+    <Content Include="Sencha\app\view\StudentGrid.js" />
+    <Content Include="Sencha\app\view\UserBlobForm.js" />
     <Content Include="Sencha\library\ext-all-dev.js" />
     <Content Include="Sencha\library\ext-all.js" />
     <Content Include="Sencha\library\ext.js" />
@@ -3800,9 +3798,7 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Sencha\app\view\account\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\LuckyMe.CMS.Common\LuckyMe.CMS.Common.csproj">
       <Project>{ed180087-4dbb-481f-bcb3-9e6f291e2d74}</Project>

@@ -6,6 +6,7 @@ using System.Web.Http;
 using LuckyMe.CMS.Common.Models;
 using LuckyMe.CMS.Common.Models.ViewModels;
 using LuckyMe.CMS.Service.Services.Interfaces;
+using LuckyMe.CMS.WebAPI.Models;
 using LuckyMe.CMS.WebAPI.Providers;
 using Microsoft.AspNet.Identity;
 
@@ -32,6 +33,37 @@ namespace LuckyMe.CMS.WebAPI.Controllers
             _imageMime = "image/jpg";
             _videoMime = "video/mp4";
         }
+
+        [AllowAnonymous]
+        [Route("GetAllBlobFiles")]
+        public async Task<IHttpActionResult> GetAllBlobFilesAsync()
+        {
+            //Get All photo albums
+            var albumlist1 = await _blobService.GetFileNamesInContainer("16cc730a6db4416c8f8ab8bad47f34ae/photos/");
+
+            var photoAlbumList = albumlist1.Select(album => new UserBlobFile()
+            {
+                AlbumName = album,
+                AlbumType = "Photo",
+                AlbumFiles = _blobService.GetAllAlbumFilesInfoAsync("16cc730a6db4416c8f8ab8bad47f34ae", "photos", album).Result
+            }).ToList();
+
+
+            //Get All video albums
+            var albumlist2 = await _blobService.GetFileNamesInContainer("16cc730a6db4416c8f8ab8bad47f34ae/videos/");
+
+            var videoAlbumList = albumlist2.Select(album => new UserBlobFile()
+            {
+                AlbumName = album,
+                AlbumType = "Video",
+                AlbumFiles = _blobService.GetAllAlbumFilesInfoAsync("16cc730a6db4416c8f8ab8bad47f34ae", "videos", album).Result
+            }).ToList();
+            
+            var albumlist = photoAlbumList.Concat(videoAlbumList);
+
+            return Ok(albumlist);
+        }
+
 
         #region Upload  
 
@@ -61,7 +93,6 @@ namespace LuckyMe.CMS.WebAPI.Controllers
             }
             return BadRequest("");
         }
-
 
         [Route("UploadPhotosToAlbum")]
         public async Task<IHttpActionResult> UploadPhotosToAlbumAsync(IEnumerable<BlobFileViewModel> photoList)
@@ -195,8 +226,7 @@ namespace LuckyMe.CMS.WebAPI.Controllers
             }
             return BadRequest("");
         }
-
-
+        
         [Route("RemoveVideoFromBlob")]
         public async Task<IHttpActionResult> RemoveVideoFromBlobAsync(BlobFileViewModel video)
         {
@@ -212,8 +242,7 @@ namespace LuckyMe.CMS.WebAPI.Controllers
             }
             return BadRequest("");
         }
-
-
+        
         [Route("RemoveVideosFromBlob")]
         public async Task<IHttpActionResult> RemoveVideosFromBlobAsync(List<BlobFileViewModel> videoList)
         {
@@ -259,5 +288,6 @@ namespace LuckyMe.CMS.WebAPI.Controllers
         #endregion
 
         //"16cc730a-6db4-416c-8f8a-b8bad47f34ae"
+        
     }
 }

@@ -110,7 +110,17 @@ namespace LuckyMe.CMS.Web.Controllers
             //    }
             //};
             //var result = await _client.UploadVideosToAlbumAsync(videoList);
-            
+
+
+            //Working
+            //var removePhotoFile = await _client.RemovePhotoFromAlbumAsync(new BlobFileViewModel()
+            //{
+            //    FileName = "PaulTestphotolist2.jpg",
+            //    FileUrl = Imageurl,
+            //    Album = "Testing12345678"
+
+            //});
+
             var overview = await _client.GetUserOverviewAsync();
             return View(overview);
         }

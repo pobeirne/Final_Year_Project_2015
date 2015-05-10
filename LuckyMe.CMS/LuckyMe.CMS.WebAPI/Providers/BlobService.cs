@@ -5,9 +5,9 @@ using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using LuckyMe.CMS.Common.Models;
+using LuckyMe.CMS.WebAPI.Models;
 using Microsoft.WindowsAzure.Storage;
 using Microsoft.WindowsAzure.Storage.Auth;
-using Microsoft.WindowsAzure.Storage.Blob;
 
 namespace LuckyMe.CMS.WebAPI.Providers
 {
@@ -22,7 +22,7 @@ namespace LuckyMe.CMS.WebAPI.Providers
             try
             {
                 var creds = new StorageCredentials(_accountName, _accountKey);
-                var account = new CloudStorageAccount(creds, useHttps: true);
+                var account = new CloudStorageAccount(creds, true);
                 var client = account.CreateCloudBlobClient();
 
                 var container = client.GetContainerReference(Basedirectory);
@@ -49,7 +49,7 @@ namespace LuckyMe.CMS.WebAPI.Providers
             try
             {
                 var creds = new StorageCredentials(_accountName, _accountKey);
-                var account = new CloudStorageAccount(creds, useHttps: true);
+                var account = new CloudStorageAccount(creds, true);
                 var client = account.CreateCloudBlobClient();
 
                 var container = client.GetContainerReference(Basedirectory);
@@ -74,13 +74,13 @@ namespace LuckyMe.CMS.WebAPI.Providers
                 throw ex;
             }
         }
-        
+
         public async Task<bool> RemoveFileFromBlob(string filename)
         {
             try
             {
                 var creds = new StorageCredentials(_accountName, _accountKey);
-                var account = new CloudStorageAccount(creds, useHttps: true);
+                var account = new CloudStorageAccount(creds, true);
                 var client = account.CreateCloudBlobClient();
 
                 var container = client.GetContainerReference(Basedirectory);
@@ -102,7 +102,7 @@ namespace LuckyMe.CMS.WebAPI.Providers
             try
             {
                 var creds = new StorageCredentials(_accountName, _accountKey);
-                var account = new CloudStorageAccount(creds, useHttps: true);
+                var account = new CloudStorageAccount(creds, true);
                 var client = account.CreateCloudBlobClient();
 
                 var container = client.GetContainerReference(Basedirectory);
@@ -119,31 +119,78 @@ namespace LuckyMe.CMS.WebAPI.Providers
                 throw ex;
             }
         }
-        
+
+
         public async Task<List<string>> GetFileNamesInContainer(string dir)
         {
             try
             {
-
                 var creds = new StorageCredentials(_accountName, _accountKey);
-                var account = new CloudStorageAccount(creds, useHttps: true);
+                var account = new CloudStorageAccount(creds, true);
                 var client = account.CreateCloudBlobClient();
-               
+
                 var container = client.GetContainerReference(Basedirectory);
                 var directory = container.GetDirectoryReference(@dir);
-                
+
                 if (!await container.ExistsAsync()) return null;
 
-                var blobs = await Task.Run(() => directory.ListBlobs());
-                
-                var list = blobs.Select(blobItem => blobItem.Uri.AbsolutePath.ToString().Replace("/"+Basedirectory+dir, "")).ToList();
-                
+                var blobs = directory.ListBlobs();
+
+                var list =
+                    blobs.Select(blobItem => blobItem.Uri.AbsolutePath.ToString().Replace("/" + Basedirectory + dir, ""))
+                        .ToList();
+
                 return list;
             }
             catch (Exception ex)
             {
                 throw ex;
             }
+        }
+
+
+        public async Task<List<FileInfoViewModel>> GetAllAlbumFilesInfoAsync(string userId, string type, string album)
+        {
+            var creds = new StorageCredentials(_accountName, _accountKey);
+            var account = new CloudStorageAccount(creds, true);
+            var client = account.CreateCloudBlobClient();
+
+            var container = client.GetContainerReference(Basedirectory);
+
+            //if (!await container.ExistsAsync()) return null;
+
+            var directoryPath = userId + "/" + type + "/" + album;
+
+            var directory = container.GetDirectoryReference(@directoryPath);
+
+            var blobs = directory.ListBlobs();
+
+            var filenames =
+                blobs.Select(
+                    blobItem => blobItem.Uri.AbsolutePath.ToString().Replace("/" + Basedirectory + directoryPath, ""))
+                    .ToList();
+
+            var name = filenames[0];
+
+            var fileList = new List<FileInfoViewModel>();
+
+            foreach (var item in filenames)
+            {
+                var blob2 = container.GetBlockBlobReference(directoryPath + item);
+                blob2.FetchAttributes();
+
+                fileList.Add(new FileInfoViewModel
+                {
+                    FileName = item,
+                    AlbumName = album,
+                    Directory = directoryPath,
+                    FileUrl = blob2.StorageUri.PrimaryUri.AbsoluteUri,
+                    ContentType = blob2.Properties.ContentType,
+                    Size = blob2.Properties.Length,
+                    LastModified = new DateTime(blob2.Properties.LastModified.Value.UtcTicks)
+                });
+            }
+            return fileList;
         }
     }
 }

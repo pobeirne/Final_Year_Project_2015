@@ -39,6 +39,5 @@
             create: 'POST',
             update: 'POST'
         }
-
     }
 });
