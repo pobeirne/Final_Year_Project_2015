@@ -1,13 +1,14 @@
-﻿using System.Configuration;
+﻿using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Web.Http;
+using System.Web.Http.Description;
 using LuckyMe.CMS.Common.Models.DTO;
 using LuckyMe.CMS.Common.Models.ViewModels;
 using LuckyMe.CMS.Service.Services.Interfaces;
 using LuckyMe.CMS.WebAPI.Models;
-using LuckyMe.CMS.WebAPI.Providers;
 using Microsoft.AspNet.Identity;
+
 
 namespace LuckyMe.CMS.WebAPI.Controllers
 {
@@ -15,24 +16,31 @@ namespace LuckyMe.CMS.WebAPI.Controllers
     [RoutePrefix("api/User")]
     public class UserController : ApiController
     {
-        private readonly IUserService _userservice;
-        private static string _appSecret;
+        private readonly IUserService _userService;
+        private readonly IUserClaimService _claimService;
+        private readonly IUserProfileService _profileService;
 
         public UserController()
         {
         }
 
-        public UserController(IUserService userservice)
+        public UserController(
+            IUserService userService,
+            IUserClaimService claimService,
+            IUserProfileService profileService
+            )
         {
-            _userservice = userservice;
-            _appSecret = ConfigurationManager.AppSettings["Facebook_AppSecret"];
+            _userService = userService;
+            _claimService = claimService;
+            _profileService = profileService;
         }
 
+        #region User
 
-        [Route("UserInfo")]
-        public async Task<CurrentUserInfo> GetUserInfoAsync()
+        [Route("GetUserInfo")]
+        public async Task<UserDetailsViewModel> GetUserInfoAsync()
         {
-            var userinfo = await _userservice.GetAllUsersAsync();
+            var userinfo = await _userService.GetAllUsersAsync();
             var user = userinfo.FirstOrDefault(x => x.Id == User.Identity.GetUserId());
 
             if (user == null)
@@ -40,7 +48,7 @@ namespace LuckyMe.CMS.WebAPI.Controllers
                 return null;
             }
 
-            return new CurrentUserInfo
+            return new UserDetailsViewModel
             {
                 Name = user.UserName,
                 Email = user.Email,
@@ -48,10 +56,40 @@ namespace LuckyMe.CMS.WebAPI.Controllers
             };
         }
 
+        [Route("DeleteAccount")]
+        [ResponseType(typeof(bool))]
+        public async Task<IHttpActionResult> DeleteAccountAsync()
+        {
+            var user = await _userService.GetUserByIdAsync(User.Identity.GetUserId());
+            if (user == null)
+            {
+                return BadRequest();
+            }
 
-        // User Claims 
+            var result = await _userService.DeleteUserAsync(user);
 
-        #region User Claims
+            if (result == false) return BadRequest();
+
+            return Ok();
+        }
+
+        #endregion
+
+        #region Claims
+
+        [Route("GetAllUserClaims")]
+        public async Task<IEnumerable<UserClaimDto>> GetAllUserClaimsAsync()
+        {
+            var userid = User.Identity.GetUserId();
+            if (userid == null)
+            {
+                return null;
+            }
+
+            var claims = await _claimService.GetAllUserClaimsAsync(userid);
+
+            return claims;
+        }
 
         [Route("InsertUserClaim")]
         public async Task<IHttpActionResult> InsertUserClaimAsync(UserClaimsViewModel model)
@@ -68,11 +106,10 @@ namespace LuckyMe.CMS.WebAPI.Controllers
                 ClaimValue = model.ClaimValue
             };
 
-            var result = await _userservice.InsertUserClaimAsync(entry);
+            var result = await _claimService.InsertUserClaimAsync(entry);
 
             if (!result) return BadRequest();
 
-            var profiler = await RunProfiler(User.Identity.GetUserId(), entry.ClaimValue);
             return Ok();
         }
 
@@ -91,7 +128,7 @@ namespace LuckyMe.CMS.WebAPI.Controllers
                 ClaimValue = model.ClaimValue
             };
 
-            var result = await _userservice.UpdateUserClaimAsync(entry);
+            var result = await _claimService.UpdateUserClaimAsync(entry);
 
             if (result) return Ok();
             return BadRequest();
@@ -112,13 +149,84 @@ namespace LuckyMe.CMS.WebAPI.Controllers
                 ClaimValue = model.ClaimValue
             };
 
-            var result = await _userservice.DeleteUserClaimAsync(entry);
+            var result = await _claimService.DeleteUserClaimAsync(entry);
 
             if (result) return Ok();
             return BadRequest();
         }
 
         #endregion
+
+        #region Profile
+
+        [Route("GetUserProfile")]
+        public async Task<UserProfileDto> GetUserProfileAsync()
+        {
+            var userid = User.Identity.GetUserId();
+            if (userid == null)
+            {
+                return null;
+            }
+
+            var profile = await _profileService.GetUserProfileByIdAsync(userid);
+
+            return profile;
+        }
+
+        [Route("InsertUserProfile")]
+        public async Task<IHttpActionResult> InsertUserProfileAsync(UserProfileViewModel model)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            var entry = new UserProfileDto
+            {
+                UserId = User.Identity.GetUserId(),
+                UserName = model.UserName,
+                FirstName = model.FirstName,
+                LastName = model.LastName,
+                ImageUrl = model.ImageUrl,
+                ProfileType = model.ProfileType
+            };
+
+            var result = await _profileService.InsertUserProfileAsync(entry);
+
+            if (!result) return BadRequest();
+            return Ok();
+        }
+
+        [Route("UpdateUserProfile")]
+        public async Task<IHttpActionResult> UpdateUserProfileAsync(UserProfileViewModel model)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            var entry = new UserProfileDto
+            {
+                UserId = User.Identity.GetUserId(),
+                UserName = model.UserName,
+                FirstName = model.FirstName,
+                LastName = model.LastName,
+                ImageUrl = model.ImageUrl,
+                ProfileType = model.ProfileType
+            };
+
+            var result = await _profileService.InsertUserProfileAsync(entry);
+
+            if (!result) return BadRequest();
+            return Ok();
+        }
+
+        #endregion
+
+
+
+
+
 
         [Route("Overview")]
         public async Task<OverviewViewModel> GetUserOverviewAsync()
@@ -129,45 +237,26 @@ namespace LuckyMe.CMS.WebAPI.Controllers
             };
         }
 
-        [Route("Profile")]
-        public async Task<ProfileViewModel> GetUserProfileAsync()
-        {
-            return new ProfileViewModel
-            {
-                Email = "pobeirne2@hotmail.com"
-            };
-        }
+        //[Route("Account")]
+        //public async Task<AccountViewModel> GetUserAccountAsync()
+        //{
+        //    return new AccountViewModel
+        //    {
+        //        Email = "pobeirne3@hotmail.com"
+        //    };
+        //}
 
-        [Route("Account")]
-        public async Task<AccountViewModel> GetUserAccountAsync()
-        {
-            return new AccountViewModel
-            {
-                Email = "pobeirne3@hotmail.com"
-            };
-        }
-
-
-        private static async Task<bool> RunProfiler(string userId, string token)
-        {
-            if (token == null) return false;
-            var graph = new FacebookGraph(_appSecret);
-            var facebookProfile = await graph.GetProfileAsync(token);
-            var albumsTest = await graph.GetAlbumsAsync(token);
-            var albumPhotos = await graph.GetAlbumPhotosAsync(token, albumsTest[0].Id);
-            var videos = await graph.GetVideosAsync(token);
-            return true;
-        }
-
-
-        //Validate 
-        //get facebook profile
-        //Add/Update to database
-        //get users albums 
-        //add/update to database
-        //get users vidoes
-        //add/update to database
-        //return true on save
+        //var profiler = await RunProfiler(User.Identity.GetUserId(), entry.ClaimValue);
+        //private static async Task<bool> RunProfiler(string userId, string token)
+        //{
+        //    if (token == null) return false;
+        //    var graph = new FacebookGraph(_appSecret);
+        //    var facebookProfile = await graph.GetProfileAsync(token);
+        //    var albumsTest = await graph.GetAlbumsAsync(token);
+        //    var albumPhotos = await graph.GetAlbumPhotosAsync(token, albumsTest[0].Id);
+        //    var videos = await graph.GetVideosAsync(token);
+        //    return true;
+        //}
     }
 }
 

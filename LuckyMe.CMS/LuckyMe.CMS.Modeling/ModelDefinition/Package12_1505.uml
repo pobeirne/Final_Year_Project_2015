@@ -1,0 +1,1810 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/LogicalClassDesigner"
+  dslVersion="1.0.0.0"
+  Id="745ced5d-31df-4fae-b3fd-01e4f70a5da4"
+  name="DTO"
+  visibility="Private" xmlns="http://schemas.microsoft.com/dsltools/ModelStore">
+  <referencesInternal>
+    <reference
+      Id="e84d1bcf-943c-4f84-ade7-be158247f46a"
+      handle="viewcode://./CodeSchema_Namespace?Namespace%3DLuckyMe.CMS.Common.Models.DTO"
+      tag="ViewCode" />
+  </referencesInternal>
+  <packagedElements>
+    <packageHasNamedElement>
+      <class
+        Id="e29c5ec9-7979-48a2-b6e9-e770ab38b545"
+        name="UserAccountDto"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <referencesInternal>
+          <reference
+            Id="78852219-366e-40a9-b72f-c30ec84e9860"
+            handle="viewcode://./CodeSchema_Class?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2Fpobeirne%2FDocuments%2FGitHub%2FFinal_Year_Project_2015%2FLuckyMe.CMS%2FLuckyMe.CMS.Common%2Fbin%2FDebug%2FLuckyMe.CMS.Common.dll Namespace%3DLuckyMe.CMS.Common.Models.DTO Type%3DUserAccountDto"
+            tag="ViewCode" />
+        </referencesInternal>
+        <appliedStereotypesInternal>
+          <stereotypeInstance
+            Id="4a11e5df-454e-4a5a-aa60-38ef460fa83d"
+            name="class"
+            profile="CSharpProfile">
+            <propertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="eeee3307-580b-4060-a215-99352bd6f925">
+                <propertyInstance
+                  Id="05ddf634-78c3-40c9-927c-dd734aa86402"
+                  name="ClrAttributes" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="22bd30c5-6c87-477d-a9fb-0613672f9416">
+                <propertyInstance
+                  Id="5f438076-3c94-4897-8887-4fbe59c2f93f"
+                  name="IsPartial"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="f3ed9cb4-8ab0-4c2a-b3ed-eea9c5652602">
+                <propertyInstance
+                  Id="e1fa7056-d65b-4977-a0fe-4e6a747e8e0e"
+                  name="IsStatic"
+                  value="False" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="02344bf6-dc80-4ed5-a750-fedb55b126b7">
+                <propertyInstance
+                  Id="62409f1a-f8dd-4443-85c3-9fc22c29f953"
+                  name="IsUnsafe"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="1b361629-990c-4e35-90c9-7e3dcd8faf17">
+                <propertyInstance
+                  Id="23eb58a9-0d6d-463e-9d1f-7d0fe84c756e"
+                  name="PackageVisibility"
+                  value="internal" />
+              </stereotypeInstanceHasPropertyInstances>
+            </propertyInstances>
+          </stereotypeInstance>
+        </appliedStereotypesInternal>
+        <targetEnds>
+          <association
+            Id="5723b0f1-8e77-41c6-99d6-049dca3c99b2"
+            isDerived="false"
+            sourceEndRoleName="UserAccountDto"
+            targetEndRoleName="UserClaims"
+            isLeaf="false"
+            isAbstract="false">
+            <classMoniker
+              Id="2aa99948-8c65-4868-9599-a6afce6dfc39"
+              LastKnownName="List&lt;UserClaimDto‎&gt;"
+              LastKnownLocation="Package5_1505.uml" />
+            <description>Property UserClaims references type List&lt;UserClaimDto‎&gt;.</description>
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="2dd4b7af-c429-4ff5-9f29-f34382029f81"
+                  name="UserAccountDto"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false">
+                  <lowerValueInternal>
+                    <literalString
+                      Id="ebc6a2c1-aec5-4746-81bc-1957c7b5cb83"
+                      name="Lower"
+                      value="*" />
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString
+                      Id="579d8e8a-4d6a-461c-a54a-e18f004a29ec"
+                      name="Upper"
+                      value="*" />
+                  </upperValueInternal>
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="d204726d-b302-4805-b58f-77e6dfa3dbb2"
+                  name="UserClaims"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false">
+                  <lowerValueInternal>
+                    <literalString
+                      Id="c22d6aa4-a714-4e22-b817-7978f7f5620a"
+                      name="Lower"
+                      value="1" />
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString
+                      Id="abf35c99-0bbf-4b97-8be4-6e23cdfd2bb9"
+                      name="Upper"
+                      value="1" />
+                  </upperValueInternal>
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="8b9be171-c018-48eb-a7f9-5afc3e742af2"
+            isDerived="false"
+            sourceEndRoleName="UserAccountDto"
+            targetEndRoleName="UserProfile"
+            isLeaf="false"
+            isAbstract="false">
+            <classMoniker
+              Id="6cc5a784-9a79-4137-b335-0671517757d1"
+              LastKnownName="UserProfileDto"
+              LastKnownLocation="Package12_1505.uml" />
+            <description>Property UserProfile references type UserProfileDto.</description>
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="9fc52318-0c4d-4476-ba5a-9f5b955c75fc"
+                  name="UserAccountDto"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false">
+                  <lowerValueInternal>
+                    <literalString
+                      Id="86f4f969-9bc6-4105-9da6-de62ca3961cb"
+                      name="Lower"
+                      value="*" />
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString
+                      Id="2df3740e-99ed-45b7-8507-9078fc0a36fe"
+                      name="Upper"
+                      value="*" />
+                  </upperValueInternal>
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="d4916565-dbd7-4ded-9351-3c1eac8731ef"
+                  name="UserProfile"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false">
+                  <lowerValueInternal>
+                    <literalString
+                      Id="8f7b3370-8e39-436f-a3b0-16b65c3cf76e"
+                      name="Lower"
+                      value="1" />
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString
+                      Id="27c4c158-26ba-4df7-92ad-3da551a34e6d"
+                      name="Upper"
+                      value="1" />
+                  </upperValueInternal>
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+        <ownedAttributesInternal>
+          <property
+            Id="fc08a2d9-efca-4301-b09c-78734bf10794"
+            name="Id"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <referencesInternal>
+              <reference
+                Id="26a1ac6a-9c36-4e66-98e5-445060d750da"
+                handle="viewcode://./CodeSchema_Property?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2Fpobeirne%2FDocuments%2FGitHub%2FFinal_Year_Project_2015%2FLuckyMe.CMS%2FLuckyMe.CMS.Common%2Fbin%2FDebug%2FLuckyMe.CMS.Common.dll Namespace%3DLuckyMe.CMS.Common.Models.DTO Type%3DUserAccountDto Member%3DId"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="6747d5c4-825c-43d8-92ad-d6946a69e1db"
+                name="property"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="07bc19f7-b6d0-4a21-9965-be9567acb166">
+                    <propertyInstance
+                      Id="5d6e525e-9098-48e9-82ab-db03a2a98d36"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="83f04e0a-121c-42d1-bd9a-ca51b415608a">
+                    <propertyInstance
+                      Id="d60471fb-2bda-4192-8964-a222032df7f2"
+                      name="Get"
+                      value="public" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="a9252d7c-9136-43c5-aa90-2cb03c54ace0">
+                    <propertyInstance
+                      Id="12d87e82-5915-423c-94e7-863887a7626b"
+                      name="HasBody"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="45dcb964-4229-4010-bf66-3eef385e6980">
+                    <propertyInstance
+                      Id="e5d85d91-351f-427a-87c7-c3a6867543e2"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="7a81083f-9afa-4243-bd36-c7a3c37bb815">
+                    <propertyInstance
+                      Id="d0d4dc38-94fa-4aac-bb5a-605fdd78d079"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="20ab11b5-82bb-48e4-803d-435c3dc52fe0">
+                    <propertyInstance
+                      Id="fc5c4a60-c2fe-4714-bcca-8fa6b60b442e"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="f9b59b89-dbcf-4f4c-813b-ae0a7a23a0c1">
+                    <propertyInstance
+                      Id="d899f0e2-3d89-4701-ba5a-3202414a6213"
+                      name="Set"
+                      value="public" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <type_NamedElement>
+              <primitiveTypeMoniker
+                Id="59259974-6d55-42c6-b7bd-763d77ac8ef9"
+                LastKnownName="String"
+                LastKnownLocation="LuckyMe.CMS.Modeling.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="3614d3f2-a6e0-4f8e-8570-44d085dc6ead"
+            name="Email"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <referencesInternal>
+              <reference
+                Id="e6952593-f14b-43a2-8540-719ead609136"
+                handle="viewcode://./CodeSchema_Property?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2Fpobeirne%2FDocuments%2FGitHub%2FFinal_Year_Project_2015%2FLuckyMe.CMS%2FLuckyMe.CMS.Common%2Fbin%2FDebug%2FLuckyMe.CMS.Common.dll Namespace%3DLuckyMe.CMS.Common.Models.DTO Type%3DUserAccountDto Member%3DEmail"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="c13a36d9-d010-4364-8970-8660f8e623e0"
+                name="property"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="55b0bf07-4a37-4ed6-8551-d9c14226c033">
+                    <propertyInstance
+                      Id="196d7236-db2e-42c4-a090-8ee9e0942bc2"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="652291c4-802b-4170-bae1-9b4bf0b8dbb6">
+                    <propertyInstance
+                      Id="2724968c-7778-4243-9c49-ea7d95736fb9"
+                      name="Get"
+                      value="public" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="2d12196e-3c01-42fb-9a2a-33c1ca58be6b">
+                    <propertyInstance
+                      Id="2ae55c32-049b-4f05-b905-d9dc79222576"
+                      name="HasBody"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="a8a9b07e-eadd-45ec-bca3-037622848d81">
+                    <propertyInstance
+                      Id="f3b9ba09-5c42-43c9-ae40-6dc161a2d4f8"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="35ddd0d5-4c8f-4a6f-aa8d-ef2546e15dc4">
+                    <propertyInstance
+                      Id="2f1222ec-c539-42a6-b143-bbf2c5ee486c"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="fc2ab404-80d5-45b0-9d80-746e50e8319d">
+                    <propertyInstance
+                      Id="f43cc24c-fb42-43d1-895d-9c5bcf78b5d2"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="d1f6defb-805c-4f68-a459-5ba47ab0c969">
+                    <propertyInstance
+                      Id="c4a4405f-8845-4ef6-8605-c9a2ae3b13b8"
+                      name="Set"
+                      value="public" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <type_NamedElement>
+              <primitiveTypeMoniker
+                Id="59259974-6d55-42c6-b7bd-763d77ac8ef9"
+                LastKnownName="String"
+                LastKnownLocation="LuckyMe.CMS.Modeling.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="b97cf29d-c558-422f-9fa2-97087bb245a8"
+            name="UserClaims"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <referencesInternal>
+              <reference
+                Id="2060f965-3d21-43b7-b966-ad59d61c914e"
+                handle="viewcode://./CodeSchema_Property?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2Fpobeirne%2FDocuments%2FGitHub%2FFinal_Year_Project_2015%2FLuckyMe.CMS%2FLuckyMe.CMS.Common%2Fbin%2FDebug%2FLuckyMe.CMS.Common.dll Namespace%3DLuckyMe.CMS.Common.Models.DTO Type%3DUserAccountDto Member%3DUserClaims"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="3d47d8d9-29f5-4a8d-8252-fbbbe5a2265f"
+                name="property"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="f8f638d4-6f32-4828-9180-2a4516c49b90">
+                    <propertyInstance
+                      Id="03a5cfb2-c9a5-46e6-b243-dda68b0f509b"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="b2633a1f-82cd-4c7c-8d49-123262d92e57">
+                    <propertyInstance
+                      Id="f230f5bb-ff71-4034-901e-78d4da8bfbe2"
+                      name="Get"
+                      value="public" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="93427150-5e89-4ac8-8ccd-30697a8ccc22">
+                    <propertyInstance
+                      Id="47b0a678-ddbd-4c91-a588-6fdf7324f09d"
+                      name="HasBody"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="871154d0-15b4-4af7-8f34-598810bc7f93">
+                    <propertyInstance
+                      Id="1ec01bd6-a236-4f09-89d2-50cbeb75288a"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="00b61a67-b9a2-4688-8dd0-0d7b343374e5">
+                    <propertyInstance
+                      Id="c1b23fc1-21e1-4270-84ad-2c89015783df"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="87bb6d8c-8b55-4ce9-81d7-d4a5ee7c093f">
+                    <propertyInstance
+                      Id="136424cd-fc3b-4f21-8610-16ad4fb3e615"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="20762e31-0283-4930-bfa4-315a57236628">
+                    <propertyInstance
+                      Id="24cc897f-0e89-4e2a-8476-2c28fa3731a4"
+                      name="Set"
+                      value="public" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <type_NamedElement>
+              <classMoniker
+                Id="2aa99948-8c65-4868-9599-a6afce6dfc39"
+                LastKnownName="List&lt;UserClaimDto‎&gt;"
+                LastKnownLocation="Package5_1505.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="2ffe17b1-3457-4b81-a182-d218242df8fd"
+            name="UserName"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <referencesInternal>
+              <reference
+                Id="8ea8818e-619e-4885-a283-6eda98c4f8ba"
+                handle="viewcode://./CodeSchema_Property?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2Fpobeirne%2FDocuments%2FGitHub%2FFinal_Year_Project_2015%2FLuckyMe.CMS%2FLuckyMe.CMS.Common%2Fbin%2FDebug%2FLuckyMe.CMS.Common.dll Namespace%3DLuckyMe.CMS.Common.Models.DTO Type%3DUserAccountDto Member%3DUserName"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="6aa00d7c-cf9d-49aa-8872-f782d76f9526"
+                name="property"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="cb06dba6-8087-4402-b3d2-219699d60249">
+                    <propertyInstance
+                      Id="306e9a7d-5c94-4306-9607-babc0fbcf639"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="3cb628c5-e1c3-4bcb-bea3-9c54f9a0abf9">
+                    <propertyInstance
+                      Id="c5548f27-b33e-48df-89a2-e287e9015c2a"
+                      name="Get"
+                      value="public" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="d5afc8ee-a8d0-451c-92ab-e26eb1029041">
+                    <propertyInstance
+                      Id="a28afa16-0f2a-4456-ad62-9681b08c9541"
+                      name="HasBody"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="20caa653-3415-47ae-9a19-4f1301d0f727">
+                    <propertyInstance
+                      Id="b1d2cb51-103e-46a8-a2ce-c3cf58d45faa"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="b175c063-1f7c-4688-86f4-b3c298477273">
+                    <propertyInstance
+                      Id="a8455c66-e831-4a00-983e-599d7d7649ab"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="0752a766-0225-4425-9981-6e014bfb5f54">
+                    <propertyInstance
+                      Id="7a29f79d-b987-4cdc-9651-afe8d4184ec2"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="8a63ae22-e05c-4516-becb-75af6954810b">
+                    <propertyInstance
+                      Id="5991d8a3-5ddb-4a67-83ed-a5d44e4201ec"
+                      name="Set"
+                      value="public" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <type_NamedElement>
+              <primitiveTypeMoniker
+                Id="59259974-6d55-42c6-b7bd-763d77ac8ef9"
+                LastKnownName="String"
+                LastKnownLocation="LuckyMe.CMS.Modeling.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="729d022e-cec5-4f89-ab63-7bcf3b2e780d"
+            name="UserProfile"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <referencesInternal>
+              <reference
+                Id="d41dd4fd-1a9d-40b7-afbb-231ab33f1491"
+                handle="viewcode://./CodeSchema_Property?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2Fpobeirne%2FDocuments%2FGitHub%2FFinal_Year_Project_2015%2FLuckyMe.CMS%2FLuckyMe.CMS.Common%2Fbin%2FDebug%2FLuckyMe.CMS.Common.dll Namespace%3DLuckyMe.CMS.Common.Models.DTO Type%3DUserAccountDto Member%3DUserProfile"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="8dc15102-d0d1-4067-9a66-0e1c2b13c449"
+                name="property"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="785e51a5-7f39-46de-ab5d-4141e303f8c0">
+                    <propertyInstance
+                      Id="d49ec4f3-99d1-4406-9854-a0c3b6feaf47"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="7c69b810-0af4-461f-b954-799e5b979ff5">
+                    <propertyInstance
+                      Id="6c076151-da9a-4f99-9f01-1f310be2b36d"
+                      name="Get"
+                      value="public" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="6d6026b8-ca34-4df8-8986-c773e617f0e8">
+                    <propertyInstance
+                      Id="74a15f3a-5a60-4433-97de-bfbf820d95ec"
+                      name="HasBody"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="b7704ee8-694c-4ece-b8c3-b41e71bcae15">
+                    <propertyInstance
+                      Id="2f6f231b-e931-4a69-b26b-727796ba75a3"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="7bb02588-6c83-4a42-87b1-af99e5090184">
+                    <propertyInstance
+                      Id="ade9d99c-59a7-4386-9321-4a68080babfb"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="61aa4d16-9508-4e2d-9a83-54c8a593176e">
+                    <propertyInstance
+                      Id="ab9bd4ca-eb45-4e43-a352-c19512da5133"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="2bbe1c8b-1066-4183-a392-128ac5a55df2">
+                    <propertyInstance
+                      Id="9e995620-62fb-400e-908c-ca29383fc17a"
+                      name="Set"
+                      value="public" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <type_NamedElement>
+              <classMoniker
+                Id="6cc5a784-9a79-4137-b335-0671517757d1"
+                LastKnownName="UserProfileDto"
+                LastKnownLocation="Package12_1505.uml" />
+            </type_NamedElement>
+          </property>
+        </ownedAttributesInternal>
+        <ownedOperationsInternal>
+          <operation
+            Id="1f4a7a2a-de4c-4893-ad77-31ad1a645c6b"
+            name="UserAccountDto"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="e37258f3-0721-4b86-ad03-b6769733de57"
+                handle="viewcode://./CodeSchema_Method?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2Fpobeirne%2FDocuments%2FGitHub%2FFinal_Year_Project_2015%2FLuckyMe.CMS%2FLuckyMe.CMS.Common%2Fbin%2FDebug%2FLuckyMe.CMS.Common.dll Namespace%3DLuckyMe.CMS.Common.Models.DTO Type%3DUserAccountDto Member%3D.ctor"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="861ed229-0287-420c-b683-76d9cc5650bb"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="6e78deb8-97f0-4294-836e-617c583c3ddc">
+                    <propertyInstance
+                      Id="b7b68258-db4d-4e15-9845-4e858afe44ce"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="848e78ec-bccf-4fbb-a42a-7565be52cf9d">
+                    <propertyInstance
+                      Id="2f7b65a1-642a-4d63-a0ee-fff07e15463d"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="66ade1d1-a301-45aa-ad61-032c696f77f1">
+                    <propertyInstance
+                      Id="c095a7b8-3d56-41e6-af56-3cb2946dbe1b"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="5b90b144-8a08-4276-bb49-80a076f013f5">
+                    <propertyInstance
+                      Id="bc5fe0a4-5836-4dd5-bc74-7e363abd8533"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="602084b5-0238-4b34-b28a-4f11cb766753">
+                    <propertyInstance
+                      Id="072ffa00-bbf3-485e-b5b4-af8f0675a72c"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="7f247988-c59b-457a-a92c-4da4dfdc16e7">
+                    <propertyInstance
+                      Id="0444ac90-5352-4f4c-8f3b-730ac194150a"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+          </operation>
+        </ownedOperationsInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="c7d238cf-8348-4fba-bade-a1cbaa810355"
+        name="UserClaimDto"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <referencesInternal>
+          <reference
+            Id="e2ebe818-660f-4acf-8af4-2736923cf59d"
+            handle="viewcode://./CodeSchema_Class?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2Fpobeirne%2FDocuments%2FGitHub%2FFinal_Year_Project_2015%2FLuckyMe.CMS%2FLuckyMe.CMS.Common%2Fbin%2FDebug%2FLuckyMe.CMS.Common.dll Namespace%3DLuckyMe.CMS.Common.Models.DTO Type%3DUserClaimDto"
+            tag="ViewCode" />
+        </referencesInternal>
+        <appliedStereotypesInternal>
+          <stereotypeInstance
+            Id="2dbbdb51-f566-454e-af2b-a5f8e28b66be"
+            name="class"
+            profile="CSharpProfile">
+            <propertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="79398fcb-19cd-47f4-8e0a-2b0b5e0434cf">
+                <propertyInstance
+                  Id="48d29927-b3c2-4429-80fb-601865fb3845"
+                  name="ClrAttributes" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="b61e53b7-0b79-42eb-ac77-494f183dfd5a">
+                <propertyInstance
+                  Id="5178b332-9efa-4a7a-8c24-de4b78ff13d7"
+                  name="IsPartial"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="4c5d4448-b920-4d5b-8e42-a064963f2e91">
+                <propertyInstance
+                  Id="6d2943dd-a1d4-4ae8-9b93-9bf78f6712cd"
+                  name="IsStatic"
+                  value="False" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="3d263002-77c4-45dc-9d23-b681fdba2427">
+                <propertyInstance
+                  Id="45672537-8b2d-490c-a806-2fd4fdd6c9ca"
+                  name="IsUnsafe"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="e44b8c59-fb0c-428e-ba93-7839ee37ba06">
+                <propertyInstance
+                  Id="8ea1444c-9352-493d-951e-71dbdba81655"
+                  name="PackageVisibility"
+                  value="internal" />
+              </stereotypeInstanceHasPropertyInstances>
+            </propertyInstances>
+          </stereotypeInstance>
+        </appliedStereotypesInternal>
+        <ownedAttributesInternal>
+          <property
+            Id="96723392-2075-43ab-b51c-59f7c85f059f"
+            name="Id"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <referencesInternal>
+              <reference
+                Id="0244b12b-3d8f-455e-a3e0-fa366b2146b8"
+                handle="viewcode://./CodeSchema_Property?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2Fpobeirne%2FDocuments%2FGitHub%2FFinal_Year_Project_2015%2FLuckyMe.CMS%2FLuckyMe.CMS.Common%2Fbin%2FDebug%2FLuckyMe.CMS.Common.dll Namespace%3DLuckyMe.CMS.Common.Models.DTO Type%3DUserClaimDto Member%3DId"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="3d4185ab-1477-4dfc-823e-174c0fc4661a"
+                name="property"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="1f662711-a69f-444e-85b6-e3cea8a9a400">
+                    <propertyInstance
+                      Id="3888a4f1-29a8-440f-a447-12cbd35020b4"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="695ed9eb-5daa-4ddd-87af-261a10c02765">
+                    <propertyInstance
+                      Id="bfaddc60-9091-4d57-9e92-94ededfd0e82"
+                      name="Get"
+                      value="public" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="3f5de317-296e-472c-bb22-becb3807993c">
+                    <propertyInstance
+                      Id="a3fa1267-48f2-4ed2-9a91-a04d6c82dba4"
+                      name="HasBody"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="dffe3a10-e784-4909-96bc-d8e086c54068">
+                    <propertyInstance
+                      Id="3bac8845-d4de-4e85-944c-5a0e1c296186"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="760cd3ca-fa5f-47b0-b4d8-931ba9b5b6ab">
+                    <propertyInstance
+                      Id="09bf9ffe-65dd-44d2-8671-6b77d1861eea"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="7d8e92af-18f3-475f-ab2c-063ffbc18049">
+                    <propertyInstance
+                      Id="4682550f-ed97-474f-8708-5fbfe76208dd"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="49139c18-c8c9-4327-96e3-23bf507a40e1">
+                    <propertyInstance
+                      Id="1262e9d2-972a-4f9f-a156-d0aa439257d4"
+                      name="Set"
+                      value="public" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <type_NamedElement>
+              <primitiveTypeMoniker
+                Id="220a3521-e091-4221-bae9-3ef9018e845c"
+                LastKnownName="Integer"
+                LastKnownLocation="LuckyMe.CMS.Modeling.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="9a8791c0-f975-418d-8a46-c2112b96bddc"
+            name="UserId"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <referencesInternal>
+              <reference
+                Id="d3776f0f-1a82-4b93-afbf-81c13802558c"
+                handle="viewcode://./CodeSchema_Property?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2Fpobeirne%2FDocuments%2FGitHub%2FFinal_Year_Project_2015%2FLuckyMe.CMS%2FLuckyMe.CMS.Common%2Fbin%2FDebug%2FLuckyMe.CMS.Common.dll Namespace%3DLuckyMe.CMS.Common.Models.DTO Type%3DUserClaimDto Member%3DUserId"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="e09bac5f-d12a-4eb1-b66e-e3da090c849e"
+                name="property"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="75bbd69e-3efe-42b3-b280-05a6a27259c2">
+                    <propertyInstance
+                      Id="6a5d1c2b-2915-4506-a239-381177594085"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="1a59c60b-af08-4dba-8e9c-17fd433b7d40">
+                    <propertyInstance
+                      Id="4a3ffdda-9320-4a6f-aa0c-4bb0909141f4"
+                      name="Get"
+                      value="public" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="6eded7f4-98f5-4325-9453-a479e72964b8">
+                    <propertyInstance
+                      Id="a6f295f3-139f-4979-90bd-5175bf468338"
+                      name="HasBody"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="2075e1a9-ea18-4d29-8000-e8f81a0efee6">
+                    <propertyInstance
+                      Id="0215ce38-9523-4343-9030-37dcbfdc7ed7"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="98a920c7-0a52-47d6-b5e0-0959e53e6e80">
+                    <propertyInstance
+                      Id="fccac6ea-8a00-4c8a-bbfc-7da9a023bfa2"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="9b20cab2-e4e8-4977-b2a8-38bce67b0822">
+                    <propertyInstance
+                      Id="977dd3b6-76f5-4b43-9c0d-967406da904c"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="fcb6c302-8722-4ccd-9ae6-156c699851e7">
+                    <propertyInstance
+                      Id="9ab9a527-f453-42fd-a5d3-e5c0a8b8bc29"
+                      name="Set"
+                      value="public" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <type_NamedElement>
+              <primitiveTypeMoniker
+                Id="59259974-6d55-42c6-b7bd-763d77ac8ef9"
+                LastKnownName="String"
+                LastKnownLocation="LuckyMe.CMS.Modeling.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="12cf2399-facc-4cb6-ba78-6d951e81de44"
+            name="ClaimType"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <referencesInternal>
+              <reference
+                Id="9f4d7daf-de48-408f-a20c-d458d7816e76"
+                handle="viewcode://./CodeSchema_Property?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2Fpobeirne%2FDocuments%2FGitHub%2FFinal_Year_Project_2015%2FLuckyMe.CMS%2FLuckyMe.CMS.Common%2Fbin%2FDebug%2FLuckyMe.CMS.Common.dll Namespace%3DLuckyMe.CMS.Common.Models.DTO Type%3DUserClaimDto Member%3DClaimType"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="4aa3c54f-1f10-4782-bace-666c605dd5e9"
+                name="property"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="769cf8ba-a915-4e59-a20f-8f2a7deebb9a">
+                    <propertyInstance
+                      Id="abd7da61-78c9-400d-80dc-2fb373d95ab2"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="9aa5a105-93a8-41e4-b4aa-3afc378bfa5f">
+                    <propertyInstance
+                      Id="f055e7ea-20cf-4f20-b777-3ea7a94bcaee"
+                      name="Get"
+                      value="public" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="998fa546-75a6-453d-b8e9-9d2907071f8a">
+                    <propertyInstance
+                      Id="c1097fc0-aff0-4bbe-ab85-f6300a581069"
+                      name="HasBody"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="4f4afe49-aa6c-4976-afc9-383f340f760d">
+                    <propertyInstance
+                      Id="888123e0-cda5-4cf2-adbf-f01796b01950"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="b8ee483c-8696-432f-94d0-95b03231ca30">
+                    <propertyInstance
+                      Id="5ad59277-6b29-40cb-9a85-00ba95c8e535"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="a757cff8-60a7-43ad-8027-ef4c56e411ed">
+                    <propertyInstance
+                      Id="eb2c327f-80d3-4589-ba57-7692f8a41f46"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="65b9cf54-dd73-42a3-a9e7-078b1974da57">
+                    <propertyInstance
+                      Id="5c0a3756-9c85-460e-afee-c53b54e0dfc4"
+                      name="Set"
+                      value="public" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <type_NamedElement>
+              <primitiveTypeMoniker
+                Id="59259974-6d55-42c6-b7bd-763d77ac8ef9"
+                LastKnownName="String"
+                LastKnownLocation="LuckyMe.CMS.Modeling.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="e689eeab-92d3-4cdf-a53c-f2a0c27e2515"
+            name="ClaimValue"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <referencesInternal>
+              <reference
+                Id="3d2b3eb6-18be-44f8-b55a-7a1320b14485"
+                handle="viewcode://./CodeSchema_Property?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2Fpobeirne%2FDocuments%2FGitHub%2FFinal_Year_Project_2015%2FLuckyMe.CMS%2FLuckyMe.CMS.Common%2Fbin%2FDebug%2FLuckyMe.CMS.Common.dll Namespace%3DLuckyMe.CMS.Common.Models.DTO Type%3DUserClaimDto Member%3DClaimValue"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="89617476-6524-43e9-bae2-8c86c6e3a32a"
+                name="property"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="658bb8a1-3d2d-4a71-a35b-4f55ca4207c6">
+                    <propertyInstance
+                      Id="150d067a-c839-4d55-94c0-d7b3ebbad979"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="11e39fb1-0737-426c-8f3d-df2b68581194">
+                    <propertyInstance
+                      Id="68ebe116-baef-4858-9781-b995d4f8ebbc"
+                      name="Get"
+                      value="public" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="c17926a1-8693-44f1-a671-b824dc22076c">
+                    <propertyInstance
+                      Id="685dcbb7-7688-4b80-8da3-37f063985912"
+                      name="HasBody"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="9bc2a44e-96ea-41c4-9aa0-5ce5ee28edaf">
+                    <propertyInstance
+                      Id="3586effb-cf58-4bbc-bc74-4947afeabf8c"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="09d61fec-fe4a-438c-9902-b071ff356a93">
+                    <propertyInstance
+                      Id="579122e6-cd2c-4d9b-bf4a-6ae5cd112c8e"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="61f1bed9-5d20-41b8-a264-10073102fbed">
+                    <propertyInstance
+                      Id="012e70dc-831c-4598-b58d-18051113399b"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="7cb0d1f0-91ed-4482-97c9-ff6043776f79">
+                    <propertyInstance
+                      Id="f36f2146-10c2-41a6-ac7c-b5e8a30c1d34"
+                      name="Set"
+                      value="public" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <type_NamedElement>
+              <primitiveTypeMoniker
+                Id="59259974-6d55-42c6-b7bd-763d77ac8ef9"
+                LastKnownName="String"
+                LastKnownLocation="LuckyMe.CMS.Modeling.uml" />
+            </type_NamedElement>
+          </property>
+        </ownedAttributesInternal>
+        <ownedOperationsInternal>
+          <operation
+            Id="9dd48b72-ddd3-4b1c-8640-0517107a78e4"
+            name="UserClaimDto"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="73f90fb5-641c-43ce-968e-77768861e59f"
+                handle="viewcode://./CodeSchema_Method?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2Fpobeirne%2FDocuments%2FGitHub%2FFinal_Year_Project_2015%2FLuckyMe.CMS%2FLuckyMe.CMS.Common%2Fbin%2FDebug%2FLuckyMe.CMS.Common.dll Namespace%3DLuckyMe.CMS.Common.Models.DTO Type%3DUserClaimDto Member%3D.ctor"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="09b4041f-2e92-47b6-a294-23e9bd71a3cf"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="cce21703-e162-45ea-9bc6-62c622033717">
+                    <propertyInstance
+                      Id="38ce8aba-6d95-4a8d-816d-5c63628b0707"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="6cc38228-c70f-4a54-9284-f6f24a9212dc">
+                    <propertyInstance
+                      Id="b3502f5c-e01e-4d14-87d3-abe7089aa3c5"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="0d4b5800-669c-442e-8481-f9aea3f7073c">
+                    <propertyInstance
+                      Id="3e43d634-2d31-487e-a4d7-016c3c658ad7"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="cd3ea55e-b727-43c6-8caf-2a02c211bfb0">
+                    <propertyInstance
+                      Id="bf828de8-ca14-43a4-abff-5ac0ac8feae5"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="4e84f3ec-6baf-431e-9f45-adb8c13e773c">
+                    <propertyInstance
+                      Id="478fa593-2381-4068-9198-bbdbeecd57a6"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="6750cc81-4a34-4a6f-ab36-cbb5bbdf0883">
+                    <propertyInstance
+                      Id="8cc5c6f2-98cd-4db4-84a5-0667ea9050e5"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+          </operation>
+        </ownedOperationsInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="6cc5a784-9a79-4137-b335-0671517757d1"
+        name="UserProfileDto"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <referencesInternal>
+          <reference
+            Id="b6d5cced-17db-422b-a7f8-b5bf8b6ab1f5"
+            handle="viewcode://./CodeSchema_Class?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2Fpobeirne%2FDocuments%2FGitHub%2FFinal_Year_Project_2015%2FLuckyMe.CMS%2FLuckyMe.CMS.Common%2Fbin%2FDebug%2FLuckyMe.CMS.Common.dll Namespace%3DLuckyMe.CMS.Common.Models.DTO Type%3DUserProfileDto"
+            tag="ViewCode" />
+        </referencesInternal>
+        <appliedStereotypesInternal>
+          <stereotypeInstance
+            Id="6f38c00f-c62c-41ab-871b-56c0a9c40914"
+            name="class"
+            profile="CSharpProfile">
+            <propertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="5712e1c2-57a1-49f9-a2d8-73e036fb0cd6">
+                <propertyInstance
+                  Id="a88c4fe3-a4c2-4d1c-b4ba-d663833f3696"
+                  name="ClrAttributes" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="2a4dec9f-8fc9-4d8e-abe8-d3c55ba8e51a">
+                <propertyInstance
+                  Id="8057f26a-a5c2-4141-ae21-f154529b3a45"
+                  name="IsPartial"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="5c59a4f5-d290-442d-a869-4971e0d43f85">
+                <propertyInstance
+                  Id="4f427902-e879-4a85-b1b9-d088c83a735c"
+                  name="IsStatic"
+                  value="False" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="4d21813c-9e55-43ed-9c31-73fccf044940">
+                <propertyInstance
+                  Id="8a3c33e5-f82b-4d82-935b-f5a76e518b5a"
+                  name="IsUnsafe"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="da6619d7-4608-4e6f-b1eb-767204f86751">
+                <propertyInstance
+                  Id="d438aa3b-c27b-48f5-a510-994591fe6760"
+                  name="PackageVisibility"
+                  value="internal" />
+              </stereotypeInstanceHasPropertyInstances>
+            </propertyInstances>
+          </stereotypeInstance>
+        </appliedStereotypesInternal>
+        <ownedAttributesInternal>
+          <property
+            Id="49cdff5d-3589-49da-a5a1-2546b319b7e8"
+            name="Id"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <referencesInternal>
+              <reference
+                Id="34e6854e-a826-416a-bebd-605c67c5f074"
+                handle="viewcode://./CodeSchema_Property?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2Fpobeirne%2FDocuments%2FGitHub%2FFinal_Year_Project_2015%2FLuckyMe.CMS%2FLuckyMe.CMS.Common%2Fbin%2FDebug%2FLuckyMe.CMS.Common.dll Namespace%3DLuckyMe.CMS.Common.Models.DTO Type%3DUserProfileDto Member%3DId"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="cdc27242-6f4b-4952-8594-25f5b506d7d5"
+                name="property"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="89adcb9e-0245-46b0-bda1-a9976e08e3cb">
+                    <propertyInstance
+                      Id="a05efacb-7831-468d-82cd-8d5fc9c877f1"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="1841e089-b9f6-41f6-85a2-346280bb7610">
+                    <propertyInstance
+                      Id="f71d470c-db74-4fe1-8268-8f3f23020940"
+                      name="Get"
+                      value="public" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="f4437e68-b0ae-4dfd-a303-7a00f11c824f">
+                    <propertyInstance
+                      Id="1589a792-a358-42ed-8308-ecb04f66c405"
+                      name="HasBody"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="4a660a3e-4f63-4893-a7b3-bb9b2c6235b0">
+                    <propertyInstance
+                      Id="f30aea39-a368-4ea6-aeaf-60bee9a9f842"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="a5e5ffba-e925-4012-b97e-523f1e8448bc">
+                    <propertyInstance
+                      Id="9e3f7bcc-927f-4103-bb42-97508499ef6f"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="90d187f9-b984-4ba5-ace0-9703fa97f40c">
+                    <propertyInstance
+                      Id="9a909534-8b48-45a6-9719-ba1295963c14"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="2eee4511-3c90-4e33-b587-807442b9f07d">
+                    <propertyInstance
+                      Id="fbb6422e-687c-47f0-97f4-5a107143841f"
+                      name="Set"
+                      value="public" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <type_NamedElement>
+              <primitiveTypeMoniker
+                Id="220a3521-e091-4221-bae9-3ef9018e845c"
+                LastKnownName="Integer"
+                LastKnownLocation="LuckyMe.CMS.Modeling.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="1c07eccc-c86e-4732-abee-fdc54903c770"
+            name="ImageUrl"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <referencesInternal>
+              <reference
+                Id="9cb260f1-d777-4de4-8224-5d37965eeb32"
+                handle="viewcode://./CodeSchema_Property?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2Fpobeirne%2FDocuments%2FGitHub%2FFinal_Year_Project_2015%2FLuckyMe.CMS%2FLuckyMe.CMS.Common%2Fbin%2FDebug%2FLuckyMe.CMS.Common.dll Namespace%3DLuckyMe.CMS.Common.Models.DTO Type%3DUserProfileDto Member%3DImageUrl"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="3b3bdfec-f0f7-41cf-b359-218d486179db"
+                name="property"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="8c1fe482-4a31-4afa-9d26-6e58bdbf299c">
+                    <propertyInstance
+                      Id="12715bd1-1206-42b1-aaa7-fe5e93ce0f69"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="56832713-96bb-429d-86e9-e7a4d9feaaac">
+                    <propertyInstance
+                      Id="ffaa70df-4918-4db3-9c78-0d0e299f2469"
+                      name="Get"
+                      value="public" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="1a86f1ab-ad65-4e00-943c-3c96f2767044">
+                    <propertyInstance
+                      Id="2722b840-2104-4296-920d-1864f8dbd53a"
+                      name="HasBody"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="4401f8db-ade2-4115-9945-8b0e2c99ceed">
+                    <propertyInstance
+                      Id="7011b8b3-e898-4d5d-81df-a4b21a2bf82d"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="77c24aa7-5a67-4e88-889d-f158a8d255e2">
+                    <propertyInstance
+                      Id="2fdea30e-a567-4468-8503-97b393e7b933"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="3d02ec9e-d3c8-458c-9a93-ae86cdc7870c">
+                    <propertyInstance
+                      Id="da7940c7-6325-43b5-98b0-9f9562510acc"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="d62a95f1-3632-402e-827c-3158d406641a">
+                    <propertyInstance
+                      Id="aa40d3ae-9157-4597-8a74-626afecd4202"
+                      name="Set"
+                      value="public" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <type_NamedElement>
+              <primitiveTypeMoniker
+                Id="59259974-6d55-42c6-b7bd-763d77ac8ef9"
+                LastKnownName="String"
+                LastKnownLocation="LuckyMe.CMS.Modeling.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="5b43d8df-d5b4-4720-90aa-f873b0fdf310"
+            name="UserId"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <referencesInternal>
+              <reference
+                Id="7a898ba8-b172-459c-a5f0-dc096e1ff4e6"
+                handle="viewcode://./CodeSchema_Property?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2Fpobeirne%2FDocuments%2FGitHub%2FFinal_Year_Project_2015%2FLuckyMe.CMS%2FLuckyMe.CMS.Common%2Fbin%2FDebug%2FLuckyMe.CMS.Common.dll Namespace%3DLuckyMe.CMS.Common.Models.DTO Type%3DUserProfileDto Member%3DUserId"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="cafa598e-d93c-4dc2-9a45-8e3cc4b915e4"
+                name="property"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="3f4abbde-8cd2-4114-9760-a43dca0d0267">
+                    <propertyInstance
+                      Id="e0cdd46d-b48b-4fee-8fda-dfb97132ee0b"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="f31b7eb4-0fb2-42b7-ae52-ea6b2313f785">
+                    <propertyInstance
+                      Id="9875d3e4-f6ca-49e9-a0b4-94036378a7bb"
+                      name="Get"
+                      value="public" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="4fd2d260-2f84-454c-a162-356022fc6594">
+                    <propertyInstance
+                      Id="bae26229-bf20-4027-b25d-d4f9f4464eef"
+                      name="HasBody"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="c1ee3265-ffe6-42cd-9229-ae3ea62129be">
+                    <propertyInstance
+                      Id="15f05a08-730c-49f0-8a88-4a5a133d27b4"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="c20e2abd-76da-4a9e-a255-f04f77bb161d">
+                    <propertyInstance
+                      Id="6632e58c-6d2f-48cd-8e01-9a1008ff75dc"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="8d6bed48-ff64-484a-857c-3e4517c8e32e">
+                    <propertyInstance
+                      Id="f4ab6133-811b-4fd6-8311-29defc5ddb78"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="8eda798d-da1f-4e0d-9a26-b5541072e39c">
+                    <propertyInstance
+                      Id="1c05d5ea-d476-4879-ab45-be99d6c2daa2"
+                      name="Set"
+                      value="public" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <type_NamedElement>
+              <primitiveTypeMoniker
+                Id="59259974-6d55-42c6-b7bd-763d77ac8ef9"
+                LastKnownName="String"
+                LastKnownLocation="LuckyMe.CMS.Modeling.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="99f85d52-b216-45d4-b028-31496b7283d4"
+            name="FirstName"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <referencesInternal>
+              <reference
+                Id="4ba1e0ea-750c-4660-ad49-157bf69de9c1"
+                handle="viewcode://./CodeSchema_Property?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2Fpobeirne%2FDocuments%2FGitHub%2FFinal_Year_Project_2015%2FLuckyMe.CMS%2FLuckyMe.CMS.Common%2Fbin%2FDebug%2FLuckyMe.CMS.Common.dll Namespace%3DLuckyMe.CMS.Common.Models.DTO Type%3DUserProfileDto Member%3DFirstName"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="e3462bc8-1966-47dc-bc2e-a3ef2c83f924"
+                name="property"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="1e146b86-3a39-4822-aa8d-fb4f7a405d19">
+                    <propertyInstance
+                      Id="4bd4f569-bfcc-4847-8b23-def3690d9a79"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="9fbef949-5680-4da5-ab25-a02e56bae509">
+                    <propertyInstance
+                      Id="8fb9904f-c106-4525-ab40-854f623deb30"
+                      name="Get"
+                      value="public" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="48dae3eb-d5c8-4aaa-a36d-ee2a78371b2b">
+                    <propertyInstance
+                      Id="75ee3d24-3356-4d1f-b5de-0864364ab5a6"
+                      name="HasBody"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="6e6f1779-d276-4f7c-a5a8-97e964b27f3f">
+                    <propertyInstance
+                      Id="b22994e7-ea8a-4a97-80cc-c6381c6252d2"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="c6123236-de3e-44b9-9589-8d4a0e13d4dc">
+                    <propertyInstance
+                      Id="955f0dc7-03a7-4180-aa4b-b0557a7d0840"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="924efc4c-d33d-4a3d-93b4-3de4451fb4f2">
+                    <propertyInstance
+                      Id="48664f5d-06cf-46c2-9898-aa0bff74d702"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="66d4c183-7153-4ee6-8aa4-fcb6d52dff56">
+                    <propertyInstance
+                      Id="e86a1aab-8d98-49b7-bd6a-dbbf0c0fa5a1"
+                      name="Set"
+                      value="public" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <type_NamedElement>
+              <primitiveTypeMoniker
+                Id="59259974-6d55-42c6-b7bd-763d77ac8ef9"
+                LastKnownName="String"
+                LastKnownLocation="LuckyMe.CMS.Modeling.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="4c2dfa1e-e19e-4934-9638-a3ee25b9ce18"
+            name="LastName"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <referencesInternal>
+              <reference
+                Id="9a39be9f-fd69-4180-910d-6039f2622215"
+                handle="viewcode://./CodeSchema_Property?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2Fpobeirne%2FDocuments%2FGitHub%2FFinal_Year_Project_2015%2FLuckyMe.CMS%2FLuckyMe.CMS.Common%2Fbin%2FDebug%2FLuckyMe.CMS.Common.dll Namespace%3DLuckyMe.CMS.Common.Models.DTO Type%3DUserProfileDto Member%3DLastName"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="b70c2467-53d5-4f80-aede-e74ded970876"
+                name="property"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="ce0dffb2-96be-419a-9f78-2c5e2f6b6ad9">
+                    <propertyInstance
+                      Id="ceb4deb3-a556-4f76-9001-5465445455c6"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="0c1628ed-9b17-491b-bf9c-e56c836c90ba">
+                    <propertyInstance
+                      Id="08fc19af-932a-4457-a75b-752a688197fa"
+                      name="Get"
+                      value="public" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="49f03899-d59c-4e9f-a514-cc07db05dedd">
+                    <propertyInstance
+                      Id="2213a1c2-cb10-4b5b-89bf-fd71b8f7cb7a"
+                      name="HasBody"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="e8e6120c-641b-4c9b-a72f-99fc6de6e95c">
+                    <propertyInstance
+                      Id="d74c984c-ffd1-4d7c-92f0-d9aa620c9013"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="9e8fa13f-8cd2-4c32-a066-cb0c88b7c83a">
+                    <propertyInstance
+                      Id="09f0e052-261c-4ef8-8a39-76a75445b49a"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="e66ebaca-e7c1-48c3-84b2-dd8574798bd4">
+                    <propertyInstance
+                      Id="6444ee64-71ab-4dd7-af43-f914be27cd66"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="2390c9e3-d0ed-430b-bc02-726cb455d426">
+                    <propertyInstance
+                      Id="d42f49df-3a99-45a1-9df9-0f0b40ef1ff7"
+                      name="Set"
+                      value="public" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <type_NamedElement>
+              <primitiveTypeMoniker
+                Id="59259974-6d55-42c6-b7bd-763d77ac8ef9"
+                LastKnownName="String"
+                LastKnownLocation="LuckyMe.CMS.Modeling.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="186df440-c552-4290-bc4a-c967ce1632a4"
+            name="ProfileType"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <referencesInternal>
+              <reference
+                Id="84deb568-6f1f-4a79-bc2c-e7c1577b7c8d"
+                handle="viewcode://./CodeSchema_Property?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2Fpobeirne%2FDocuments%2FGitHub%2FFinal_Year_Project_2015%2FLuckyMe.CMS%2FLuckyMe.CMS.Common%2Fbin%2FDebug%2FLuckyMe.CMS.Common.dll Namespace%3DLuckyMe.CMS.Common.Models.DTO Type%3DUserProfileDto Member%3DProfileType"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="42ddcd63-dd17-414e-9d8e-e88267105e64"
+                name="property"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="077c5163-b9be-4589-98ac-23f4705569a6">
+                    <propertyInstance
+                      Id="bbcebe20-baf4-43b7-8008-518d93d2cd16"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="59c500a8-3bf3-4182-b6f2-33ada303895e">
+                    <propertyInstance
+                      Id="e5cd2347-7d0d-42d6-9897-520b048f4c1e"
+                      name="Get"
+                      value="public" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="29b1147d-7ffb-434b-bcc6-6144f9f2b08e">
+                    <propertyInstance
+                      Id="5c48702e-3159-48c5-9a32-ec4cbff8ec78"
+                      name="HasBody"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="9f912fef-676d-4b60-9f39-1afa347f3038">
+                    <propertyInstance
+                      Id="f8faa807-9656-4b17-9da0-baed6157d698"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="d0c2674a-71a1-4da0-978f-b437ae156b54">
+                    <propertyInstance
+                      Id="734e9e34-e662-4d40-96da-7dab9ce06bd4"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="be5c30ac-56e5-4e5f-831c-4e9079a84c3b">
+                    <propertyInstance
+                      Id="fbb8eb4d-a950-45df-b97a-75805b7f99fe"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="a4dee2eb-2b3e-430a-8554-aca8eb93e59d">
+                    <propertyInstance
+                      Id="6db07978-b551-4396-82b6-ac5046ff13e9"
+                      name="Set"
+                      value="public" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <type_NamedElement>
+              <primitiveTypeMoniker
+                Id="59259974-6d55-42c6-b7bd-763d77ac8ef9"
+                LastKnownName="String"
+                LastKnownLocation="LuckyMe.CMS.Modeling.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="1dfe2e9f-099c-4a12-9bf2-1005b75219f2"
+            name="UserName"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <referencesInternal>
+              <reference
+                Id="41ae5f20-4af8-413d-a4b9-0a466e70edc9"
+                handle="viewcode://./CodeSchema_Property?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2Fpobeirne%2FDocuments%2FGitHub%2FFinal_Year_Project_2015%2FLuckyMe.CMS%2FLuckyMe.CMS.Common%2Fbin%2FDebug%2FLuckyMe.CMS.Common.dll Namespace%3DLuckyMe.CMS.Common.Models.DTO Type%3DUserProfileDto Member%3DUserName"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="eb76e11d-4411-4565-97c3-8b8d9c91d1ae"
+                name="property"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="216bc053-9317-43e8-8ab0-f07d8b306d59">
+                    <propertyInstance
+                      Id="ff46166e-970b-41c7-ae6c-f76e90c8b9d0"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="d5d8ee75-d7d8-42bc-b497-7a22a018ab2a">
+                    <propertyInstance
+                      Id="df0d6031-7f92-4ca2-b9b6-2bbf77074cab"
+                      name="Get"
+                      value="public" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="6f2f05dd-6752-4a1e-abba-a84ddc6b1a26">
+                    <propertyInstance
+                      Id="bb2f7604-e6ea-4817-8341-520da4cb372d"
+                      name="HasBody"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="936d0e0d-65b8-49e2-8eb7-48a351e33020">
+                    <propertyInstance
+                      Id="622d9b0d-8bdd-40f1-9f6a-5df9054d3dba"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="184b9ce6-5819-4c67-9926-dde7d5d050d0">
+                    <propertyInstance
+                      Id="ce3816e0-23d1-4d16-9dd0-5456a0df476d"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="e0b0e012-2ebc-40fc-aaaa-989bb1c9b605">
+                    <propertyInstance
+                      Id="6f50a3de-484c-45bb-9f36-e8b348fe9d04"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="f0946f11-c1db-4b86-8d2e-2683ed3014cc">
+                    <propertyInstance
+                      Id="fc7be92c-d2a0-4237-bff4-27a8ce707e47"
+                      name="Set"
+                      value="public" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <type_NamedElement>
+              <primitiveTypeMoniker
+                Id="59259974-6d55-42c6-b7bd-763d77ac8ef9"
+                LastKnownName="String"
+                LastKnownLocation="LuckyMe.CMS.Modeling.uml" />
+            </type_NamedElement>
+          </property>
+        </ownedAttributesInternal>
+        <ownedOperationsInternal>
+          <operation
+            Id="178936a8-f86c-4bc2-bdb7-2755f94f5f87"
+            name="UserProfileDto"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="afcddeaf-6282-4bc2-a26a-9f35ca7c82bb"
+                handle="viewcode://./CodeSchema_Method?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2Fpobeirne%2FDocuments%2FGitHub%2FFinal_Year_Project_2015%2FLuckyMe.CMS%2FLuckyMe.CMS.Common%2Fbin%2FDebug%2FLuckyMe.CMS.Common.dll Namespace%3DLuckyMe.CMS.Common.Models.DTO Type%3DUserProfileDto Member%3D.ctor"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="e8f0d578-3283-48f4-84bc-325af392465e"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="82023508-ec6e-4102-a272-02202cdea6cb">
+                    <propertyInstance
+                      Id="f4bc436f-d442-436b-94db-466bdb413fe5"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="d8538684-9571-41ba-9ae6-dd81a11e1688">
+                    <propertyInstance
+                      Id="68bb8ec1-f94c-4c65-8964-67052656fb64"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="3a2130c2-147e-4db0-97d3-77ec03894986">
+                    <propertyInstance
+                      Id="30d0c999-04af-40ec-b802-c926019d830e"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="1c4e5949-3c70-4792-95db-1eeb64a4244a">
+                    <propertyInstance
+                      Id="84696c44-86e0-4e4a-be7d-fa34ec62d19f"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="d9003f64-44bf-412a-bcf2-f30a3fbce89c">
+                    <propertyInstance
+                      Id="0b797371-33a1-4746-b88e-5f7d3ec4f155"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="4eae5276-03a1-4693-9ee3-13eb2076a91d">
+                    <propertyInstance
+                      Id="0782dfcd-a906-44e5-a21b-30148dbae232"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+          </operation>
+        </ownedOperationsInternal>
+      </class>
+    </packageHasNamedElement>
+  </packagedElements>
+</package>

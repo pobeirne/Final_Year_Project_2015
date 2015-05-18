@@ -1,9 +1,11 @@
-﻿using System.Configuration;
+﻿using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Web.Http;
+using LuckyMe.CMS.Common.Models.ViewModels;
 using LuckyMe.CMS.Service.Services.Interfaces;
-using LuckyMe.CMS.WebAPI.Providers;
+using LuckyMe.CMS.WebAPI.Helpers;
 using Microsoft.AspNet.Identity;
 
 namespace LuckyMe.CMS.WebAPI.Controllers
@@ -13,7 +15,6 @@ namespace LuckyMe.CMS.WebAPI.Controllers
     public class FacebookController : ApiController
     {
         private readonly IUserService _userservice;
-
         private readonly string _appSecret;
 
         public FacebookController()
@@ -29,7 +30,6 @@ namespace LuckyMe.CMS.WebAPI.Controllers
         [Route("GetProfile")]
         public async Task<IHttpActionResult> GetFacebookProfileAsync()
         {
-            //var user = await _userservice.GetUserByIdAsync("16cc730a-6db4-416c-8f8a-b8bad47f34ae");
             var user = await _userservice.GetUserByIdAsync(User.Identity.GetUserId());
 
             var firstOrDefault = user.UserClaims.FirstOrDefault(x => x.ClaimType == "FacebookAccessToken");
@@ -64,25 +64,6 @@ namespace LuckyMe.CMS.WebAPI.Controllers
             return Ok(albums);
         }
 
-        [Route("GetAlbum")]
-        public async Task<IHttpActionResult> GetAlbumAsync([FromUri] string albumId)
-        {
-            //var user = await _userservice.GetUserByIdAsync("16cc730a-6db4-416c-8f8a-b8bad47f34ae");
-            var user = await _userservice.GetUserByIdAsync(User.Identity.GetUserId());
-
-            var firstOrDefault = user.UserClaims.FirstOrDefault(x => x.ClaimType == "FacebookAccessToken");
-
-            if (firstOrDefault == null) return BadRequest("No Facebook Token exists or is Invalid");
-
-            var fbAccessToken = firstOrDefault.ClaimValue;
-
-            var graph = new FacebookGraph(_appSecret);
-
-            var album = await graph.GetAlbumAsync(fbAccessToken, albumId);
-
-            return Ok(album);
-        }
-
         [Route("GetAlbumPhotos")]
         public async Task<IHttpActionResult> GetAlbumPhotosAsync([FromUri] string albumId)
         {
@@ -102,23 +83,25 @@ namespace LuckyMe.CMS.WebAPI.Controllers
             return Ok(photos);
         }
 
-        [Route("GetAlbumPhoto")]
-        public async Task<IHttpActionResult> GetAlbumPhotoAsync([FromUri] string albumId, [FromUri] string photoId)
+        [Route("GetAllPhotos")]
+        public async Task<IHttpActionResult> GetAllPhotosAsync()
         {
-            //var user = await _userservice.GetUserByIdAsync("16cc730a-6db4-416c-8f8a-b8bad47f34ae");
             var user = await _userservice.GetUserByIdAsync(User.Identity.GetUserId());
-
             var firstOrDefault = user.UserClaims.FirstOrDefault(x => x.ClaimType == "FacebookAccessToken");
-
             if (firstOrDefault == null) return BadRequest("No Facebook Token exists or is Invalid");
-
             var fbAccessToken = firstOrDefault.ClaimValue;
-
             var graph = new FacebookGraph(_appSecret);
 
-            var photo = await graph.GetAlbumPhotoAsync(fbAccessToken, albumId, photoId);
+            //Get All photo albums
+            var albumList = await graph.GetAlbumsAsync(fbAccessToken);
 
-            return Ok(photo);
+            //Get All photos in albums
+            var photoList = new List<FacebookPhotoViewModel>();
+            foreach (var album in albumList)
+            {
+                photoList.AddRange(graph.GetAlbumPhotosAsync(fbAccessToken, album.Id).Result);
+            }
+            return Ok(photoList);
         }
 
         [Route("GetAllVideos")]
@@ -140,24 +123,64 @@ namespace LuckyMe.CMS.WebAPI.Controllers
             return Ok(videos);
         }
 
-        [Route("GetVideo")]
-        public async Task<IHttpActionResult> GetVideoAsync([FromUri] string videoId)
-        {
-            //var user = await _userservice.GetUserByIdAsync("16cc730a-6db4-416c-8f8a-b8bad47f34ae");
-            var user = await _userservice.GetUserByIdAsync(User.Identity.GetUserId());
 
-            var firstOrDefault = user.UserClaims.FirstOrDefault(x => x.ClaimType == "FacebookAccessToken");
+        //[Route("GetAlbum")]
+        //public async Task<IHttpActionResult> GetAlbumAsync([FromUri] string albumId)
+        //{
+        //    //var user = await _userservice.GetUserByIdAsync("16cc730a-6db4-416c-8f8a-b8bad47f34ae");
+        //    var user = await _userservice.GetUserByIdAsync(User.Identity.GetUserId());
 
-            if (firstOrDefault == null) return BadRequest("No Facebook Token exists or is Invalid");
+        //    var firstOrDefault = user.UserClaims.FirstOrDefault(x => x.ClaimType == "FacebookAccessToken");
 
-            var fbAccessToken = firstOrDefault.ClaimValue;
+        //    if (firstOrDefault == null) return BadRequest("No Facebook Token exists or is Invalid");
 
-            var graph = new FacebookGraph(_appSecret);
+        //    var fbAccessToken = firstOrDefault.ClaimValue;
 
-            var video = await graph.GetVideoAsync(fbAccessToken, videoId);
+        //    var graph = new FacebookGraph(_appSecret);
 
-            return Ok(video);
-        }
+        //    var album = await graph.GetAlbumAsync(fbAccessToken, albumId);
+
+        //    return Ok(album);
+        //}
+
+        //[Route("GetAlbumPhoto")]
+        //public async Task<IHttpActionResult> GetAlbumPhotoAsync([FromUri] string albumId, [FromUri] string photoId)
+        //{
+        //    //var user = await _userservice.GetUserByIdAsync("16cc730a-6db4-416c-8f8a-b8bad47f34ae");
+        //    var user = await _userservice.GetUserByIdAsync(User.Identity.GetUserId());
+
+        //    var firstOrDefault = user.UserClaims.FirstOrDefault(x => x.ClaimType == "FacebookAccessToken");
+
+        //    if (firstOrDefault == null) return BadRequest("No Facebook Token exists or is Invalid");
+
+        //    var fbAccessToken = firstOrDefault.ClaimValue;
+
+        //    var graph = new FacebookGraph(_appSecret);
+
+        //    var photo = await graph.GetAlbumPhotoAsync(fbAccessToken, albumId, photoId);
+
+        //    return Ok(photo);
+        //}
+
+
+        //[Route("GetVideo")]
+        //public async Task<IHttpActionResult> GetVideoAsync([FromUri] string videoId)
+        //{
+        //    //var user = await _userservice.GetUserByIdAsync("16cc730a-6db4-416c-8f8a-b8bad47f34ae");
+        //    var user = await _userservice.GetUserByIdAsync(User.Identity.GetUserId());
+
+        //    var firstOrDefault = user.UserClaims.FirstOrDefault(x => x.ClaimType == "FacebookAccessToken");
+
+        //    if (firstOrDefault == null) return BadRequest("No Facebook Token exists or is Invalid");
+
+        //    var fbAccessToken = firstOrDefault.ClaimValue;
+
+        //    var graph = new FacebookGraph(_appSecret);
+
+        //    var video = await graph.GetVideoAsync(fbAccessToken, videoId);
+
+        //    return Ok(video);
+        //}
     }
 }
     

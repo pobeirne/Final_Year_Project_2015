@@ -1,0 +1,3336 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<modelStoreModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/SimpleShapesModel" xmlns:dm9="http://schemas.microsoft.com/dsltools/UseCaseModel"
+  dslVersion="1.0.0.0"
+  Id="efe78246-c106-4210-afc0-1c02703fafbf"
+  name="LuckyMe.CMS.Modeling" xmlns="http://schemas.microsoft.com/dsltools/ModelStore">
+  <profileInstances>
+    <packageHasProfileInstances
+      Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b">
+      <profileInstance
+        Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791"
+        name="StandardProfileL2" />
+    </packageHasProfileInstances>
+    <packageHasProfileInstances
+      Id="29349502-908c-4fda-9054-c48619c59ed0">
+      <profileInstance
+        Id="532ea607-fb19-44b8-8502-3351b05452be"
+        name="StandardProfileL3" />
+    </packageHasProfileInstances>
+    <packageHasProfileInstances
+      Id="d4cd7a08-5841-423d-afca-287dcb215946">
+      <profileInstance
+        Id="de5f6bcb-e8b4-413a-a866-324734952ab1"
+        name="CSharpProfile" />
+    </packageHasProfileInstances>
+  </profileInstances>
+  <packagedElements>
+    <packageHasNamedElement>
+      <packageMoniker
+        Id="ce615d64-60ea-4a82-9271-cdba31b35ae4"
+        LastKnownName="LuckyMe"
+        LastKnownLocation="Package_1505.uml" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <packageMoniker
+        Id="06455dc2-51c9-4655-8347-ee7b1f24c9dc"
+        LastKnownName="System"
+        LastKnownLocation="Package3_1505.uml" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <actor
+        Id="46a3287e-0f28-4350-b142-e650733c97b4"
+        name="User"
+        isAbstract="false"
+        isLeaf="false">
+        <targetEnds>
+          <association
+            Id="3072f55d-689c-43ac-a28b-c1c0f67eb018"
+            isDerived="false"
+            sourceEndRoleName="User"
+            targetEndRoleName="Registration"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="6bdab4cb-4e48-4037-a6fc-f1f2a48bc59a"
+              LastKnownName="Registration"
+              LastKnownLocation="LuckyMe.CMS.Modeling.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="4047d27f-23c9-43b4-b158-bf5d4d9a1797"
+                  name="User"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="31d0481e-d1f4-42a7-9dc6-643107610f5c"
+                  name="Registration"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+      </actor>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="6bdab4cb-4e48-4037-a6fc-f1f2a48bc59a"
+        name="Registration"
+        isAbstract="false"
+        isLeaf="false">
+        <targetEnds>
+          <association
+            Id="3aacdc72-fc82-443c-bcf4-f0766bd9e5ea"
+            isDerived="false"
+            sourceEndRoleName="Registration"
+            targetEndRoleName="Validation"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="b62f6d62-c0fb-4281-9e4d-fe02bb930b0d"
+              LastKnownName="Validation"
+              LastKnownLocation="LuckyMe.CMS.Modeling.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="5bf0b09c-a3ec-42a3-9736-c668b9e1eddd"
+                  name="Registration"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="3277e17e-0878-4120-a588-a5f14a78258b"
+                  name="Validation"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="13b1c910-2978-4709-8a65-c9b880dcc42c"
+        name="UseCase1"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="b62f6d62-c0fb-4281-9e4d-fe02bb930b0d"
+        name="Validation"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <actor
+        Id="5820fe19-05dc-41de-be32-84c9c0122b21"
+        name="LuckyMeAPI"
+        isAbstract="false"
+        isLeaf="false">
+        <targetEnds>
+          <association
+            Id="37a17ef6-1e35-4c38-8eb8-42462e57c13d"
+            isDerived="false"
+            sourceEndRoleName="LuckyMeAPI"
+            targetEndRoleName="Validation"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="b62f6d62-c0fb-4281-9e4d-fe02bb930b0d"
+              LastKnownName="Validation"
+              LastKnownLocation="LuckyMe.CMS.Modeling.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="e83c8751-8e2d-48a9-906f-b779818aa770"
+                  name="LuckyMeAPI"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="00445542-0238-40f3-9d9c-7499f0a7079e"
+                  name="Validation"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="880b6b40-6e76-449d-a378-96419ffd9eef"
+            isDerived="false"
+            sourceEndRoleName="LuckyMeAPI"
+            targetEndRoleName="Create User"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="31119875-56bf-4616-bc6b-0da33c9a181f"
+              LastKnownName="Create User"
+              LastKnownLocation="LuckyMe.CMS.Modeling.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="cb57361e-7b6a-4f1a-9507-2ab41ca280b2"
+                  name="LuckyMeAPI"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="d5912a0e-ae84-402c-8809-32b2db0052e5"
+                  name="Create User"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+      </actor>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <actor
+        Id="c939a13f-8e61-4283-98df-d5829e82600d"
+        name="LuckyMe Database"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="31119875-56bf-4616-bc6b-0da33c9a181f"
+        name="Create User"
+        isAbstract="false"
+        isLeaf="false">
+        <targetEnds>
+          <association
+            Id="f522ac93-26f6-4936-82ff-1340bec5fd74"
+            isDerived="false"
+            sourceEndRoleName="Create User"
+            targetEndRoleName="LuckyMe Database"
+            isLeaf="false"
+            isAbstract="false">
+            <actorMoniker
+              Id="c939a13f-8e61-4283-98df-d5829e82600d"
+              LastKnownName="LuckyMe Database"
+              LastKnownLocation="LuckyMe.CMS.Modeling.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="a70f9c42-1493-4ddc-840b-1880e96295c5"
+                  name="Create User"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="219635ee-29b1-4ea1-b814-3234ed44a5eb"
+                  name="LuckyMe Database"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <actor
+        Id="ba1e979a-5278-428e-9a64-40bf315aa0c1"
+        name="User"
+        isAbstract="false"
+        isLeaf="false">
+        <targetEnds>
+          <association
+            Id="15f232eb-3913-4dda-84c4-09bc5542ab4a"
+            isDerived="false"
+            sourceEndRoleName="User"
+            targetEndRoleName="Registration"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="2dffe1d2-c022-4987-a5ad-8aba993ee08e"
+              LastKnownName="Login"
+              LastKnownLocation="LuckyMe.CMS.Modeling.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="8c213185-f462-4022-a117-5045e207590b"
+                  name="User"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="2372127b-7836-4dc1-a336-e1e678beacba"
+                  name="Registration"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+      </actor>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="2dffe1d2-c022-4987-a5ad-8aba993ee08e"
+        name="Login"
+        isAbstract="false"
+        isLeaf="false">
+        <targetEnds>
+          <association
+            Id="d64e09f5-4730-4ef5-98f2-f229fedd30fd"
+            isDerived="false"
+            sourceEndRoleName="Registration"
+            targetEndRoleName="Validation"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="e37b89ea-8916-4fff-b9d1-27bc73910928"
+              LastKnownName="Validation"
+              LastKnownLocation="LuckyMe.CMS.Modeling.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="33d33258-3098-4a93-b9ca-fd50682c981b"
+                  name="Registration"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="85a9b901-f80f-4111-9e44-7d9a15399ad5"
+                  name="Validation"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="e37b89ea-8916-4fff-b9d1-27bc73910928"
+        name="Validation"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <actor
+        Id="4033bf70-e5ec-4cda-94a1-6dd0ba3567e8"
+        name="LuckyMeAPI"
+        isAbstract="false"
+        isLeaf="false">
+        <targetEnds>
+          <association
+            Id="d73c5f86-4ea4-4ad4-b084-8d85a0e7841e"
+            isDerived="false"
+            sourceEndRoleName="LuckyMeAPI"
+            targetEndRoleName="Validation"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="e37b89ea-8916-4fff-b9d1-27bc73910928"
+              LastKnownName="Validation"
+              LastKnownLocation="LuckyMe.CMS.Modeling.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="c979ee80-698e-49df-a7d7-5b255edc149c"
+                  name="LuckyMeAPI"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="81cdf96f-5396-44cd-932c-94a5772377ee"
+                  name="Validation"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="1d097d88-27aa-43ee-8f5b-4e6275c1fce8"
+            isDerived="false"
+            sourceEndRoleName="LuckyMeAPI"
+            targetEndRoleName="Create User"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="fb3874da-022f-4f8b-a22d-5a67023c33ec"
+              LastKnownName="Find User"
+              LastKnownLocation="LuckyMe.CMS.Modeling.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="190d222a-d8ea-4b27-b782-bb3561206506"
+                  name="LuckyMeAPI"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="5fed817b-cca2-4182-b36d-4002d9b3f63e"
+                  name="Create User"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+      </actor>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <actor
+        Id="e35fd4d3-d843-46ea-a972-b905dc111903"
+        name="LuckyMe Database"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="fb3874da-022f-4f8b-a22d-5a67023c33ec"
+        name="Find User"
+        isAbstract="false"
+        isLeaf="false">
+        <targetEnds>
+          <association
+            Id="d326c6c3-c6c7-4e69-9974-c4ef5c5d6be4"
+            isDerived="false"
+            sourceEndRoleName="Create User"
+            targetEndRoleName="LuckyMe Database"
+            isLeaf="false"
+            isAbstract="false">
+            <actorMoniker
+              Id="e35fd4d3-d843-46ea-a972-b905dc111903"
+              LastKnownName="LuckyMe Database"
+              LastKnownLocation="LuckyMe.CMS.Modeling.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="e56c0c67-0753-4384-bfcd-69ee9d5c18d8"
+                  name="Create User"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="d1784fec-9eaf-4ab6-9efc-f95fd0091917"
+                  name="LuckyMe Database"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <actor
+        Id="2e79f43e-e6d1-488f-bf6b-6e7d8970ea5a"
+        name="User"
+        isAbstract="false"
+        isLeaf="false">
+        <targetEnds>
+          <association
+            Id="2f6116a3-82e3-4dfc-98d9-a3598a7483aa"
+            isDerived="false"
+            sourceEndRoleName="User"
+            targetEndRoleName="Update"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="9359759b-8395-4bbf-94af-aae46fdce056"
+              LastKnownName="Update"
+              LastKnownLocation="LuckyMe.CMS.Modeling.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="2531d360-24b8-4ae3-a080-be014b529b78"
+                  name="User"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="2207c633-888b-41c0-8105-44bd2b95ccd7"
+                  name="Update"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="2f071c16-9a9c-4a7d-8f58-5de66dffc5c7"
+            isDerived="false"
+            sourceEndRoleName="User"
+            targetEndRoleName="Delete "
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="d12fb97c-86d2-44e2-911b-145bdac10add"
+              LastKnownName="Delete "
+              LastKnownLocation="LuckyMe.CMS.Modeling.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="71d973b1-010d-4e2f-813b-c0ff018fa41e"
+                  name="User"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="fd254fb1-16b1-4dba-bf65-b1cdcfc8bddd"
+                  name="Delete "
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="30d7fb36-b90b-4635-84b0-9650ff1b9204"
+            isDerived="false"
+            sourceEndRoleName="User"
+            targetEndRoleName="Logout"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="2dab2b76-6f3e-4f56-b741-2f3db4a15515"
+              LastKnownName="Logout"
+              LastKnownLocation="LuckyMe.CMS.Modeling.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="17b79aaf-d3d4-4c69-8811-b5fa6e166653"
+                  name="User"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="1e335bbc-378a-4fcd-9906-f52a3b952134"
+                  name="Logout"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+      </actor>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="9359759b-8395-4bbf-94af-aae46fdce056"
+        name="Update"
+        isAbstract="false"
+        isLeaf="false">
+        <targetEnds>
+          <association
+            Id="d2eb508b-c73c-4144-be12-8f0d9f6d1288"
+            isDerived="false"
+            sourceEndRoleName="Update"
+            targetEndRoleName="Verification"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="e6eb8244-e738-4ac8-a03a-0f9f856a58d1"
+              LastKnownName="Validation"
+              LastKnownLocation="LuckyMe.CMS.Modeling.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="e53cd99d-6ad2-45cc-8d43-ab743b0c2841"
+                  name="Update"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="aaf7c1c0-8420-496e-9eae-4cc65bdd05fd"
+                  name="Verification"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="d12fb97c-86d2-44e2-911b-145bdac10add"
+        name="Delete "
+        isAbstract="false"
+        isLeaf="false">
+        <targetEnds>
+          <association
+            Id="1d730841-fc92-4379-b66d-3bb285d6a9c9"
+            isDerived="false"
+            sourceEndRoleName="Delete "
+            targetEndRoleName="Verification"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="e6eb8244-e738-4ac8-a03a-0f9f856a58d1"
+              LastKnownName="Validation"
+              LastKnownLocation="LuckyMe.CMS.Modeling.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="9b410a84-4710-4b6f-a69c-fc171a28b13d"
+                  name="Delete "
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="b075467a-e845-4dd8-b3bb-ea4890a3a96b"
+                  name="Verification"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="e6eb8244-e738-4ac8-a03a-0f9f856a58d1"
+        name="Validation"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="610b5bad-83d6-4eb0-abfa-8bb03eb95d9e"
+        name="Update User "
+        isAbstract="false"
+        isLeaf="false">
+        <targetEnds>
+          <association
+            Id="2ed99c06-ed0e-400e-b9f7-190e6dc838fd"
+            isDerived="false"
+            sourceEndRoleName="Update User "
+            targetEndRoleName="LuckyMe Database"
+            isLeaf="false"
+            isAbstract="false">
+            <actorMoniker
+              Id="f2e61f4e-1cd6-4f8a-b35f-4345a14d6e00"
+              LastKnownName="LuckyMe Database"
+              LastKnownLocation="LuckyMe.CMS.Modeling.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="1082fdc0-3d63-47b1-98c9-fc9e41a305ef"
+                  name="Update User "
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="2a508c2a-1a9d-4138-8863-6d273c4e5ef7"
+                  name="LuckyMe Database"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <actor
+        Id="f2e61f4e-1cd6-4f8a-b35f-4345a14d6e00"
+        name="LuckyMe Database"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <actor
+        Id="d50b10ea-136b-4bf6-8475-a5b85c363fe7"
+        name="LuckyMeAPI"
+        isAbstract="false"
+        isLeaf="false">
+        <targetEnds>
+          <association
+            Id="543aee81-01b2-41c1-ab6d-b479a35161c3"
+            isDerived="false"
+            sourceEndRoleName="LuckyMeAPI"
+            targetEndRoleName="Verification"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="e6eb8244-e738-4ac8-a03a-0f9f856a58d1"
+              LastKnownName="Validation"
+              LastKnownLocation="LuckyMe.CMS.Modeling.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="5b7dc383-0b3c-4739-be23-aa470334ae6d"
+                  name="LuckyMeAPI"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="3dc8fa47-c1e0-46d9-8fe4-fd75dc44f0f3"
+                  name="Verification"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="2af01024-fa74-41d1-9e43-4202bba55fa8"
+            isDerived="false"
+            sourceEndRoleName="LuckyMeAPI"
+            targetEndRoleName="Delete User"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="4e8dcab1-9cb9-41ec-a4e1-9f35223a7194"
+              LastKnownName="Delete User"
+              LastKnownLocation="LuckyMe.CMS.Modeling.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="214b16bf-ec13-4573-bcf5-e699dc11adb7"
+                  name="LuckyMeAPI"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="b2deff10-de56-4fb4-95df-47539c3d6169"
+                  name="Delete User"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="f3921ffe-ba05-4ea4-ba40-255aa13dde37"
+            isDerived="false"
+            sourceEndRoleName="LuckyMeAPI"
+            targetEndRoleName="Update User "
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="610b5bad-83d6-4eb0-abfa-8bb03eb95d9e"
+              LastKnownName="Update User "
+              LastKnownLocation="LuckyMe.CMS.Modeling.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="b7134965-598a-489c-8d69-2d5257e6e5b2"
+                  name="LuckyMeAPI"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="308cef18-d89e-4c1f-a5cd-b44a594447c5"
+                  name="Update User "
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+      </actor>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="4e8dcab1-9cb9-41ec-a4e1-9f35223a7194"
+        name="Delete User"
+        isAbstract="false"
+        isLeaf="false">
+        <targetEnds>
+          <association
+            Id="e1348332-8c1d-4a93-b175-85ab851ea3f5"
+            isDerived="false"
+            sourceEndRoleName="Delete User"
+            targetEndRoleName="LuckyMe Database"
+            isLeaf="false"
+            isAbstract="false">
+            <actorMoniker
+              Id="f2e61f4e-1cd6-4f8a-b35f-4345a14d6e00"
+              LastKnownName="LuckyMe Database"
+              LastKnownLocation="LuckyMe.CMS.Modeling.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="51347c9c-b1f3-49fd-a537-d4576e0ed75c"
+                  name="Delete User"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="d9b38b49-f457-4aa0-bbb6-9987a97dcd23"
+                  name="LuckyMe Database"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="2dab2b76-6f3e-4f56-b741-2f3db4a15515"
+        name="Logout"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <actor
+        Id="0168b8fd-d872-40a4-8f4b-d74898af5fb7"
+        name="User"
+        isAbstract="false"
+        isLeaf="false">
+        <targetEnds>
+          <association
+            Id="b5dfb645-d808-467e-813b-27b817f77e12"
+            isDerived="false"
+            sourceEndRoleName="User"
+            targetEndRoleName="Update"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="bd27dc14-9cc5-4b47-8ea6-65ff5c5b59de"
+              LastKnownName="Add"
+              LastKnownLocation="LuckyMe.CMS.Modeling.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="3e7a4936-36e5-4c9b-9757-538f751282f8"
+                  name="User"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="07ad4d23-14ec-45e2-a127-51d1d55ac0f8"
+                  name="Update"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="77a6b2c3-7c39-45ab-84a5-29de40fe5063"
+            isDerived="false"
+            sourceEndRoleName="User"
+            targetEndRoleName="Delete "
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="a56afdea-019f-4c82-8ad8-c55b0c81eacc"
+              LastKnownName="Refresh"
+              LastKnownLocation="LuckyMe.CMS.Modeling.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="abc39c8f-aaa7-4498-968c-170058a1399d"
+                  name="User"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="76785341-ac08-41dd-b47d-da926aec46dd"
+                  name="Delete "
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+      </actor>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="bd27dc14-9cc5-4b47-8ea6-65ff5c5b59de"
+        name="Add"
+        isAbstract="false"
+        isLeaf="false">
+        <targetEnds>
+          <association
+            Id="ee6ecdd6-b058-42cb-884a-1059eb8db07f"
+            isDerived="false"
+            sourceEndRoleName="Add"
+            targetEndRoleName="Validation1"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="6d9876c6-3bf7-433c-96b2-1d3e3c58e3cf"
+              LastKnownName="Validation"
+              LastKnownLocation="LuckyMe.CMS.Modeling.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="799082e5-8364-4050-9425-2710a3da5d1d"
+                  name="Add"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="af257f9e-fa7b-4089-ae1b-5a03410e64e9"
+                  name="Validation1"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="a56afdea-019f-4c82-8ad8-c55b0c81eacc"
+        name="Refresh"
+        isAbstract="false"
+        isLeaf="false">
+        <targetEnds>
+          <association
+            Id="c6648a3a-dacd-40b0-b247-69639ac98ec4"
+            isDerived="false"
+            sourceEndRoleName="Refresh"
+            targetEndRoleName="Validation1"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="6d9876c6-3bf7-433c-96b2-1d3e3c58e3cf"
+              LastKnownName="Validation"
+              LastKnownLocation="LuckyMe.CMS.Modeling.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="50583bf5-10da-4733-90f0-0b4b281834e1"
+                  name="Refresh"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="fdb17712-02bc-476f-b91a-0f801bef4241"
+                  name="Validation1"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="6d9876c6-3bf7-433c-96b2-1d3e3c58e3cf"
+        name="Validation"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="dc654c3e-3fe2-4a78-8f4e-4e6bdbd39af0"
+        name="Remove Access Token"
+        isAbstract="false"
+        isLeaf="false">
+        <targetEnds>
+          <association
+            Id="95e48290-c00a-40ba-9db9-58e02f6a2e7e"
+            isDerived="false"
+            sourceEndRoleName="Update User "
+            targetEndRoleName="LuckyMe Database"
+            isLeaf="false"
+            isAbstract="false">
+            <actorMoniker
+              Id="dbaf74f3-7acc-417a-846b-99fed31afc84"
+              LastKnownName="LuckyMe Database"
+              LastKnownLocation="LuckyMe.CMS.Modeling.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="29fd0939-5c65-45ab-a347-1fce78c93815"
+                  name="Update User "
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="47da03ff-3cd5-4016-bc21-540e112c496d"
+                  name="LuckyMe Database"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <actor
+        Id="dbaf74f3-7acc-417a-846b-99fed31afc84"
+        name="LuckyMe Database"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <actor
+        Id="bfb41b55-f994-4fb8-a68d-0f42c9dd91ae"
+        name="LuckyMeAPI"
+        isAbstract="false"
+        isLeaf="false">
+        <targetEnds>
+          <association
+            Id="8b19eee7-8649-4219-9ab8-a4240f9aa1ce"
+            isDerived="false"
+            sourceEndRoleName="LuckyMeAPI"
+            targetEndRoleName="Verification"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="6d9876c6-3bf7-433c-96b2-1d3e3c58e3cf"
+              LastKnownName="Validation"
+              LastKnownLocation="LuckyMe.CMS.Modeling.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="a45e6263-9d8a-4e01-ba01-8966022c8a17"
+                  name="LuckyMeAPI"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="05407873-7dc8-4c9f-a3a3-d34a02a16e04"
+                  name="Verification"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="16c8e3c1-00bc-4319-8172-7005d6841dee"
+            isDerived="false"
+            sourceEndRoleName="LuckyMeAPI"
+            targetEndRoleName="Delete User"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="f6e666da-6a02-4709-86b0-da0afffe65f7"
+              LastKnownName="Add/Update Access Token"
+              LastKnownLocation="LuckyMe.CMS.Modeling.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="07b3fddd-6a3f-47de-a1aa-4a3fcb2cceaa"
+                  name="LuckyMeAPI"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="d69ed8d5-f148-40a2-9656-248e69c26c03"
+                  name="Delete User"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="e2f7c0f1-3f85-4389-b684-2107a6ec8930"
+            isDerived="false"
+            sourceEndRoleName="LuckyMeAPI"
+            targetEndRoleName="Update User "
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="dc654c3e-3fe2-4a78-8f4e-4e6bdbd39af0"
+              LastKnownName="Remove Access Token"
+              LastKnownLocation="LuckyMe.CMS.Modeling.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="5fa3febd-05f5-4bca-b914-ee64f0b8ca41"
+                  name="LuckyMeAPI"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="5962318b-6fd0-490a-a716-cfc5bacdbee4"
+                  name="Update User "
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+      </actor>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="f6e666da-6a02-4709-86b0-da0afffe65f7"
+        name="Add/Update Access Token"
+        isAbstract="false"
+        isLeaf="false">
+        <targetEnds>
+          <association
+            Id="209dbb96-0a65-4189-bbc4-63b5074fe4bf"
+            isDerived="false"
+            sourceEndRoleName="Delete User"
+            targetEndRoleName="LuckyMe Database"
+            isLeaf="false"
+            isAbstract="false">
+            <actorMoniker
+              Id="dbaf74f3-7acc-417a-846b-99fed31afc84"
+              LastKnownName="LuckyMe Database"
+              LastKnownLocation="LuckyMe.CMS.Modeling.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="46cf2f4b-eb18-4b34-94fd-0a299cf091fb"
+                  name="Delete User"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="e0ed75d3-3301-40e7-8963-3805a4ab719d"
+                  name="LuckyMe Database"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="d359bda7-745d-49ae-992b-eb1e6e2aaa96"
+        name="Remove"
+        isAbstract="false"
+        isLeaf="false">
+        <targetEnds>
+          <association
+            Id="59070d34-e963-4f5b-bf52-6c820c4d8d67"
+            isDerived="false"
+            sourceEndRoleName="Remove"
+            targetEndRoleName="Validation1"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="6d9876c6-3bf7-433c-96b2-1d3e3c58e3cf"
+              LastKnownName="Validation"
+              LastKnownLocation="LuckyMe.CMS.Modeling.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="8a5ada22-e1d9-4cfc-bf8e-75efd07117c3"
+                  name="Remove"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="432455fc-bb22-4184-9b5d-230615f00631"
+                  name="Validation1"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <actor
+        Id="d4c5f8d4-17eb-4c4a-9ed6-9d93df98f4bf"
+        name="Facebook External"
+        isAbstract="false"
+        isLeaf="false">
+        <targetEnds>
+          <association
+            Id="6aa00fff-9cfd-4cd1-81a5-719c41378bcb"
+            isDerived="false"
+            sourceEndRoleName="Facebook External"
+            targetEndRoleName="Get Access Token "
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="793c01be-4af4-41f1-84cb-1fce24ede304"
+              LastKnownName="Get Access Token "
+              LastKnownLocation="LuckyMe.CMS.Modeling.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="4f08338d-85da-448a-a709-11dbc09f6b72"
+                  name="Facebook External"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="abd4ac9b-e2f0-4862-be98-96bb92900e82"
+                  name="Get Access Token "
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+      </actor>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="793c01be-4af4-41f1-84cb-1fce24ede304"
+        name="Get Access Token "
+        isAbstract="false"
+        isLeaf="false">
+        <targetEnds>
+          <association
+            Id="68d17500-bdf8-49ea-a04f-cff4e38ea2f6"
+            isDerived="false"
+            sourceEndRoleName="Get Access Token "
+            targetEndRoleName="Validation1"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="6d9876c6-3bf7-433c-96b2-1d3e3c58e3cf"
+              LastKnownName="Validation"
+              LastKnownLocation="LuckyMe.CMS.Modeling.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="07015fc3-d280-41e4-b4a0-0ee5f2f8af42"
+                  name="Get Access Token "
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="6e692539-4763-4f6d-925a-8eb45fa4b5ce"
+                  name="Validation1"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="b7c38831-bc9e-43d6-9cb8-6ed50789922d"
+            isDerived="false"
+            sourceEndRoleName="Get Access Token "
+            targetEndRoleName="Facebook External"
+            isLeaf="false"
+            isAbstract="false">
+            <actorMoniker
+              Id="d4c5f8d4-17eb-4c4a-9ed6-9d93df98f4bf"
+              LastKnownName="Facebook External"
+              LastKnownLocation="LuckyMe.CMS.Modeling.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="30c7d4bc-9129-49f3-8521-75e776823d89"
+                  name="Get Access Token "
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="9324ab89-284c-4525-b3bc-2fe0b725377f"
+                  name="Facebook External"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <actor
+        Id="cb02a233-e0a4-4dfb-ac4e-c3520bf83e92"
+        name="User"
+        isAbstract="false"
+        isLeaf="false">
+        <targetEnds>
+          <association
+            Id="2b3cfa7e-ac99-4a47-a2bf-cde3a97336ca"
+            isDerived="false"
+            sourceEndRoleName="User"
+            targetEndRoleName="Update"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="c598756b-008d-4dcd-85e2-c2e6a0d7d8ac"
+              LastKnownName="Get Photos"
+              LastKnownLocation="LuckyMe.CMS.Modeling.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="8a8bbbc5-cc15-4fba-8eaa-620077ac0dce"
+                  name="User"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="c9ec8162-59ce-41d6-932c-8e8e652e2e4b"
+                  name="Update"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="33d2ffdd-e7a3-4f70-9c4a-cde89e6837d2"
+            isDerived="false"
+            sourceEndRoleName="User"
+            targetEndRoleName="Delete "
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="bf6da126-83f0-4fa1-925c-83ed3ebaa7d5"
+              LastKnownName="Get Videos"
+              LastKnownLocation="LuckyMe.CMS.Modeling.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="15851dd6-030b-403e-9031-46e12098254e"
+                  name="User"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="dc7d4a74-5259-4b2b-a280-4db604c28edc"
+                  name="Delete "
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+      </actor>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="c598756b-008d-4dcd-85e2-c2e6a0d7d8ac"
+        name="Get Photos"
+        isAbstract="false"
+        isLeaf="false">
+        <targetEnds>
+          <association
+            Id="6009eb2e-261c-4a0e-ab2f-5dd01444a333"
+            isDerived="false"
+            sourceEndRoleName="Add"
+            targetEndRoleName="Validation1"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="59f89c81-eee6-4958-9d9b-76c255d456e1"
+              LastKnownName="Validation"
+              LastKnownLocation="LuckyMe.CMS.Modeling.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="c0eb641d-7fff-4fbd-833e-68305ce4dc77"
+                  name="Add"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="cae0e034-ac42-44f3-a239-ce79dd9fb1bd"
+                  name="Validation1"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="bf6da126-83f0-4fa1-925c-83ed3ebaa7d5"
+        name="Get Videos"
+        isAbstract="false"
+        isLeaf="false">
+        <targetEnds>
+          <association
+            Id="b0f21e56-6687-4af2-8da2-f3115150e1ed"
+            isDerived="false"
+            sourceEndRoleName="Refresh"
+            targetEndRoleName="Validation1"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="59f89c81-eee6-4958-9d9b-76c255d456e1"
+              LastKnownName="Validation"
+              LastKnownLocation="LuckyMe.CMS.Modeling.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="5e30266b-528c-4240-ae7c-6b0e088838ff"
+                  name="Refresh"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="54b6cd9e-d82f-4d85-9857-f9f9b85ff3d3"
+                  name="Validation1"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="59f89c81-eee6-4958-9d9b-76c255d456e1"
+        name="Validation"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="a8a1e6c8-c550-4822-a6bd-455f0debc531"
+        name="Remove Access Token1"
+        isAbstract="false"
+        isLeaf="false">
+        <targetEnds>
+          <association
+            Id="99a657f3-2fc3-48e0-b92f-a0c277f9ecc8"
+            isDerived="false"
+            sourceEndRoleName="Update User "
+            targetEndRoleName="LuckyMe Database"
+            isLeaf="false"
+            isAbstract="false">
+            <actorMoniker
+              Id="07cda041-180a-41ad-a67c-eb4b20dafbac"
+              LastKnownName="LuckyMe Database"
+              LastKnownLocation="LuckyMe.CMS.Modeling.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="eb0d5ace-3448-4914-9b52-120179a0b22e"
+                  name="Update User "
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="4bce2cd3-4044-49c5-8cc2-4a048254b78d"
+                  name="LuckyMe Database"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <actor
+        Id="07cda041-180a-41ad-a67c-eb4b20dafbac"
+        name="LuckyMe Database"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <actor
+        Id="41489a65-8f76-403f-a6e4-129066083c4d"
+        name="LuckyMeAPI"
+        isAbstract="false"
+        isLeaf="false">
+        <targetEnds>
+          <association
+            Id="e4f9f7c9-c0a5-4f6b-b991-84a6bfe3accc"
+            isDerived="false"
+            sourceEndRoleName="LuckyMeAPI"
+            targetEndRoleName="Verification"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="59f89c81-eee6-4958-9d9b-76c255d456e1"
+              LastKnownName="Validation"
+              LastKnownLocation="LuckyMe.CMS.Modeling.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="e0698025-2448-4415-aab2-f6025e6cc491"
+                  name="LuckyMeAPI"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="fa3eef8d-76b9-4e85-ba35-ddd24daac25a"
+                  name="Verification"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="6d501e61-0e2f-4ff4-8b19-a570e2d45863"
+            isDerived="false"
+            sourceEndRoleName="LuckyMeAPI"
+            targetEndRoleName="Delete User"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="ab40cf76-4e2b-4d8a-b9f9-b22ce0098e57"
+              LastKnownName="Get Access Token"
+              LastKnownLocation="LuckyMe.CMS.Modeling.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="ea80b334-23c3-4fef-96db-24afb23ab17e"
+                  name="LuckyMeAPI"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="56ba42cf-5eef-4bcd-9323-55e332d36127"
+                  name="Delete User"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="ea4206eb-38a4-467b-8757-e2e1bea44619"
+            isDerived="false"
+            sourceEndRoleName="LuckyMeAPI"
+            targetEndRoleName="Update User "
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="a8a1e6c8-c550-4822-a6bd-455f0debc531"
+              LastKnownName="Remove Access Token1"
+              LastKnownLocation="LuckyMe.CMS.Modeling.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="9618d09f-7048-424f-809c-ff9500d3ab46"
+                  name="LuckyMeAPI"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="e352443b-7003-4e52-ba6e-5a8709268dcd"
+                  name="Update User "
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="69d3a628-9c8c-4915-8299-bf5d18470261"
+            isDerived="false"
+            sourceEndRoleName="LuckyMeAPI1"
+            targetEndRoleName="Request content"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="a34bdb15-565b-4390-b039-46a60e5aa1bf"
+              LastKnownName="Request content"
+              LastKnownLocation="LuckyMe.CMS.Modeling.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="18204074-7969-46d9-a058-043f1521953f"
+                  name="LuckyMeAPI1"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="696cecb3-f428-4f22-bd62-9aae0a00df2d"
+                  name="Request content"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+      </actor>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="ab40cf76-4e2b-4d8a-b9f9-b22ce0098e57"
+        name="Get Access Token"
+        isAbstract="false"
+        isLeaf="false">
+        <targetEnds>
+          <association
+            Id="6f6a1b48-18a0-4318-afa4-6124839675b6"
+            isDerived="false"
+            sourceEndRoleName="Delete User"
+            targetEndRoleName="LuckyMe Database"
+            isLeaf="false"
+            isAbstract="false">
+            <actorMoniker
+              Id="07cda041-180a-41ad-a67c-eb4b20dafbac"
+              LastKnownName="LuckyMe Database"
+              LastKnownLocation="LuckyMe.CMS.Modeling.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="279837a6-29b1-407c-853b-6c03afbac649"
+                  name="Delete User"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="65b4c219-5bb2-4780-9725-f4fe8a667728"
+                  name="LuckyMe Database"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="1a5a371d-fca7-40e8-9954-2455348fd7e8"
+        name="Remove1"
+        isAbstract="false"
+        isLeaf="false">
+        <targetEnds>
+          <association
+            Id="bcb0b160-9581-4482-a83e-8430600446f8"
+            isDerived="false"
+            sourceEndRoleName="Remove"
+            targetEndRoleName="Validation1"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="59f89c81-eee6-4958-9d9b-76c255d456e1"
+              LastKnownName="Validation"
+              LastKnownLocation="LuckyMe.CMS.Modeling.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="970e1332-81b0-4dfc-b867-40bbd716998f"
+                  name="Remove"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="f8eed5f6-6175-483a-8d2a-7bbc783ab98f"
+                  name="Validation1"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <actor
+        Id="4cae60af-bd66-4819-a8cd-3301db822279"
+        name="Facebook External"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="a34bdb15-565b-4390-b039-46a60e5aa1bf"
+        name="Request content"
+        isAbstract="false"
+        isLeaf="false">
+        <targetEnds>
+          <association
+            Id="e05f9384-4d77-44a2-813f-fd6b05eba448"
+            isDerived="false"
+            sourceEndRoleName="Get Access Token "
+            targetEndRoleName="Facebook External"
+            isLeaf="false"
+            isAbstract="false">
+            <actorMoniker
+              Id="4cae60af-bd66-4819-a8cd-3301db822279"
+              LastKnownName="Facebook External"
+              LastKnownLocation="LuckyMe.CMS.Modeling.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="72e702ea-23fe-42a9-b62c-215600caf07f"
+                  name="Get Access Token "
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="af31735d-9568-492a-b489-0c8440310936"
+                  name="Facebook External"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <actor
+        Id="59851560-d0f9-47ed-937a-a7ec7f190b20"
+        name="User1"
+        isAbstract="false"
+        isLeaf="false">
+        <targetEnds>
+          <association
+            Id="8d7e6c5d-1022-4d69-b85d-699eb0e21ca0"
+            isDerived="false"
+            sourceEndRoleName="User"
+            targetEndRoleName="Update"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="f71f6ea6-6f85-478f-91af-cd52c60a757d"
+              LastKnownName="Get SM content"
+              LastKnownLocation="LuckyMe.CMS.Modeling.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="c43a1aed-ae4a-4bae-8098-889f229923c3"
+                  name="User"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="bff75bf9-a4e5-4a37-a70c-acd0ec1a5c99"
+                  name="Update"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="ef146bd9-41c2-4cda-a88d-3ebb7ed6461c"
+            isDerived="false"
+            sourceEndRoleName="User"
+            targetEndRoleName="Delete "
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="be067113-3490-4416-9c05-ef6c437775fb"
+              LastKnownName="Get Blob content"
+              LastKnownLocation="LuckyMe.CMS.Modeling.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="d1f50aa4-41a8-4846-9c61-093a0ff77aa5"
+                  name="User"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="53389011-15c1-495e-9790-61e64812c653"
+                  name="Delete "
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+      </actor>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="f71f6ea6-6f85-478f-91af-cd52c60a757d"
+        name="Get SM content"
+        isAbstract="false"
+        isLeaf="false">
+        <targetEnds>
+          <association
+            Id="213fd11c-f42e-410b-9da8-efcba8dabc13"
+            isDerived="false"
+            sourceEndRoleName="Add"
+            targetEndRoleName="Validation1"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="9884cdab-501f-4243-b033-f410eeb69394"
+              LastKnownName="Validation"
+              LastKnownLocation="LuckyMe.CMS.Modeling.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="11c38098-8f5e-4891-b22e-ec3726034cf8"
+                  name="Add"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="5f1b0d02-d135-43c4-ac6c-2ab79a09e58d"
+                  name="Validation1"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="be067113-3490-4416-9c05-ef6c437775fb"
+        name="Get Blob content"
+        isAbstract="false"
+        isLeaf="false">
+        <targetEnds>
+          <association
+            Id="3a0e801d-df8c-4e26-9e89-bb35c79c7530"
+            isDerived="false"
+            sourceEndRoleName="Refresh"
+            targetEndRoleName="Validation1"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="9884cdab-501f-4243-b033-f410eeb69394"
+              LastKnownName="Validation"
+              LastKnownLocation="LuckyMe.CMS.Modeling.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="cc4fcc58-c92c-42a8-9f1e-eddc90ab0a44"
+                  name="Refresh"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="f9f19c81-09e5-47f4-8769-de012a29a7fb"
+                  name="Validation1"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="9884cdab-501f-4243-b033-f410eeb69394"
+        name="Validation"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <actor
+        Id="29abaa2d-d1d1-4fec-bc7f-121baaf22e9e"
+        name="LuckyMe Database"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <actor
+        Id="b5a39b9a-9d92-42bd-a0ce-4dc77e44bb20"
+        name="LuckyMeAPI"
+        isAbstract="false"
+        isLeaf="false">
+        <targetEnds>
+          <association
+            Id="f1acf69c-3a64-4dbc-b09d-d89dd3510dea"
+            isDerived="false"
+            sourceEndRoleName="LuckyMeAPI"
+            targetEndRoleName="Verification"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="9884cdab-501f-4243-b033-f410eeb69394"
+              LastKnownName="Validation"
+              LastKnownLocation="LuckyMe.CMS.Modeling.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="d28a140a-1d46-47fe-bb45-7b7cd0b6b74a"
+                  name="LuckyMeAPI"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="695d765c-9651-4195-834f-502ffab2f10f"
+                  name="Verification"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="d7a30702-bc83-4c3a-8fa4-98fa2f4a3f67"
+            isDerived="false"
+            sourceEndRoleName="LuckyMeAPI"
+            targetEndRoleName="Delete User"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="3bcda920-16c9-441e-b01f-bca05c018067"
+              LastKnownName="Get Access Token"
+              LastKnownLocation="LuckyMe.CMS.Modeling.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="5226c0ec-3e1c-458f-8ae9-6a473c18e752"
+                  name="LuckyMeAPI"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="b5df2be4-2244-4e4d-9b65-c57c299f48c5"
+                  name="Delete User"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="19c0594f-ca56-46d2-afff-3ea1ddd7bad1"
+            isDerived="false"
+            sourceEndRoleName="LuckyMeAPI1"
+            targetEndRoleName="Request content"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="1db85ba4-78ca-4bf2-9186-748ec5d5cd98"
+              LastKnownName="Get Content"
+              LastKnownLocation="LuckyMe.CMS.Modeling.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="d5b1332a-e445-4ca2-910b-15b88064adc1"
+                  name="LuckyMeAPI1"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="542cd950-4f30-4b27-950d-c7532dbcd650"
+                  name="Request content"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="a62154e7-b856-4e28-b3b6-3a20a63d9ade"
+            isDerived="false"
+            sourceEndRoleName="LuckyMeAPI"
+            targetEndRoleName="Get content"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="ac5fb8a4-3254-4fbb-90fd-ef76c7163701"
+              LastKnownName="Get content"
+              LastKnownLocation="LuckyMe.CMS.Modeling.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="dcf096cd-53ac-4074-a980-1f239b308dfc"
+                  name="LuckyMeAPI"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="92e2b059-13fe-487c-9f90-d30e69422e19"
+                  name="Get content"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+      </actor>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="3bcda920-16c9-441e-b01f-bca05c018067"
+        name="Get Access Token"
+        isAbstract="false"
+        isLeaf="false">
+        <targetEnds>
+          <association
+            Id="76463ca8-9144-4ffc-8901-0c9a03fb4430"
+            isDerived="false"
+            sourceEndRoleName="Delete User"
+            targetEndRoleName="LuckyMe Database"
+            isLeaf="false"
+            isAbstract="false">
+            <actorMoniker
+              Id="29abaa2d-d1d1-4fec-bc7f-121baaf22e9e"
+              LastKnownName="LuckyMe Database"
+              LastKnownLocation="LuckyMe.CMS.Modeling.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="90806fc7-19c7-4c95-9772-040b89c6bfc9"
+                  name="Delete User"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="b3d10bc9-8888-43a1-a753-2ea287a4385d"
+                  name="LuckyMe Database"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <actor
+        Id="6955fa7e-68cf-465e-8336-f86d5b86b655"
+        name="Facebook External1"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="1db85ba4-78ca-4bf2-9186-748ec5d5cd98"
+        name="Get Content"
+        isAbstract="false"
+        isLeaf="false">
+        <targetEnds>
+          <association
+            Id="67bdad94-c953-45b4-b763-6d08d52f95f9"
+            isDerived="false"
+            sourceEndRoleName="Get Access Token "
+            targetEndRoleName="Facebook External"
+            isLeaf="false"
+            isAbstract="false">
+            <actorMoniker
+              Id="6955fa7e-68cf-465e-8336-f86d5b86b655"
+              LastKnownName="Facebook External1"
+              LastKnownLocation="LuckyMe.CMS.Modeling.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="c6f4c758-b298-4749-8027-131d7a10ce51"
+                  name="Get Access Token "
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="d6b25a87-149e-4e05-8b48-a12251536ac8"
+                  name="Facebook External"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="e61da3d8-06d1-48b0-8901-e3b7f07a755c"
+        name="Request content11"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="ac5fb8a4-3254-4fbb-90fd-ef76c7163701"
+        name="Get content"
+        isAbstract="false"
+        isLeaf="false">
+        <targetEnds>
+          <association
+            Id="d5652790-9a0c-4384-9598-19fc7c639f9f"
+            isDerived="false"
+            sourceEndRoleName="Get content"
+            targetEndRoleName="Facebook External"
+            isLeaf="false"
+            isAbstract="false">
+            <actorMoniker
+              Id="84e49373-4e78-4e9f-aa22-9b0a7443aca1"
+              LastKnownName="LuckyMe Blob"
+              LastKnownLocation="LuckyMe.CMS.Modeling.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="3eb5d2ab-0667-4fcc-b5f1-4b3705e2a3ce"
+                  name="Get content"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="787aa539-054a-4055-b4d7-fcdd67196df9"
+                  name="Facebook External"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <actor
+        Id="84e49373-4e78-4e9f-aa22-9b0a7443aca1"
+        name="LuckyMe Blob"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <actor
+        Id="568c6f12-8bfb-4a34-a5c3-f984f99fd327"
+        name="User"
+        isAbstract="false"
+        isLeaf="false">
+        <targetEnds>
+          <association
+            Id="182cf860-fc71-467f-9667-c832a4d0edb9"
+            isDerived="false"
+            sourceEndRoleName="User"
+            targetEndRoleName="Logout"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="1619b1f7-0b6c-4d91-9d0a-e8084735d8e4"
+              LastKnownName="Logout"
+              LastKnownLocation="LuckyMe.CMS.Modeling.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="a89dfeaf-1355-4595-bb03-2483fdd1b2d9"
+                  name="User"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="83e34a33-4ad0-4010-afff-3ee7a5dd5004"
+                  name="Logout"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+      </actor>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="1619b1f7-0b6c-4d91-9d0a-e8084735d8e4"
+        name="Logout"
+        isAbstract="false"
+        isLeaf="false">
+        <targetEnds>
+          <association
+            Id="f80980f2-34c5-4f58-be32-cd2797028e41"
+            isDerived="false"
+            sourceEndRoleName="Logout"
+            targetEndRoleName="Validation"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="76c0bbca-62b7-443f-8d14-629600dc0cf5"
+              LastKnownName="Validation"
+              LastKnownLocation="LuckyMe.CMS.Modeling.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="dce19979-a9c8-4013-aa48-da66139affc5"
+                  name="Logout"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="e34fa423-4a48-4869-9b00-4f0ae2568d6c"
+                  name="Validation"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="76c0bbca-62b7-443f-8d14-629600dc0cf5"
+        name="Validation"
+        isAbstract="false"
+        isLeaf="false">
+        <targetEnds>
+          <association
+            Id="d308d4f5-f6eb-4bc6-a783-cef8597cdd86"
+            isDerived="false"
+            sourceEndRoleName="Validation"
+            targetEndRoleName="Clear Session"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="d7adf8f9-495b-4545-bd24-81053f763903"
+              LastKnownName="Clear Session"
+              LastKnownLocation="LuckyMe.CMS.Modeling.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="6e496e2e-b4ad-4e5e-849a-9a83062992cc"
+                  name="Validation"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="989253a3-0094-45d0-9747-50d578312f54"
+                  name="Clear Session"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="d7adf8f9-495b-4545-bd24-81053f763903"
+        name="Clear Session"
+        isAbstract="false"
+        isLeaf="false">
+        <targetEnds>
+          <association
+            Id="9cbbb2b4-8764-433f-92e4-a80a04e44543"
+            isDerived="false"
+            sourceEndRoleName="Clear Session"
+            targetEndRoleName="Redirect user"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="5a04c6b7-4afc-4293-8332-81b9fe85ac4b"
+              LastKnownName="Redirect user"
+              LastKnownLocation="LuckyMe.CMS.Modeling.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="5228f26b-0f7d-4d8b-bb4f-822318fba45a"
+                  name="Clear Session"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="bd988878-5692-47ee-8a50-b2e89973d686"
+                  name="Redirect user"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="5a04c6b7-4afc-4293-8332-81b9fe85ac4b"
+        name="Redirect user"
+        isAbstract="false"
+        isLeaf="false">
+        <targetEnds>
+          <association
+            Id="1dc835b6-e597-4cd3-9cad-3f5b11b6d903"
+            isDerived="false"
+            sourceEndRoleName="Redirect user"
+            targetEndRoleName="User"
+            isLeaf="false"
+            isAbstract="false">
+            <actorMoniker
+              Id="568c6f12-8bfb-4a34-a5c3-f984f99fd327"
+              LastKnownName="User"
+              LastKnownLocation="LuckyMe.CMS.Modeling.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="bbc8502a-1505-4b7f-82a1-5eaf88dc1dae"
+                  name="Redirect user"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="0ef8e5ea-1a1d-4cf7-93da-963431614038"
+                  name="User"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="b6c94dcb-661e-49f2-b7f0-a022e43beb4f"
+        name="Update"
+        isAbstract="false"
+        isLeaf="false">
+        <targetEnds>
+          <association
+            Id="a00ca912-0fc9-4586-bfe8-154947b49afb"
+            isDerived="false"
+            sourceEndRoleName="Update"
+            targetEndRoleName="Validation"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="8ad5896c-225b-43cf-897c-db5e4d2c554c"
+              LastKnownName="Validation"
+              LastKnownLocation="LuckyMe.CMS.Modeling.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="24882235-32d9-4996-9c63-2a137710fd95"
+                  name="Update"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="a26f155e-82f7-428c-a044-e504de2ce547"
+                  name="Validation"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <actor
+        Id="05ba3a33-ca81-45bb-8c08-28fad8970fca"
+        name="User"
+        isAbstract="false"
+        isLeaf="false">
+        <targetEnds>
+          <association
+            Id="fbaff871-875a-4cc2-bc3d-a149ebc96351"
+            isDerived="false"
+            sourceEndRoleName="User"
+            targetEndRoleName="Update"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="b6c94dcb-661e-49f2-b7f0-a022e43beb4f"
+              LastKnownName="Update"
+              LastKnownLocation="LuckyMe.CMS.Modeling.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="d6183da2-906c-4cd9-888a-109b0ec6ae5c"
+                  name="User"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="9dc2905d-65de-47cd-b74d-f817dc8950d7"
+                  name="Update"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="5a28517d-8815-4f1a-bd17-333ad6114215"
+            isDerived="false"
+            sourceEndRoleName="User"
+            targetEndRoleName="Get blob content"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="b2c6c882-8234-49e5-a8b3-3a9e2570a5ff"
+              LastKnownName="Get blob content"
+              LastKnownLocation="LuckyMe.CMS.Modeling.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="43201c1b-b9bf-49ee-9829-62df8c71934f"
+                  name="User"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="efaee5ee-94ea-4770-bfff-74f6ccf004e9"
+                  name="Get blob content"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="56fdb704-444c-4eaf-88dc-8e28d68e5d5f"
+            isDerived="false"
+            sourceEndRoleName="User"
+            targetEndRoleName="Delete"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="9069f19a-2895-4b9c-a613-fd0ba61fde74"
+              LastKnownName="Delete"
+              LastKnownLocation="LuckyMe.CMS.Modeling.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="e8c16600-81d6-42c5-bdba-7286e38c6503"
+                  name="User"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="1771ce86-dfd2-4554-bff1-e79a537fd210"
+                  name="Delete"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+      </actor>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="b2c6c882-8234-49e5-a8b3-3a9e2570a5ff"
+        name="Get blob content"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="9069f19a-2895-4b9c-a613-fd0ba61fde74"
+        name="Delete"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="8ad5896c-225b-43cf-897c-db5e4d2c554c"
+        name="Validation"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <actor
+        Id="ca88f811-d4ba-4a32-88f8-2e05ffe7e25a"
+        name="WebAPI"
+        isAbstract="false"
+        isLeaf="false">
+        <targetEnds>
+          <association
+            Id="4c397cd3-90f6-4487-97a2-7e4ca1b9a430"
+            isDerived="false"
+            sourceEndRoleName="WebAPI"
+            targetEndRoleName="Validation"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="8ad5896c-225b-43cf-897c-db5e4d2c554c"
+              LastKnownName="Validation"
+              LastKnownLocation="LuckyMe.CMS.Modeling.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="ecc6dedc-adec-4de6-81c9-75d5e1ae6ec6"
+                  name="WebAPI"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="8ffa171d-3f78-4d2d-8f0b-673ba05ed297"
+                  name="Validation"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="a4363e96-c296-440e-9a30-55c6d1a0b42a"
+            isDerived="false"
+            sourceEndRoleName="WebAPI"
+            targetEndRoleName="Perform Operation"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="06c7af8d-b5ca-4676-b679-4b26806aa316"
+              LastKnownName="Perform Operation"
+              LastKnownLocation="LuckyMe.CMS.Modeling.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="197e8311-6114-4d40-8cad-4345dbb05456"
+                  name="WebAPI"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="5105fe52-214d-489e-9d89-e72973f04143"
+                  name="Perform Operation"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+      </actor>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <actor
+        Id="b45d5375-226c-4bc2-b243-a0b92ff1a3b7"
+        name="Blob storage"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="06c7af8d-b5ca-4676-b679-4b26806aa316"
+        name="Perform Operation"
+        isAbstract="false"
+        isLeaf="false">
+        <targetEnds>
+          <association
+            Id="ad456276-a6b0-4fdb-abad-f9740d4ff71b"
+            isDerived="false"
+            sourceEndRoleName="Perform Operation"
+            targetEndRoleName="Blob storage"
+            isLeaf="false"
+            isAbstract="false">
+            <actorMoniker
+              Id="b45d5375-226c-4bc2-b243-a0b92ff1a3b7"
+              LastKnownName="Blob storage"
+              LastKnownLocation="LuckyMe.CMS.Modeling.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="3ae7054a-b618-4146-b73b-4b9ee281e623"
+                  name="Perform Operation"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="1cd7456c-3432-4e6b-ada0-2e682c10e8f9"
+                  name="Blob storage"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+      </useCase>
+    </packageHasNamedElement>
+  </packagedElements>
+  <primitiveType
+    Id="220a3521-e091-4221-bae9-3ef9018e845c"
+    name="Integer"
+    isAbstract="false"
+    isLeaf="false" />
+  <primitiveType
+    Id="8943dc84-709e-4f62-b15a-a3273aa6f165"
+    name="Boolean"
+    isAbstract="false"
+    isLeaf="false" />
+  <primitiveType
+    Id="59259974-6d55-42c6-b7bd-763d77ac8ef9"
+    name="String"
+    isAbstract="false"
+    isLeaf="false" />
+  <primitiveType
+    Id="3ab42e7d-4969-445a-b209-471f5cb8209c"
+    name="UnlimitedNatural"
+    isAbstract="false"
+    isLeaf="false" />
+</modelStoreModel>

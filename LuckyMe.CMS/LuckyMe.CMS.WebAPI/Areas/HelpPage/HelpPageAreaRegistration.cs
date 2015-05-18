@@ -1,6 +1,5 @@
 using System.Web.Http;
 using System.Web.Mvc;
-using LuckyMe.CMS.WebAPI.Areas.HelpPage.App_Start;
 
 namespace LuckyMe.CMS.WebAPI.Areas.HelpPage
 {

@@ -1,7 +1,7 @@
 ﻿using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
-using LuckyMe.CMS.Web.Clients;
+using LuckyMe.CMS.Web.ClientHelpers;
 using LuckyMe.CMS.Web.Models;
 
 namespace LuckyMe.CMS.Web.Filters

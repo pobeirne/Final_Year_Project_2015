@@ -5,6 +5,7 @@
     background: url("../Content/Images/black_background_1.png") repeat scroll 0% 0% transparent;
 }
 
+
 .x-body {
     background: url("../Content/Images/black_background_1.png") repeat scroll 0% 0% transparent;
 }
@@ -44,6 +45,7 @@ textarea {
     padding: 20px;
     min-height: 85%;
     overflow: hidden;
+    margin-top: 70px;
 }
 
 .glyphicon { margin-right:10px; }
@@ -65,3 +67,5 @@ textarea {
      color: #32cd32;
      font-weight: bold;
  }
+
+

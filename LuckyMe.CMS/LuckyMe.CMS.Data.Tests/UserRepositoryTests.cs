@@ -61,40 +61,40 @@ namespace LuckyMe.CMS.Data.Tests
         [TestMethod]
         public void InsertUserClaimAsync()
         {
-            var claim = new UserClaimDto
-            {
-                ClaimType = "FaceBook_Data",
-                ClaimValue = "Test1",
-                UserId = TestUserId
-            };
-            var result = _repository.InsertUserClaimAsync(claim).Result;
-            Trace.TraceInformation(" \n Result   : {0} \n,", result);
+            //var claim = new UserClaimDto
+            //{
+            //    ClaimType = "FaceBook_Data",
+            //    ClaimValue = "Test1",
+            //    UserId = TestUserId
+            //};
+            //var result = _repository.InsertUserClaimAsync(claim).Result;
+            //Trace.TraceInformation(" \n Result   : {0} \n,", result);
         }
 
         [TestMethod]
         public void UpdateUserClaimAsync()
         {
-            var claim = new UserClaimDto
-            {
-                ClaimType = "FaceBook_Data",
-                ClaimValue = "Test1",
-                UserId = TestUserId
-            };
-            var result = _repository.UpdateUserClaimAsync(claim).Result;
-            Trace.TraceInformation(" \n Result   : {0} \n,", result);
+            //var claim = new UserClaimDto
+            //{
+            //    ClaimType = "FaceBook_Data",
+            //    ClaimValue = "Test1",
+            //    UserId = TestUserId
+            //};
+            //var result = _repository.UpdateUserClaimAsync(claim).Result;
+            //Trace.TraceInformation(" \n Result   : {0} \n,", result);
         }
 
         [TestMethod]
         public void DeleteUserClaimAsync()
         {
-            var claim = new UserClaimDto
-            {
-                ClaimType = "FaceBook_Data",
-                ClaimValue = "Test1",
-                UserId = TestUserId
-            };
-            var result = _repository.DeleteUserClaimAsync(claim).Result;
-            Trace.TraceInformation(" \n Result   : {0} \n,", result);
+            //var claim = new UserClaimDto
+            //{
+            //    ClaimType = "FaceBook_Data",
+            //    ClaimValue = "Test1",
+            //    UserId = TestUserId
+            //};
+            //var result = _repository.DeleteUserClaimAsync(claim).Result;
+            //Trace.TraceInformation(" \n Result   : {0} \n,", result);
         }
 
 

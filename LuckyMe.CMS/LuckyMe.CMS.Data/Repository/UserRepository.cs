@@ -18,7 +18,7 @@ namespace LuckyMe.CMS.Data.Repository
         public async Task<IQueryable<UserAccountDto>> GetAllUsersAsync()
         {
             var users = await _context.AspNetUsers.ToListAsync();
-
+            
             var userList = users.Select(user => new UserAccountDto
             {
                 Id = user.Id,
@@ -59,64 +59,64 @@ namespace LuckyMe.CMS.Data.Repository
             return user;
         }
 
-        public async Task<bool> InsertUserClaimAsync(UserClaimDto entry)
-        {
-            try
-            {
-                var record = _context.AspNetUserClaims.Create();
-                record.UserId = entry.UserId;
-                record.ClaimType = entry.ClaimType;
-                record.ClaimValue = entry.ClaimValue;
-                _context.AspNetUserClaims.Add(record);
-                return await SaveAllAsync();
-            }
-            catch
-            {
-                return false;
-            }
-        }
+        //public async Task<bool> InsertUserClaimAsync(UserClaimDto entry)
+        //{
+        //    try
+        //    {
+        //        var record = _context.AspNetUserClaims.Create();
+        //        record.UserId = entry.UserId;
+        //        record.ClaimType = entry.ClaimType;
+        //        record.ClaimValue = entry.ClaimValue;
+        //        _context.AspNetUserClaims.Add(record);
+        //        return await SaveAllAsync();
+        //    }
+        //    catch
+        //    {
+        //        return false;
+        //    }
+        //}
 
-        public async Task<bool> UpdateUserClaimAsync(UserClaimDto entry)
-        {
-            try
-            {
-                var claim = await _context.AspNetUserClaims.FirstOrDefaultAsync(x =>
-                    x.UserId == entry.UserId && x.ClaimType == entry.ClaimType);
+        //public async Task<bool> UpdateUserClaimAsync(UserClaimDto entry)
+        //{
+        //    try
+        //    {
+        //        var claim = await _context.AspNetUserClaims.FirstOrDefaultAsync(x =>
+        //            x.UserId == entry.UserId && x.ClaimType == entry.ClaimType);
 
-                if (claim != null)
-                {
-                    claim.ClaimValue = entry.ClaimValue;
-                    _context.AspNetUserClaims.Attach(claim);
-                    return await SaveAllAsync();
-                }
-                return false;
-            }
-            catch
-            {
-                return false;
-            }
-        }
+        //        if (claim != null)
+        //        {
+        //            claim.ClaimValue = entry.ClaimValue;
+        //            _context.AspNetUserClaims.Attach(claim);
+        //            return await SaveAllAsync();
+        //        }
+        //        return false;
+        //    }
+        //    catch
+        //    {
+        //        return false;
+        //    }
+        //}
 
-        public async Task<bool> DeleteUserClaimAsync(UserClaimDto entry)
-        {
-            try
-            {
-                var claim = await _context.AspNetUserClaims.FirstOrDefaultAsync(
-                    x =>
-                        x.UserId == entry.UserId && x.ClaimType == entry.ClaimType);
+        //public async Task<bool> DeleteUserClaimAsync(UserClaimDto entry)
+        //{
+        //    try
+        //    {
+        //        var claim = await _context.AspNetUserClaims.FirstOrDefaultAsync(
+        //            x =>
+        //                x.UserId == entry.UserId && x.ClaimType == entry.ClaimType);
 
-                if (claim != null)
-                {
-                    _context.AspNetUserClaims.Remove(claim);
-                    return await SaveAllAsync();
-                }
-                return false;
-            }
-            catch
-            {
-                return false;
-            }
-        }
+        //        if (claim != null)
+        //        {
+        //            _context.AspNetUserClaims.Remove(claim);
+        //            return await SaveAllAsync();
+        //        }
+        //        return false;
+        //    }
+        //    catch
+        //    {
+        //        return false;
+        //    }
+        //}
 
         public async Task<bool> DeleteUserAsync(UserAccountDto entry)
         {

@@ -1,0 +1,146 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<useCaseModelRoot xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" xmlns:dm9="http://schemas.microsoft.com/dsltools/LogicalClassDesigner" xmlns:dm10="http://schemas.microsoft.com/dsltools/SimpleShapesModel" dslVersion="1.0.0.0" Id="0de90755-96da-45d8-8907-233d97b9caf5" name="UMLUseCaseReq1" linkedPackageId="ee5b97c8-87f3-40be-a1b4-9d2e93525fb9" xmlns="http://schemas.microsoft.com/dsltools/UseCaseModel">
+  <profileInstances>
+    <packageHasProfileInstances Id="97e2a62d-d0b9-4e7a-9e46-1f6e2a4ee2bd">
+      <profileInstance Id="83e0371a-a261-45b1-820c-f3d5a3d15052" name="StandardProfileL2">
+        <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
+      </profileInstance>
+      <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
+    </packageHasProfileInstances>
+    <packageHasProfileInstances Id="a997e3a7-ae34-4301-a6bb-5769693f6ac8">
+      <profileInstance Id="ddd2f1d6-034e-4ff5-8c58-6cb8bd25f101" name="StandardProfileL3">
+        <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
+      </profileInstance>
+      <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
+    </packageHasProfileInstances>
+    <packageHasProfileInstances Id="f1fc9454-458a-4583-8d23-88a4c8cc7ec5">
+      <profileInstance Id="70ea39b3-2e9d-4123-aad3-d3a95006a71e" name="CSharpProfile">
+        <elementDefinition Id="de5f6bcb-e8b4-413a-a866-324734952ab1" />
+      </profileInstance>
+      <elementDefinition Id="d4cd7a08-5841-423d-afca-287dcb215946" />
+    </packageHasProfileInstances>
+  </profileInstances>
+  <packagedElements>
+    <useCaseModelRootHasTypes>
+      <actor Id="8801eb53-4a06-4463-9bce-33d62c055df1" name="User" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="46a3287e-0f28-4350-b142-e650733c97b4" />
+        <targetEnds>
+          <association Id="7dc62237-58b8-431a-ba57-9c5f4f04b45d" isDerived="false" sourceEndRoleName="User" targetEndRoleName="Registration" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="91736bb0-d28b-4842-8a83-f48463d00973" LastKnownName="Registration" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="e2f19f8b-10ee-4a51-ae2a-fc5aafbd48a7" name="User" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="4047d27f-23c9-43b4-b158-bf5d4d9a1797" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="d0615007-2c5f-42b9-abe3-3f4e3365f1ef" name="Registration" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="31d0481e-d1f4-42a7-9dc6-643107610f5c" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="3072f55d-689c-43ac-a28b-c1c0f67eb018" />
+          </association>
+        </targetEnds>
+      </actor>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="91736bb0-d28b-4842-8a83-f48463d00973" name="Registration" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="6bdab4cb-4e48-4037-a6fc-f1f2a48bc59a" />
+        <targetEnds>
+          <association Id="827f2cc7-bd8c-4099-a6c3-ffd4d8eab344" isDerived="false" sourceEndRoleName="Registration" targetEndRoleName="Validation" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="a73191a0-4a2f-431e-a865-8b1abea41bf7" LastKnownName="Validation" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="f1492700-d35d-46c7-b424-24aea0467a49" name="Registration" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="5bf0b09c-a3ec-42a3-9736-c668b9e1eddd" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="123f2b69-7227-4de4-b931-03481bfe569e" name="Validation" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="3277e17e-0878-4120-a588-a5f14a78258b" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="3aacdc72-fc82-443c-bcf4-f0766bd9e5ea" />
+          </association>
+        </targetEnds>
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="a73191a0-4a2f-431e-a865-8b1abea41bf7" name="Validation" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="b62f6d62-c0fb-4281-9e4d-fe02bb930b0d" />
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <actor Id="6a425046-d3a7-40b7-a842-856224fc5ef1" name="LuckyMeAPI" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="5820fe19-05dc-41de-be32-84c9c0122b21" />
+        <targetEnds>
+          <association Id="6e949232-2e36-4485-9261-7586c7816952" isDerived="false" sourceEndRoleName="LuckyMeAPI" targetEndRoleName="Validation" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="a73191a0-4a2f-431e-a865-8b1abea41bf7" LastKnownName="Validation" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="68a50f95-817c-4202-b82a-776a2229e98b" name="LuckyMeAPI" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="e83c8751-8e2d-48a9-906f-b779818aa770" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="0a6bc30d-ad80-42c7-93c5-40c0bf59ab11" name="Validation" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="00445542-0238-40f3-9d9c-7499f0a7079e" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="37a17ef6-1e35-4c38-8eb8-42462e57c13d" />
+          </association>
+          <association Id="30234de9-9899-4e7f-a344-fa019d1b776f" isDerived="false" sourceEndRoleName="LuckyMeAPI" targetEndRoleName="Create User" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="43a90229-33dc-4b9a-96db-c9138928b86a" LastKnownName="Create User" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="0421675b-e2ac-477a-a17b-7c04319d2c88" name="LuckyMeAPI" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="cb57361e-7b6a-4f1a-9507-2ab41ca280b2" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="b8221a6b-3b09-4078-b85a-cff256957270" name="Create User" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="d5912a0e-ae84-402c-8809-32b2db0052e5" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="880b6b40-6e76-449d-a378-96419ffd9eef" />
+          </association>
+        </targetEnds>
+      </actor>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <actor Id="b614aa7a-cfa3-4c21-9461-a41d664faf50" name="LuckyMe Database" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="c939a13f-8e61-4283-98df-d5829e82600d" />
+      </actor>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="43a90229-33dc-4b9a-96db-c9138928b86a" name="Create User" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="31119875-56bf-4616-bc6b-0da33c9a181f" />
+        <targetEnds>
+          <association Id="54c2eebe-6ec7-4cac-95ae-f9a17e2563d2" isDerived="false" sourceEndRoleName="Create User" targetEndRoleName="LuckyMe Database" isLeaf="false" isAbstract="false">
+            <actorMoniker Id="b614aa7a-cfa3-4c21-9461-a41d664faf50" LastKnownName="LuckyMe Database" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="3907dcd2-2758-4f0d-a1ae-5405fa9bfd2a" name="Create User" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="a70f9c42-1493-4ddc-840b-1880e96295c5" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="f44bfea2-fe9c-430f-bfb0-2727757f0ea2" name="LuckyMe Database" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="219635ee-29b1-4ea1-b814-3234ed44a5eb" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="f522ac93-26f6-4936-82ff-1340bec5fd74" />
+          </association>
+        </targetEnds>
+      </useCase>
+    </useCaseModelRootHasTypes>
+  </packagedElements>
+  <package Id="ee5b97c8-87f3-40be-a1b4-9d2e93525fb9" name="LuckyMe.CMS.Modeling">
+    <elementDefinition Id="efe78246-c106-4210-afc0-1c02703fafbf" />
+  </package>
+</useCaseModelRoot>

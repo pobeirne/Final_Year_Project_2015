@@ -8,15 +8,15 @@
     <title>@ViewBag.Title - My ASP.NET Application</title>
     @Scripts.Render("~/bundles/modernizr")
 
-    <script src="~/Sencha/library/ext-all.js"></script>
+    <script src="~/Sencha/library/ext-all-dev.js"></script>
     <link href="~/Sencha/library/resources/css/ext-all-neptune.css" rel="stylesheet"/>
+    <link href="~/Sencha/library/resources/css/example.css" rel="stylesheet" />
     @Styles.Render("~/Content/css")
     @RenderSection("extjs", required: false)
 
 </head>
 <body>
 @Html.Partial("_TopNavbar")
-<div class="push"></div>
 <div class="container maincontent">
     <div class="row">
         <div class="col-lg-3 col-md-3 col-sm-12">

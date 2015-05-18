@@ -2,17 +2,21 @@
 // package to your project.
 ////#define Handle_PageResultOfT
 
+using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Diagnostics.CodeAnalysis;
+using System.Linq;
 using System.Net.Http.Headers;
+using System.Reflection;
+using System.Web;
 using System.Web.Http;
-using LuckyMe.CMS.WebAPI.Models;
-
 #if Handle_PageResultOfT
 using System.Web.Http.OData;
 #endif
 
-namespace LuckyMe.CMS.WebAPI.Areas.HelpPage.App_Start
+namespace LuckyMe.CMS.WebAPI.Areas.HelpPage
 {
     /// <summary>
     /// Use this class to customize the Help Page.
@@ -55,7 +59,6 @@ namespace LuckyMe.CMS.WebAPI.Areas.HelpPage.App_Start
                 new TextSample("Binary JSON content. See http://bsonspec.org for details."),
                 new MediaTypeHeaderValue("application/bson"));
 
-   
             //// Uncomment the following to use "[0]=foo&[1]=bar" directly as the sample for all actions that support form URL encoded format
             //// and have IEnumerable<string> as the body parameter or return type.
             //config.SetSampleForType("[0]=foo&[1]=bar", new MediaTypeHeaderValue("application/x-www-form-urlencoded"), typeof(IEnumerable<string>));

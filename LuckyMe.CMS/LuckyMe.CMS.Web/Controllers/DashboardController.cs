@@ -1,10 +1,13 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using System.Web.Mvc;
+using LuckyMe.CMS.Common.Models;
 using LuckyMe.CMS.Common.Models.ViewModels;
-using LuckyMe.CMS.Web.Clients;
+using LuckyMe.CMS.Web.ClientHelpers;
 using LuckyMe.CMS.Web.Filters;
 using LuckyMe.CMS.Web.Models;
+using Newtonsoft.Json;
 
 namespace LuckyMe.CMS.Web.Controllers
 {
@@ -13,12 +16,7 @@ namespace LuckyMe.CMS.Web.Controllers
     {
         private UserSession _curruser;
         private readonly LuckyMeClient _client;
-
-        private const string Imageurl =
-            "https://scontent.xx.fbcdn.net/hphotos-xpa1/t31.0-8/s720x720/11194399_381709425362550_2413106543090888216_o.jpg";
-
-        private const string Videourl = "https://fbcdn-video-k-a.akamaihd.net/hvideo-ak-xpt1/v/t43.1792-2/11152976_381730802027079_2061118313_n.mp4?efg=eyJybHIiOjE1MDAsInJsYSI6MTAyNCwidmVuY29kZV90YWciOiJsZWdhY3lfaGQifQ%3D%3D&rl=1500&vabr=490&oh=77f53363cbd3497cc6289a0e6bda434b&oe=55507CA1&__gda__=1431337647_804e7336dd24458e0a2920d6b871726f";
-
+        
         public DashboardController()
         {
             _curruser = new UserSession();
@@ -121,24 +119,60 @@ namespace LuckyMe.CMS.Web.Controllers
 
             //});
 
+
+            //var files = await _client.GetAllBlobFilesAsync();
+
             var overview = await _client.GetUserOverviewAsync();
             return View(overview);
         }
 
-        public async Task<ActionResult> UserProfile()
+        //public async Task<ActionResult> UserProfile()
+        //{
+        //    _curruser = (UserSession) Session["UserSession"];
+        //    _client.AccessToken = _curruser.Token;
+        //    UserProfileViewModel profile = await _client.GetUserProfileAsync();
+        //    return View(profile);
+        //}
+
+        //public async Task<ActionResult> UserAccount()
+        //{
+        //    _curruser = (UserSession) Session["UserSession"];
+        //    _client.AccessToken = _curruser.Token;
+        //    AccountViewModel account = await _client.GetUserAccountAsync();
+        //    return View(account);
+        //}
+
+
+        public ActionResult ShowFaceBookVideoGrid()
         {
-            _curruser = (UserSession) Session["UserSession"];
+            return View();
+        }
+        
+
+        //GetAllFaceBookVideosAsync
+        public async Task<ActionResult> GetAllFaceBookVideosAsync(int page, int limit, string sort, string filter, int start = 0)
+        {
+            //Authentication 
+            _curruser = (UserSession)Session["UserSession"];
             _client.AccessToken = _curruser.Token;
-            ProfileViewModel profile = await _client.GetUserProfileAsync();
-            return View(profile);
+
+            //Get data
+            var model = await _client.GetAllVideosAsync();
+
+            //Get data count
+            var totalCount = model.Count;
+
+            var sorts = JsonConvert.DeserializeObject<List<Sorting>>(sort);
+            var filters = JsonConvert.DeserializeObject<List<Filtering>>(sort);
+
+            var dir = sorts[0].Direction;
+            var prop = sorts[0].Property;
+            
+            //Some validation needed
+
+            //Return data
+            return Json(new { success = true, data = model.Skip(start).Take(limit), totalCount }, JsonRequestBehavior.AllowGet);
         }
 
-        public async Task<ActionResult> UserAccount()
-        {
-            _curruser = (UserSession) Session["UserSession"];
-            _client.AccessToken = _curruser.Token;
-            AccountViewModel account = await _client.GetUserAccountAsync();
-            return View(account);
-        }
     }
 }

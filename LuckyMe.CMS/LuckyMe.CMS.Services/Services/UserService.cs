@@ -25,34 +25,34 @@ namespace LuckyMe.CMS.Service.Services
             return await _respository.GetUserByIdAsync(id);
         }
 
-        public async Task<bool> InsertUserClaimAsync(UserClaimDto claim)
-        {
-            var user = await GetUserByIdAsync(claim.UserId);
-            if (user == null) return false;
+        //public async Task<bool> InsertUserClaimAsync(UserClaimDto claim)
+        //{
+        //    var user = await GetUserByIdAsync(claim.UserId);
+        //    if (user == null) return false;
 
-            if (user.UserClaims.Exists(x => x.ClaimType == claim.ClaimType))
-            {
-                await _respository.UpdateUserClaimAsync(claim);
-                return await _respository.SaveAllAsync();
-            }
-            if (await _respository.InsertUserClaimAsync(claim))
-            {
-                return await _respository.SaveAllAsync();
-            }
-            return false;
-        }
+        //    if (user.UserClaims.Exists(x => x.ClaimType == claim.ClaimType))
+        //    {
+        //        await _respository.UpdateUserClaimAsync(claim);
+        //        return await _respository.SaveAllAsync();
+        //    }
+        //    if (await _respository.InsertUserClaimAsync(claim))
+        //    {
+        //        return await _respository.SaveAllAsync();
+        //    }
+        //    return false;
+        //}
 
-        public async Task<bool> UpdateUserClaimAsync(UserClaimDto claim)
-        {
-            if (!await _respository.UpdateUserClaimAsync(claim)) return false;
-            return await _respository.SaveAllAsync();
-        }
+        //public async Task<bool> UpdateUserClaimAsync(UserClaimDto claim)
+        //{
+        //    if (!await _respository.UpdateUserClaimAsync(claim)) return false;
+        //    return await _respository.SaveAllAsync();
+        //}
 
-        public async Task<bool> DeleteUserClaimAsync(UserClaimDto claim)
-        {
-            if (!await _respository.DeleteUserClaimAsync(claim)) return false;
-            return await _respository.SaveAllAsync();
-        }
+        //public async Task<bool> DeleteUserClaimAsync(UserClaimDto claim)
+        //{
+        //    if (!await _respository.DeleteUserClaimAsync(claim)) return false;
+        //    return await _respository.SaveAllAsync();
+        //}
 
         public async Task<bool> DeleteUserAsync(UserAccountDto user)
         {

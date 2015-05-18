@@ -1,0 +1,114 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<useCaseDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 15.5, 12.75" name="UMLUseCaseReq5">
+  <useCaseModelRootMoniker Id="88a70402-145d-4b36-9a91-adabbaef0ae5" />
+  <nestedChildShapes>
+    <actorShape Id="0b7f79e5-3ab5-4763-af69-7795f6d512a1" absoluteBounds="7.25, 10.25, 0.5, 0.5" isReference="false" heightOffset="0">
+      <actorMoniker Id="0e651c9d-1a5d-480e-bfba-cb370979896c" LastKnownName="User" />
+      <relativeChildShapes />
+    </actorShape>
+    <useCaseShape Id="20398e66-1e79-48d3-add4-6a85986dcc9b" absoluteBounds="8.875, 9.375, 1, 0.5" customColor="238, 237, 131" heightOffset="0">
+      <useCaseMoniker Id="325d2844-fa91-4443-aac6-0a3d86d646b6" LastKnownName="Get Photos" />
+      <relativeChildShapes />
+    </useCaseShape>
+    <useCaseAssociationConnector edgePoints="[(7.75 : 10.3833333333333); (9.00947236587857 : 9.79557956259)]" fixedFrom="Algorithm" fixedTo="Algorithm" customColor="113, 111, 110" sourceMultiplicity="" targetMultiplicity="">
+      <associationMoniker Id="00b10040-7942-49c9-8ff9-ca7952dd3f8e" />
+      <relativeChildShapes />
+      <nodes>
+        <actorShapeMoniker Id="0b7f79e5-3ab5-4763-af69-7795f6d512a1" />
+        <useCaseShapeMoniker Id="20398e66-1e79-48d3-add4-6a85986dcc9b" />
+      </nodes>
+    </useCaseAssociationConnector>
+    <useCaseShape Id="b343d1c7-4434-425e-ac02-580e40f53b34" absoluteBounds="8.875, 10.25, 1, 0.5" customColor="238, 237, 131" heightOffset="0">
+      <useCaseMoniker Id="2b730e96-1354-4581-bbd5-64f071d684a3" LastKnownName="Get Videos" />
+      <relativeChildShapes />
+    </useCaseShape>
+    <useCaseAssociationConnector edgePoints="[(7.75 : 10.5); (8.875 : 10.5)]" fixedFrom="Algorithm" fixedTo="Algorithm" customColor="113, 111, 110" sourceMultiplicity="" targetMultiplicity="">
+      <associationMoniker Id="4e7687e4-3257-4852-acef-4eb75ad188e8" />
+      <relativeChildShapes />
+      <nodes>
+        <actorShapeMoniker Id="0b7f79e5-3ab5-4763-af69-7795f6d512a1" />
+        <useCaseShapeMoniker Id="b343d1c7-4434-425e-ac02-580e40f53b34" />
+      </nodes>
+    </useCaseAssociationConnector>
+    <useCaseShape Id="9433c297-e921-4547-a7d9-06207d18f25f" absoluteBounds="10.75, 10.25, 1, 0.5" customColor="238, 237, 131" heightOffset="0">
+      <useCaseMoniker Id="40691d30-87b4-4065-984f-bac105b4b676" LastKnownName="Validation" />
+      <relativeChildShapes />
+    </useCaseShape>
+    <useCaseAssociationConnector edgePoints="[(9.74052763412143 : 9.79557956259); (10.8844723658786 : 10.32942043741)]" fixedFrom="Algorithm" fixedTo="Algorithm" customColor="113, 111, 110" sourceMultiplicity="" targetMultiplicity="">
+      <associationMoniker Id="aa74996d-5873-4520-b45e-93c7f818e71e" />
+      <relativeChildShapes />
+      <nodes>
+        <useCaseShapeMoniker Id="20398e66-1e79-48d3-add4-6a85986dcc9b" />
+        <useCaseShapeMoniker Id="9433c297-e921-4547-a7d9-06207d18f25f" />
+      </nodes>
+    </useCaseAssociationConnector>
+    <useCaseAssociationConnector edgePoints="[(9.875 : 10.5); (10.75 : 10.5)]" fixedFrom="Algorithm" fixedTo="Algorithm" customColor="113, 111, 110" sourceMultiplicity="" targetMultiplicity="">
+      <associationMoniker Id="ed5817f8-cf96-4f99-b15e-e2e7870ff317" />
+      <relativeChildShapes />
+      <nodes>
+        <useCaseShapeMoniker Id="b343d1c7-4434-425e-ac02-580e40f53b34" />
+        <useCaseShapeMoniker Id="9433c297-e921-4547-a7d9-06207d18f25f" />
+      </nodes>
+    </useCaseAssociationConnector>
+    <actorShape Id="d32e178c-1c42-4a2d-8faf-96fe91cfa2e1" absoluteBounds="14.5, 11.75, 0.5, 0.5" isReference="false" heightOffset="0">
+      <actorMoniker Id="99d49a15-12e1-4794-8694-1fc8fb452b3e" LastKnownName="LuckyMe Database" />
+      <relativeChildShapes />
+    </actorShape>
+    <actorShape Id="db9b13fa-e7b5-4bcd-ba35-7ac2a78036ba" absoluteBounds="12.75, 10.25, 0.5, 0.5" isReference="false" heightOffset="0">
+      <actorMoniker Id="e24dced0-fded-4757-a053-9c1eb7977e63" LastKnownName="LuckyMeAPI" />
+      <relativeChildShapes />
+    </actorShape>
+    <useCaseAssociationConnector edgePoints="[(12.75 : 10.5); (11.75 : 10.5)]" fixedFrom="Algorithm" fixedTo="Algorithm" customColor="113, 111, 110" sourceMultiplicity="" targetMultiplicity="">
+      <associationMoniker Id="0738a51a-9977-4e41-afa6-570d4fed867d" />
+      <relativeChildShapes />
+      <nodes>
+        <actorShapeMoniker Id="db9b13fa-e7b5-4bcd-ba35-7ac2a78036ba" />
+        <useCaseShapeMoniker Id="9433c297-e921-4547-a7d9-06207d18f25f" />
+      </nodes>
+    </useCaseAssociationConnector>
+    <useCaseShape Id="f9c292b7-f22b-451f-b072-51bbdfea81bd" absoluteBounds="14.25, 10.125, 1, 0.75" customColor="238, 237, 131" heightOffset="0">
+      <useCaseMoniker Id="bfa1bfcb-79a7-4ba7-8d97-59b0e72c36d7" LastKnownName="Get Access Token" />
+      <relativeChildShapes />
+    </useCaseShape>
+    <useCaseAssociationConnector edgePoints="[(14.75 : 10.875); (14.75 : 11.75)]" fixedFrom="Algorithm" fixedTo="Algorithm" customColor="113, 111, 110" sourceMultiplicity="" targetMultiplicity="">
+      <associationMoniker Id="1a036ffa-5bbd-4589-b7d2-92478d7a8d95" />
+      <relativeChildShapes />
+      <nodes>
+        <useCaseShapeMoniker Id="f9c292b7-f22b-451f-b072-51bbdfea81bd" />
+        <actorShapeMoniker Id="d32e178c-1c42-4a2d-8faf-96fe91cfa2e1" />
+      </nodes>
+    </useCaseAssociationConnector>
+    <useCaseAssociationConnector edgePoints="[(13.25 : 10.5); (14.25 : 10.5)]" fixedFrom="Algorithm" fixedTo="Algorithm" customColor="113, 111, 110" sourceMultiplicity="" targetMultiplicity="">
+      <associationMoniker Id="7c06bc3a-5fa3-4a5b-9987-2edcfd98f398" />
+      <relativeChildShapes />
+      <nodes>
+        <actorShapeMoniker Id="db9b13fa-e7b5-4bcd-ba35-7ac2a78036ba" />
+        <useCaseShapeMoniker Id="f9c292b7-f22b-451f-b072-51bbdfea81bd" />
+      </nodes>
+    </useCaseAssociationConnector>
+    <actorShape Id="e82f5299-431c-4708-ad79-26f9b6670ff8" absoluteBounds="14.5, 8.375, 0.5, 0.5" isReference="false" heightOffset="0">
+      <actorMoniker Id="85aaab29-98d8-4cf5-9f6c-e544b0b1a203" LastKnownName="Facebook External" />
+      <relativeChildShapes />
+    </actorShape>
+    <useCaseShape Id="d4a7969a-600a-499c-86dd-ff79c89df094" absoluteBounds="12.5, 8.375, 1, 0.5" customColor="238, 237, 131" heightOffset="0">
+      <useCaseMoniker Id="e3275349-9fde-4caf-ac2a-6881fa72b1cc" LastKnownName="Request content" />
+      <relativeChildShapes />
+    </useCaseShape>
+    <useCaseAssociationConnector edgePoints="[(13.5 : 8.625); (14.5 : 8.625)]" fixedFrom="Algorithm" fixedTo="Algorithm" customColor="113, 111, 110" sourceMultiplicity="" targetMultiplicity="">
+      <associationMoniker Id="fcf1be13-d005-43e4-8f4f-88675c87c045" />
+      <relativeChildShapes />
+      <nodes>
+        <useCaseShapeMoniker Id="d4a7969a-600a-499c-86dd-ff79c89df094" />
+        <actorShapeMoniker Id="e82f5299-431c-4708-ad79-26f9b6670ff8" />
+      </nodes>
+    </useCaseAssociationConnector>
+    <useCaseAssociationConnector edgePoints="[(13 : 10.25); (13 : 8.875)]" fixedFrom="Algorithm" fixedTo="Algorithm" customColor="113, 111, 110" sourceMultiplicity="" targetMultiplicity="">
+      <associationMoniker Id="9a5787cf-4244-4c1c-b9d9-80cd944e7a49" />
+      <relativeChildShapes />
+      <nodes>
+        <actorShapeMoniker Id="db9b13fa-e7b5-4bcd-ba35-7ac2a78036ba" />
+        <useCaseShapeMoniker Id="d4a7969a-600a-499c-86dd-ff79c89df094" />
+      </nodes>
+    </useCaseAssociationConnector>
+  </nestedChildShapes>
+</useCaseDiagram>

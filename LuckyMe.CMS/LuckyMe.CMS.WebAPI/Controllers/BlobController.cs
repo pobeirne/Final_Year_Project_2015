@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Threading.Tasks;
@@ -6,8 +7,7 @@ using System.Web.Http;
 using LuckyMe.CMS.Common.Models;
 using LuckyMe.CMS.Common.Models.ViewModels;
 using LuckyMe.CMS.Service.Services.Interfaces;
-using LuckyMe.CMS.WebAPI.Models;
-using LuckyMe.CMS.WebAPI.Providers;
+using LuckyMe.CMS.WebAPI.Helpers;
 using Microsoft.AspNet.Identity;
 
 namespace LuckyMe.CMS.WebAPI.Controllers
@@ -34,36 +34,79 @@ namespace LuckyMe.CMS.WebAPI.Controllers
             _videoMime = "video/mp4";
         }
 
-        [AllowAnonymous]
-        [Route("GetAllBlobFiles")]
-        public async Task<IHttpActionResult> GetAllBlobFilesAsync()
+        #region Get
+
+        [Route("GetAllBlobPhotos")]
+        public async Task<IHttpActionResult> GetAllBlobPhotos()
         {
+           
+            var userid = FormatUserId(User.Identity.GetUserId());
+            if (userid == null) return BadRequest();
+
             //Get All photo albums
-            var albumlist1 = await _blobService.GetFileNamesInContainer("16cc730a6db4416c8f8ab8bad47f34ae/photos/");
+            var albumlist1 = await _blobService.GetFileNamesInContainer(userid + "/photos/");
+
+            var fileList = new List<FileInfoViewModel>();
+            foreach (var album in albumlist1)
+            {
+                fileList.AddRange(_blobService.GetAllAlbumFilesInfoAsync(userid, "photos", album).Result);
+            }
+            return Ok(fileList);
+        }
+
+
+        [Route("GetAllBlobVideos")]
+        public async Task<IHttpActionResult> GetAllBlobVideos()
+        {
+           
+                var userid = FormatUserId(User.Identity.GetUserId());
+                if (userid == null) return BadRequest();
+
+                //Get All photo albums
+                List<string> albumlist1 = await _blobService.GetFileNamesInContainer(userid + "/videos/");
+
+                List<FileInfoViewModel> fileList = new List<FileInfoViewModel>();
+                foreach (var album in albumlist1)
+                {
+                    fileList.AddRange(_blobService.GetAllAlbumFilesInfoAsync(userid, "videos", album).Result);
+                }
+           
+                return Ok(fileList);
+        }
+
+
+        [Route("GetAllBlobFiles")]
+        public async Task<IHttpActionResult> GetAllBlobFiles()
+        {
+            var userid = FormatUserId(User.Identity.GetUserId());
+            if (userid == null) return BadRequest();
+
+            //Get All photo albums
+            var albumlist1 = await _blobService.GetFileNamesInContainer(userid + "/photos/");
 
             var photoAlbumList = albumlist1.Select(album => new UserBlobFile()
             {
                 AlbumName = album,
-                AlbumType = "Photo",
-                AlbumFiles = _blobService.GetAllAlbumFilesInfoAsync("16cc730a6db4416c8f8ab8bad47f34ae", "photos", album).Result
+                AlbumType = "Photo"
             }).ToList();
 
 
             //Get All video albums
-            var albumlist2 = await _blobService.GetFileNamesInContainer("16cc730a6db4416c8f8ab8bad47f34ae/videos/");
+            var albumlist2 = await _blobService.GetFileNamesInContainer(userid + "/videos/");
 
             var videoAlbumList = albumlist2.Select(album => new UserBlobFile()
             {
                 AlbumName = album,
-                AlbumType = "Video",
-                AlbumFiles = _blobService.GetAllAlbumFilesInfoAsync("16cc730a6db4416c8f8ab8bad47f34ae", "videos", album).Result
+                AlbumType = "Video"
+               
             }).ToList();
-            
+
             var albumlist = photoAlbumList.Concat(videoAlbumList);
 
             return Ok(albumlist);
         }
 
+        #endregion
 
         #region Upload  
 
@@ -76,7 +119,7 @@ namespace LuckyMe.CMS.WebAPI.Controllers
             }
 
             var user = await _userservice.GetUserByIdAsync(User.Identity.GetUserId());
-            var directory = CreateDirectoryPath(user.Id, "/photos/", photo.Album);
+            var directory = CreateDirectoryPath(user.Id, "/photos/", photo.Album.ToLower());
 
             var result = await _blobService.UploadFileToBlob(new BlobFile
             {
@@ -109,7 +152,7 @@ namespace LuckyMe.CMS.WebAPI.Controllers
             await Task.Run(() =>
             {
                 fileList = (from photo in photoList
-                    let directory = CreateDirectoryPath(user.Id, "/photos/", photo.Album)
+                            let directory = CreateDirectoryPath(user.Id, "/photos/", photo.Album.ToLower())
                     select new BlobFile()
                     {
                         FileName = directory + photo.FileName,
@@ -226,8 +269,8 @@ namespace LuckyMe.CMS.WebAPI.Controllers
             }
             return BadRequest("");
         }
-        
-        [Route("RemoveVideoFromBlob")]
+
+        [Route("RemoveVideoFromAlbum")]
         public async Task<IHttpActionResult> RemoveVideoFromBlobAsync(BlobFileViewModel video)
         {
             var user = await _userservice.GetUserByIdAsync(User.Identity.GetUserId());
@@ -242,8 +285,8 @@ namespace LuckyMe.CMS.WebAPI.Controllers
             }
             return BadRequest("");
         }
-        
-        [Route("RemoveVideosFromBlob")]
+
+        [Route("RemoveVideosFromAlbum")]
         public async Task<IHttpActionResult> RemoveVideosFromBlobAsync(List<BlobFileViewModel> videoList)
         {
             var user = await _userservice.GetUserByIdAsync(User.Identity.GetUserId());
@@ -285,9 +328,11 @@ namespace LuckyMe.CMS.WebAPI.Controllers
             return id.Replace("-", "") + type + album + "/";
         }
 
-        #endregion
+        private static string FormatUserId(string id)
+        {
+            return id.Replace("-", "");
+        }
 
-        //"16cc730a-6db4-416c-8f8a-b8bad47f34ae"
-        
+        #endregion
     }
 }

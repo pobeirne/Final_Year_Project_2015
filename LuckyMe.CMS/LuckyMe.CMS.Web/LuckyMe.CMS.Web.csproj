@@ -19,7 +19,7 @@
     <IISExpressAnonymousAuthentication>enabled</IISExpressAnonymousAuthentication>
     <IISExpressWindowsAuthentication>disabled</IISExpressWindowsAuthentication>
     <IISExpressUseClassicPipelineMode>false</IISExpressUseClassicPipelineMode>
-    <NuGetPackageImportStamp>51bf3bbe</NuGetPackageImportStamp>
+    <NuGetPackageImportStamp>74abe2e9</NuGetPackageImportStamp>
     <ApplicationInsightsResourceId>/subscriptions/28464a9d-afc8-4be6-ae09-58af9bc48717/resourcegroups/Default-ApplicationInsights-CentralUS/providers/microsoft.insights/components/LuckyMe.CMS.Web</ApplicationInsightsResourceId>
     <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
     <RestorePackages>true</RestorePackages>
@@ -76,8 +76,8 @@
       <HintPath>..\packages\Microsoft.ApplicationInsights.Agent.Intercept.0.14.0-build08008\lib\net40\Microsoft.Diagnostics.Instrumentation.Extensions.Intercept.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Microsoft.Diagnostics.Tracing.EventSource, Version=1.1.16.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.Diagnostics.Tracing.EventSource.Redist.1.1.16-beta\lib\net45\Microsoft.Diagnostics.Tracing.EventSource.dll</HintPath>
+    <Reference Include="Microsoft.Diagnostics.Tracing.EventSource, Version=1.1.24.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Diagnostics.Tracing.EventSource.Redist.1.1.24\lib\net40\Microsoft.Diagnostics.Tracing.EventSource.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.Threading.Tasks, Version=1.0.12.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
@@ -94,6 +94,10 @@
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.6.0.8\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Linq.Dynamic, Version=1.0.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Linq.Dynamic.1.0.4\lib\net40\System.Linq.Dynamic.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="System.Net" />
@@ -166,6 +170,7 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Images\black_background_1.png" />
+    <Content Include="Content\Images\delete.png" />
     <Content Include="Content\Site.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -175,12 +180,13 @@
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Content\bootstrap-theme.css.map" />
     <Content Include="Content\bootstrap.css.map" />
-    <None Include="Scripts\jquery-2.1.3.intellisense.js" />
     <Content Include="Icon.png" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
-    <Content Include="Scripts\jquery-2.1.3.js" />
-    <Content Include="Scripts\jquery-2.1.3.min.js" />
+    <None Include="Scripts\jquery-2.1.4.intellisense.js" />
+    <Content Include="Scripts\jquery-2.1.4.js" />
+    <Content Include="Scripts\jquery-2.1.4.min.js" />
+    <Content Include="Scripts\jquery-2.1.4.min.map" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
@@ -193,19 +199,50 @@
     <Content Include="Scripts\respond.matchmedia.addListener.min.js" />
     <Content Include="Scripts\respond.min.js" />
     <None Include="Scripts\_references.js" />
-    <Content Include="Sencha\app\app.js" />
+    <Content Include="Sencha\app\controller\BackupController.js" />
     <Content Include="Sencha\app\controller\BlobController.js" />
-    <Content Include="Sencha\app\controller\StudentMaster.js" />
-    <Content Include="Sencha\app\model\Blob.js" />
-    <Content Include="Sencha\app\model\Student.js" />
-    <Content Include="Sencha\app\storage_main.js" />
-    <Content Include="Sencha\app\store\Student.js" />
-    <Content Include="Sencha\app\view\Blob\Form.js" />
-    <Content Include="Sencha\app\view\StudentGrid.js" />
-    <Content Include="Sencha\app\view\UserBlobForm.js" />
+    <Content Include="Sencha\app\controller\FacebookController.js" />
+    <Content Include="Sencha\app\model\Backup\PhotoModel.js" />
+    <Content Include="Sencha\app\model\Backup\VideoModel.js" />
+    <Content Include="Sencha\app\model\BlobPhotoModel.js" />
+    <Content Include="Sencha\app\model\BlobVideoModel.js" />
+    <Content Include="Sencha\app\model\Backup\AlbumModel.js" />
+    <Content Include="Sencha\app\model\FacebookPhotoModel.js" />
+    <Content Include="Sencha\app\model\FacebookVideoModel.js" />
+    <Content Include="Sencha\app\store\Backup\PhotoFromStore.js" />
+    <Content Include="Sencha\app\store\Backup\PhotoToStore.js" />
+    <Content Include="Sencha\app\store\Backup\VideoFromStore.js" />
+    <Content Include="Sencha\app\store\Backup\VideoToStore.js" />
+    <Content Include="Sencha\app\store\BlobPhotoStore.js" />
+    <Content Include="Sencha\app\store\BlobPhotoViewStore.js" />
+    <Content Include="Sencha\app\store\BlobVideoStore.js" />
+    <Content Include="Sencha\app\store\BlobVideoViewStore.js" />
+    <Content Include="Sencha\app\store\Backup\AlbumStore.js" />
+    <Content Include="Sencha\app\store\FacebookVideoViewStore.js" />
+    <Content Include="Sencha\app\store\FacebookVideoStore.js" />
+    <Content Include="Sencha\app\store\FacebookPhotoStore.js" />
+    <Content Include="Sencha\app\store\FacebookPhotoViewStore.js" />
+    <Content Include="Sencha\app\view\Backup\PhotoToGrid.js" />
+    <Content Include="Sencha\app\view\Backup\PhotoFromGrid.js" />
+    <Content Include="Sencha\app\view\Backup\VideoToGrid.js" />
+    <Content Include="Sencha\app\view\Backup\VideoFromGrid.js" />
+    <Content Include="Sencha\app\view\Blob\PhotoGrid.js" />
+    <Content Include="Sencha\app\view\Blob\PhotoView.js" />
+    <Content Include="Sencha\app\view\Blob\VideoGrid.js" />
+    <Content Include="Sencha\app\view\Blob\VideoView.js" />
+    <Content Include="Sencha\app\view\Facebook\VideoView.js" />
+    <Content Include="Sencha\app\view\Facebook\VideoGrid.js" />
+    <Content Include="Sencha\app\view\Facebook\PhotoGrid.js" />
+    <Content Include="Sencha\app\view\Facebook\PhotoView.js" />
+    <Content Include="Sencha\BlobVideo_Main.js" />
+    <Content Include="Sencha\BackupToBlob_Main.js" />
+    <Content Include="Sencha\FacebookVideo_Main.js" />
+    <Content Include="Sencha\FacebookPhoto_Main.js" />
+    <Content Include="Sencha\BlobPhoto_Main.js" />
     <Content Include="Sencha\library\ext-all-dev.js" />
     <Content Include="Sencha\library\ext-all.js" />
     <Content Include="Sencha\library\ext.js" />
+    <Content Include="Sencha\library\resources\css\example.css" />
     <Content Include="Sencha\library\resources\css\ext-all-access-debug.css" />
     <Content Include="Sencha\library\resources\css\ext-all-access-rtl-debug.css" />
     <Content Include="Sencha\library\resources\css\ext-all-access-rtl.css" />
@@ -3327,6 +3364,7 @@
     <Content Include="Sencha\library\src\enums.js" />
     <Content Include="Sencha\library\src\EventManager.js" />
     <Content Include="Sencha\library\src\EventObject.js" />
+    <Content Include="Sencha\library\src\example.js" />
     <Content Include="Sencha\library\src\Ext-more.js" />
     <Content Include="Sencha\library\src\Ext.js" />
     <Content Include="Sencha\library\src\flash\Component.js" />
@@ -3695,6 +3733,7 @@
     <Content Include="Sencha\library\ux\event\Recorder.js" />
     <Content Include="Sencha\library\ux\event\RecorderManager.html" />
     <Content Include="Sencha\library\ux\event\RecorderManager.js" />
+    <Content Include="Sencha\library\ux\example.js" />
     <Content Include="Sencha\library\ux\FieldReplicator.js" />
     <Content Include="Sencha\library\ux\form\ItemSelector.js" />
     <Content Include="Sencha\library\ux\form\MultiSelect.js" />
@@ -3740,22 +3779,27 @@
     <Content Include="Sencha\library\ux\TabScrollerMenu.js" />
     <Content Include="Sencha\library\ux\ToolbarDroppable.js" />
     <Content Include="Sencha\library\ux\TreePicker.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="Clients\FbClient.cs" />
-    <Compile Include="Clients\LuckyMeClient.cs" />
+    <Compile Include="ClientHelpers\FaceBookClient.cs" />
+    <Compile Include="ClientHelpers\LuckyMeClient.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\BlobController.cs" />
     <Compile Include="Controllers\DashboardController.cs" />
+    <Compile Include="Controllers\FacebookController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ProfileController.cs" />
     <Compile Include="Filters\UserValidationAttribute.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\OverviewViewModel.cs" />
     <Compile Include="Models\UserSession.cs" />
     <Compile Include="Models\BindingModels.cs" />
     <Compile Include="Models\ViewModels.cs" />
@@ -3766,7 +3810,6 @@
     <Content Include="packages.config" />
     <Content Include="ApplicationInsights.config" />
     <None Include="Properties\PublishProfiles\LuckyMeCMSWeb.pubxml" />
-    <Content Include="Scripts\jquery-2.1.3.min.map" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_DashboardLayout.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
@@ -3785,12 +3828,18 @@
     <Content Include="Views\Dashboard\UserAccount.cshtml" />
     <Content Include="Views\Dashboard\UserProfile.cshtml" />
     <Content Include="Views\Account\ManageExternalLogin.cshtml" />
-    <Content Include="Views\Profile\EditProfile.cshtml" />
     <Content Include="Views\Account\ChangePassword.cshtml" />
     <Content Include="Views\Account\DeleteAccount.cshtml" />
     <Content Include="Views\Shared\_SidebarNav.cshtml" />
     <Content Include="Views\Shared\_Footer.cshtml" />
     <Content Include="Views\Shared\_TopNavbar.cshtml" />
+    <Content Include="Views\Dashboard\ShowFaceBookVideoGrid.cshtml" />
+    <Content Include="Views\Facebook\FacebookPhotoViewer.cshtml" />
+    <Content Include="Views\Facebook\FacebookVideoViewer.cshtml" />
+    <Content Include="Views\Blob\BlobPhotoViewer.cshtml" />
+    <Content Include="Views\Blob\BlobVideoViewer.cshtml" />
+    <Content Include="Views\Blob\BackupToBlobView.cshtml" />
+    <Content Include="Views\Profile\EditProfile.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -3832,12 +3881,10 @@
       </FlavorProperties>
     </VisualStudio>
   </ProjectExtensions>
-  <Import Project="..\packages\Microsoft.Diagnostics.Tracing.EventSource.Redist.1.1.16-beta\build\portable-net45+win8+wpa81\Microsoft.Diagnostics.Tracing.EventSource.Redist.targets" Condition="Exists('..\packages\Microsoft.Diagnostics.Tracing.EventSource.Redist.1.1.16-beta\build\portable-net45+win8+wpa81\Microsoft.Diagnostics.Tracing.EventSource.Redist.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
       <ErrorText>This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
     </PropertyGroup>
-    <Error Condition="!Exists('..\packages\Microsoft.Diagnostics.Tracing.EventSource.Redist.1.1.16-beta\build\portable-net45+win8+wpa81\Microsoft.Diagnostics.Tracing.EventSource.Redist.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Diagnostics.Tracing.EventSource.Redist.1.1.16-beta\build\portable-net45+win8+wpa81\Microsoft.Diagnostics.Tracing.EventSource.Redist.targets'))" />
     <Error Condition="!Exists('..\packages\Microsoft.ApplicationInsights.Agent.Intercept.0.14.0-build08008\build\Microsoft.ApplicationInsights.Agent.Intercept.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.ApplicationInsights.Agent.Intercept.0.14.0-build08008\build\Microsoft.ApplicationInsights.Agent.Intercept.targets'))" />
     <Error Condition="!Exists('..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets'))" />
     <Error Condition="!Exists('$(SolutionDir)\.nuget\NuGet.targets')" Text="$([System.String]::Format('$(ErrorText)', '$(SolutionDir)\.nuget\NuGet.targets'))" />

@@ -1,6 +1,7 @@
 ﻿using System.Threading.Tasks;
 using System.Web.Mvc;
-using LuckyMe.CMS.Web.Clients;
+using LuckyMe.CMS.Common.Models.ViewModels;
+using LuckyMe.CMS.Web.ClientHelpers;
 using LuckyMe.CMS.Web.Filters;
 using LuckyMe.CMS.Web.Models;
 
@@ -23,13 +24,13 @@ namespace LuckyMe.CMS.Web.Controllers
         {
             _curruser = (UserSession) Session["UserSession"];
             _client.AccessToken = _curruser.Token;
-            var model = await _client.GetUserProfileAsync();
-            return View(model);
+         
+            return View();
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> EditProfile(ProfileViewModel model)
+        public async Task<ActionResult> EditProfile(UserProfileViewModel model)
         {
             if (!ModelState.IsValid)
             {

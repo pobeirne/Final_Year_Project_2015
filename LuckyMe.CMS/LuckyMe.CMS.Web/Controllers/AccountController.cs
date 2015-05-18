@@ -2,7 +2,7 @@
 using System.Threading.Tasks;
 using System.Web.Configuration;
 using System.Web.Mvc;
-using LuckyMe.CMS.Web.Clients;
+using LuckyMe.CMS.Web.ClientHelpers;
 using LuckyMe.CMS.Web.Filters;
 using LuckyMe.CMS.Web.Models;
 
@@ -13,14 +13,14 @@ namespace LuckyMe.CMS.Web.Controllers
         private UserSession _curruser;
 
         private readonly LuckyMeClient _client;
-        private readonly FbClient _myfbClient;
+        private readonly FaceBookClient _myfbClient;
         private static Uri _baseAddress;
 
         public AccountController()
         {
             _curruser = new UserSession();
             _client = new LuckyMeClient();
-            _myfbClient = new FbClient();
+            _myfbClient = new FaceBookClient();
             _baseAddress = new Uri(WebConfigurationManager.AppSettings["Base_Address"]);
         }
 
@@ -113,12 +113,9 @@ namespace LuckyMe.CMS.Web.Controllers
 
         [HttpGet]
         [UserValidation]
-        public async Task<ActionResult> ChangePassword()
+        public ViewResult ChangePassword()
         {
-            _curruser = (UserSession) Session["UserSession"];
-            _client.AccessToken = _curruser.Token;
-            ChangePasswordModel model = await _client.GetUserCurrentPasswordAsync();
-            return View(model);
+            return View();
         }
 
         [HttpPost]
@@ -150,7 +147,7 @@ namespace LuckyMe.CMS.Web.Controllers
         {
             _curruser = (UserSession) Session["UserSession"];
             _client.AccessToken = _curruser.Token;
-            AccountViewModel account = await _client.GetUserAccountAsync();
+            var account = await _client.GetUserAccountAsync();
             return View(account);
         }
 
@@ -235,7 +232,7 @@ namespace LuckyMe.CMS.Web.Controllers
             _client.AccessToken = _curruser.Token;
             var token = await _myfbClient.GetAccessToken(Request.QueryString["code"]);
 
-            var response = await _client.InsertExternalLoginUserClaim("FacebookAccessToken", token);
+            var response = await _client.InsertUserClaim("FacebookAccessToken", token);
             if (response != "OK") RedirectToAction("ManageExternalLogin", "Account");
             return RedirectToAction("ManageExternalLogin", "Account");
         }

@@ -18,8 +18,8 @@ namespace LuckyMe.CMS.Common
         {
             this.AspNetUserClaims = new HashSet<AspNetUserClaim>();
             this.AspNetUserLogins = new HashSet<AspNetUserLogin>();
+            this.UserProfiles = new HashSet<UserProfile>();
             this.AspNetRoles = new HashSet<AspNetRole>();
-            this.Profiles = new HashSet<Profile>();
         }
     
         public string Id { get; set; }
@@ -37,7 +37,7 @@ namespace LuckyMe.CMS.Common
     
         public virtual ICollection<AspNetUserClaim> AspNetUserClaims { get; set; }
         public virtual ICollection<AspNetUserLogin> AspNetUserLogins { get; set; }
+        public virtual ICollection<UserProfile> UserProfiles { get; set; }
         public virtual ICollection<AspNetRole> AspNetRoles { get; set; }
-        public virtual ICollection<Profile> Profiles { get; set; }
     }
 }

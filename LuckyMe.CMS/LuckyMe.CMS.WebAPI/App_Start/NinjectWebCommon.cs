@@ -71,6 +71,13 @@ namespace LuckyMe.CMS.WebAPI
         {
             kernel.Bind<IUserService>().To<UserService>();
             kernel.Bind<IUserRepository>().To<UserRepository>();
+
+            kernel.Bind<IUserClaimService>().To<UserClaimService>();
+            kernel.Bind<IUserClaimRepository>().To<UserClaimRepository>();
+
+            kernel.Bind<IUserProfileService>().To<UserProfileService>();
+            kernel.Bind<IUserProfileRepository>().To<UserProfileRepository>();
         }        
     }
 }
+

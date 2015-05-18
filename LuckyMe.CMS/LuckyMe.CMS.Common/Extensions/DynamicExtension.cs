@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Reflection;
 using LuckyMe.CMS.Common.Attributes;
@@ -69,7 +70,7 @@ namespace LuckyMe.CMS.Common.Extensions
                     if (mappedValue == null) continue;
                     destinationPropertyInfo.FacebookMappedProperty.SetValue(entity,
                         destinationPropertyInfo.FacebookMappedProperty.PropertyType.Name == "DateTime"
-                            ? DateTime.Parse(mappedValue.ToString())
+                            ? DateTime.Parse(mappedValue.ToString(), new CultureInfo("en-GB"))
                             : mappedValue, null);
                 }
             }

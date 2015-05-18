@@ -1,11 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Net.Http;
 using System.Security.Claims;
 using System.Security.Cryptography;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Http;
+using LuckyMe.CMS.Common.Models.DTO;
+using LuckyMe.CMS.Service.Services.Interfaces;
 using LuckyMe.CMS.WebAPI.Models;
 using LuckyMe.CMS.WebAPI.Providers;
 using LuckyMe.CMS.WebAPI.Results;
@@ -16,6 +19,7 @@ using Microsoft.Owin.Security;
 using Microsoft.Owin.Security.Cookies;
 using Microsoft.Owin.Security.OAuth;
 
+
 namespace LuckyMe.CMS.WebAPI.Controllers
 {
     [Authorize]
@@ -25,15 +29,19 @@ namespace LuckyMe.CMS.WebAPI.Controllers
         private const string LocalLoginProvider = "Local";
         private ApplicationUserManager _userManager;
 
+        private readonly IUserProfileService _profileService;
+
         public AccountController()
         {
+          
         }
 
         public AccountController(ApplicationUserManager userManager,
-            ISecureDataFormat<AuthenticationTicket> accessTokenFormat)
+            ISecureDataFormat<AuthenticationTicket> accessTokenFormat, IUserProfileService profileService)
         {
             UserManager = userManager;
             AccessTokenFormat = accessTokenFormat;
+            _profileService = profileService;
         }
 
         public ApplicationUserManager UserManager
@@ -90,16 +98,10 @@ namespace LuckyMe.CMS.WebAPI.Controllers
                 return null;
             }
 
-            List<UserLoginInfoViewModel> logins = new List<UserLoginInfoViewModel>();
-
-            foreach (IdentityUserLogin linkedAccount in user.Logins)
+            var logins = user.Logins.Select(linkedAccount => new UserLoginInfoViewModel
             {
-                logins.Add(new UserLoginInfoViewModel
-                {
-                    LoginProvider = linkedAccount.LoginProvider,
-                    ProviderKey = linkedAccount.ProviderKey
-                });
-            }
+                LoginProvider = linkedAccount.LoginProvider, ProviderKey = linkedAccount.ProviderKey
+            }).ToList();
 
             if (user.PasswordHash != null)
             {
@@ -330,22 +332,15 @@ namespace LuckyMe.CMS.WebAPI.Controllers
 
             var user = new ApplicationUser() { UserName = model.Email, Email = model.Email };
 
-            IdentityResult result = await UserManager.CreateAsync(user, model.Password);
+            var result = await UserManager.CreateAsync(user, model.Password);
             if (result.Succeeded)
             {
-                await OnUserRegisterSuccess(model.Email);
+                await OnUserRegisterSuccess();
             }
 
             return !result.Succeeded ? GetErrorResult(result) : Ok();
         }
 
-        private async Task OnUserRegisterSuccess(string email)
-        {
-            //Find user by email
-
-            //Generate tables by user id
-        }
-        
         // POST api/Account/RegisterExternal
         [OverrideAuthentication]
         [HostAuthentication(DefaultAuthenticationTypes.ExternalBearer)]
@@ -389,6 +384,35 @@ namespace LuckyMe.CMS.WebAPI.Controllers
 
             base.Dispose(disposing);
         }
+
+
+
+
+        
+        private async Task<bool> OnUserRegisterSuccess()
+        {
+            var entry = new UserProfileDto
+            {
+                UserId = User.Identity.GetUserId(),
+                UserName = "",
+                FirstName = "",
+                LastName = "",
+                ImageUrl = "",
+                ProfileType = "Local"
+            };
+
+            return await _profileService.InsertUserProfileAsync(entry);
+
+        }
+
+
+
+
+
+
+
+
+
 
         #region Helpers
 
