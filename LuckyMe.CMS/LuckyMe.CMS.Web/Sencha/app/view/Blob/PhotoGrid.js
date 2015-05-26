@@ -4,19 +4,11 @@
     alias: "widget.PhotoGrid",
     id: "PhotoGridId",
 
-
-    //config:
-    //{
-    //    width: "100%",
-    //    minheight: 600,
-    //    selType: "checkboxmodel"
-    //},
     viewConfig:
     {
         stripeRows: true,
         trackOver: true
     },
-
 
     constructor: function(config) {
         this.initConfig(config);
@@ -28,16 +20,6 @@
         {
             title: "File Grid",
             store: "Blob.store.BlobPhotoStore",
-
-            //selType: this.config.selType,
-            //height: this.config.height,
-            //width: this.config.width,
-
-            //selModel:
-            //{
-            //    mode: "MULTI"
-            //},
-
             features: [
                 {
                     ftype: "filters",
@@ -76,12 +58,6 @@
                     text: "Album Name",
                     flex: 1,
                     dataIndex: "AlbumName",
-                    //editor:
-                    //{
-                    //    xtype: "combo",
-                    //    allowBlank: false,
-                    //    store: ["First", "Second"]
-                    //},
                     renderer: function(value, metadata) {
                         metadata.tdAttr = "data-qtip=\"" + value + "\"";
                         return value;
@@ -109,9 +85,7 @@
                         allowBlank: false
                     },
                     renderer: function(value) {
-
                         return "<a href=\"" + value + "\" target=\"_blank\"> Click to view </a>";
-                        //return "<img src=\"" + value + "\" />";
                     }
                 },
                 {
@@ -169,50 +143,8 @@
                     }]
                 }
   
-                ],
-
-            dockedItems: [
-                {
-                    xtype: "toolbar",
-                    dock: "bottom",
-                    ui: "footer",
-                    layout:
-                    {
-                        pack: "center"
-                    },
-                    defaults:
-                    {
-                        minWidth: 150
-                    },
-                    items: [
-                        { xtype: "tbfill" },
-                        {
-                            text: "Clear Filters",
-                            itemId: "btnClearFilters",
-                            handler: function() {
-                                var grid = Ext.getCmp("PhotoGridId");
-                                grid.filters.clearFilters(true);
-                                grid.getStore().clearFilter();
-                                grid.getStore().reload();
-                            }
-                        }
-                        
-                        //,
-                        //{
-                        //    text : "Delete",
-                        //    itemId : "btnDelete",
-                        //    action: "delete"
-                        //}
-                    ]
-                }
-            ],
-
-            bbar: Ext.create("Ext.PagingToolbar", {
-                store: "Blob.store.BlobPhotoStore",
-                displayInfo: true,
-                displayMsg: "{0} - {1} of {2}",
-                emptyMsg: "No topics to display"
-            })
+            ]
+           
         });
         this.callParent(arguments);
     }

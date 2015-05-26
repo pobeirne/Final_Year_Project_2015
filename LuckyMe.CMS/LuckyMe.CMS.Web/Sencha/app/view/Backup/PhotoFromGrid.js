@@ -3,11 +3,7 @@
     extend: "Ext.grid.Panel",
     alias: "widget.PhotoFromGrid",
     id: "PhotoFromGridId",
-    config:
-    {
-        width: "100%",
-        selType: "checkboxmodel"
-    },
+   
     viewConfig:
     {
         stripeRows: true,
@@ -25,14 +21,10 @@
             title: "Photo From Grid",
             store: "Backup.store.Backup.PhotoFromStore",
 
-            selType: this.config.selType,
+         
             height: this.config.height,
             width: this.config.width,
-
-            selModel:
-            {
-                mode: "MULTI"
-            },
+            
 
             features: [
                 {
@@ -83,7 +75,7 @@
                     dataIndex: "SmallPicture",
                     renderer: function (value) {
                         //return "<a href=\"" + value + "\" target=\"_blank\"> Click to view </a>";
-                        return "<img height=100 width=100% src=\"" + value + "\" />";
+                        return "<img height=73 width=100% src=\"" + value + "\" />";
                     }
                 },
                 {
@@ -104,24 +96,16 @@
                     renderer: Ext.util.Format.dateRenderer("d-m-Y H:i:s")
                 }
             ],
+           
 
-            dockedItems: [
-                {
-                    xtype: "toolbar",
-                    dock: "bottom",
-                    ui: "footer",
-                    layout:
-                    {
-                        pack: "center"
-                    },
-                    defaults:
-                    {
-                        minWidth: 150
-                    },
-                    items: [
-                        { xtype: "tbfill" },
+            bbar: Ext.create("Ext.PagingToolbar", {
+                store: "Backup.store.Backup.PhotoFromStore",
+                displayInfo: true,
+                displayMsg: "{0} - {1} of {2}",
+                emptyMsg: "No topics to display",
+                items: [
                         {
-                            text: "Clear Filters",
+                            text: "Clr",
                             itemId: "btnClearFilters",
                             handler: function () {
                                 var grid = Ext.getCmp("PhotoFromGridId");
@@ -130,15 +114,8 @@
                                 grid.getStore().reload();
                             }
                         }
-                    ]
-                }
-            ],
+                ]
 
-            bbar: Ext.create("Ext.PagingToolbar", {
-                store: "Backup.store.Backup.PhotoFromStore",
-                displayInfo: true,
-                displayMsg: "{0} - {1} of {2}",
-                emptyMsg: "No topics to display"
             })
         });
         this.callParent(arguments);

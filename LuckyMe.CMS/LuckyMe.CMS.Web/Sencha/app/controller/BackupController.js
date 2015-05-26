@@ -45,15 +45,27 @@
         var comboValue = Ext.getCmp("photoComboboxId");
 
         var store = Ext.getCmp("PhotoToGridId").getStore();
-
+        
         if (comboValue.getValue() === null) {
             store.getProxy().setExtraParam("album", "pdefault");
         } else {
             store.getProxy().setExtraParam("album", comboValue.getValue());
         }
-        store.sync();
+        store.save({
+            success: function () {
+                console.log("success!!");
+                Ext.example.msg("Successfully saved !", "Album: " + comboValue.getValue() + "Record Count: " + store.getCount());
+            },
+            failure: function () {
+                console.log("failed...");
+            },
+            callback: function () {
+                console.log("calling callback");
+            },
+            scope: this
+        });
 
-        Ext.example.msg("Successfully saved !", "Album: " + comboValue.getValue() + "Record Count: " + store.getCount());
+        
     },
 
     onButtonSaveVideosClick: function() {
@@ -68,10 +80,18 @@
         } else {
             store.getProxy().setExtraParam("album", comboValue.getValue());
         }
-        store.sync();
-
-        Ext.example.msg("Successfully saved !", "Album: " + comboValue.getValue() + "Record Count: " + store.getCount());
+        store.save({
+            success: function () {
+                console.log("success!!");
+                Ext.example.msg("Successfully saved !", "Album: " + comboValue.getValue() + "Record Count: " + store.getCount());
+            },
+            failure: function () {
+                console.log("failed...");
+            },
+            callback: function () {
+                console.log("calling callback");
+            },
+            scope: this
+        });
     }
-
-
 });

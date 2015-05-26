@@ -22,6 +22,10 @@
             type: "json"
             //totalProperty: "totalCount"
         },
+        writer: {
+            type: "json",
+            allowSingle: false
+        },
         api:
         {
             //read: "/Facebook/GetAllFacebookPhotosAsync"

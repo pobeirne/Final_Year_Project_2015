@@ -9,7 +9,7 @@
             direction: "ASC"
         }
     ],
-    pageSize: 4,
+    pageSize: 6,
     autoLoad: true,
     autoSync: true,
     storeId: "PhotoFromStoreId",

@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Configuration;
 using System.IO;
 using System.Linq;
@@ -150,6 +151,8 @@ namespace LuckyMe.CMS.WebAPI.Helpers
 
         public async Task<List<FileInfoViewModel>> GetAllAlbumFilesInfoAsync(string userId, string type, string album)
         {
+            try
+            {
             var creds = new StorageCredentials(_accountName, _accountKey);
             var account = new CloudStorageAccount(creds, true);
             var client = account.CreateCloudBlobClient();
@@ -173,7 +176,12 @@ namespace LuckyMe.CMS.WebAPI.Helpers
 
             foreach (var item in filenames)
             {
-                var blob2 = container.GetBlockBlobReference(directoryPath + item);
+
+                var blob2 = container.GetBlockBlobReference(directoryPath + item.Replace("%20", " "));
+
+                
+
+               
                 blob2.FetchAttributes();
 
 
@@ -190,6 +198,13 @@ namespace LuckyMe.CMS.WebAPI.Helpers
                     });
             }
             return fileList;
+
+                 }
+                catch (Exception ex)
+                {
+                    
+                    throw ex;
+                }
         }
     }
 }

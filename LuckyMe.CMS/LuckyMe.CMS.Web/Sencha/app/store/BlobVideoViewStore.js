@@ -11,7 +11,7 @@
     ],
     pageSize: 1,
     autoLoad: true,
-    autoSync: true,
+    autoSync: false,
     storeId: "BlobVideoViewStoreId",
     proxy:
     {

@@ -31,12 +31,10 @@
                 renderTo: Ext.getElementById("app-container"),
                 id: "appContainer",
                 autoCreateViewPort: false,
-             
+                minHeight: 600,
                 activeTab: 0,
-                layout: {
-                    type: "hbox",
-                    align: "stretch"
-                },
+
+               
 
                 listeners: {
                     beforerender: function() {
@@ -60,8 +58,9 @@
                 items:
                 [
                     {
-                        title: "Photo Tab",
-                        bodyStyle: "padding: 10px;",
+                        title: "Photo Backup",
+                        //bodyStyle: "padding: 10px;",
+                        height: 650,
                         layout: {
                             type: "hbox",
                             align: "left"
@@ -70,14 +69,13 @@
                         [
                             {
                                 xtype: "PhotoFromGrid",
-                                minHeight: 600,
+                                height: 611,
                                 width: "49%"
                             },
                             { xtype: "tbfill", width: 2 },
                             {
                                 xtype: "PhotoToGrid",
-                                minHeight: 600,
-                                maxHeight: 600,
+                                height: 611,
                                 width: "49%"
                             }
                         ],
@@ -93,7 +91,7 @@
                                     fieldLabel: "Select/Enter Album name",
                                     emptyText: "Default",
                                     valueField:"AlbumName",
-                                    padding: "10",
+                                   
                                     width: "50%",
                                     store: "Backup.store.Backup.AlbumStore",
                                     matchFieldWidth: true,
@@ -104,8 +102,8 @@
                         }
                     },
                     {
-                        title: "Video Tab",
-                        bodyStyle: "padding: 10px;",
+                        title: "Video Backup",
+                        height: 650,
                         layout: {
                             type: "hbox",
                             align: "left"
@@ -114,14 +112,13 @@
                         [
                             {
                                 xtype: "VideoFromGrid",
-                                minHeight: 600,
+                                height: 611,
                                 width: "49%"
                             },
-                            { xtype: "tbfill", width: 2 },
+                            { xtype: "tbfill", width: 1 },
                             {
                                 xtype: "VideoToGrid",
-                                minHeight: 600,
-                                maxHeight: 600,
+                                height: 611,
                                 width: "49%"
                             }
                         ],
@@ -130,17 +127,20 @@
                             dock: "top",
                             items: [
                                 "->", // Fill
-                                {
-                                    xtype: "combobox",
-                                    id: "videoComboboxId",
-                                    labelWidth: 200,
-                                    fieldLabel: "Select/Enter Album name",
-                                    emptyText: "Default",
-                                    padding: "10",
-                                    width: "50%",
-                                    store: ["Yes", "No", "Maybe"],
-                                    matchFieldWidth: true
-                                }
+                                 {
+                                     xtype: "combobox",
+                                     id: "videoComboboxId",
+                                     labelWidth: 200,
+                                     fieldLabel: "Select/Enter Album name",
+                                     emptyText: "Default",
+                                     valueField: "AlbumName",
+
+                                     width: "50%",
+                                     store: "Backup.store.Backup.AlbumStore",
+                                     matchFieldWidth: true,
+                                     queryMode: "local"
+
+                                 }
                             ]
                         }
                     }

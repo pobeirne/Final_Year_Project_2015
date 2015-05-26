@@ -57,6 +57,7 @@ namespace LuckyMe.CMS.Web.ClientHelpers
                         {"username", model.Email},
                         {"password", model.Password}
                     });
+
                     var response = await httpClient.SendAsync(request);
                     var result = await response.Content.ReadAsAsync<JObject>(_formatters);
                     return (string) result[AccessTokenKey];
@@ -93,7 +94,7 @@ namespace LuckyMe.CMS.Web.ClientHelpers
             {
                 httpClient.BaseAddress = BaseAddress;
                 httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", AccessToken);
-                var model = new UserClaimsBindingModel { ClaimType = type, ClaimValue = value };
+                var model = new UserClaimsBindingModel {ClaimType = type, ClaimValue = value};
                 using (
                     var response =
                         await
@@ -110,7 +111,7 @@ namespace LuckyMe.CMS.Web.ClientHelpers
             {
                 httpClient.BaseAddress = BaseAddress;
                 httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", AccessToken);
-                var model = new UserClaimsBindingModel { ClaimType = type, ClaimValue = value };
+                var model = new UserClaimsBindingModel {ClaimType = type, ClaimValue = value};
                 using (
                     var response =
                         await
@@ -121,13 +122,13 @@ namespace LuckyMe.CMS.Web.ClientHelpers
             }
         }
 
-        public async Task<string> DeleteUserClaim(string type, string value)
+        public async Task<string> DeleteUserClaim(string type)
         {
             using (var httpClient = new HttpClient())
             {
                 httpClient.BaseAddress = BaseAddress;
                 httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", AccessToken);
-                var model = new UserClaimsBindingModel { ClaimType = type, ClaimValue = value };
+                var model = new UserClaimsBindingModel {ClaimType = type, ClaimValue = ""};
                 using (
                     var response =
                         await
@@ -139,7 +140,7 @@ namespace LuckyMe.CMS.Web.ClientHelpers
         }
 
         #endregion
-        
+
         #region Account Settings
 
         public async Task<UserDetailsViewModel> GetCurrentUserInfoAsync()
@@ -150,16 +151,15 @@ namespace LuckyMe.CMS.Web.ClientHelpers
                 httpClient.DefaultRequestHeaders.Authorization =
                     new AuthenticationHeaderValue("Bearer", AccessToken);
 
-                using (var response = await httpClient.GetAsync("/api/User/UserInfo"))
+                using (var response = await httpClient.GetAsync("/api/User/GetUserInfo"))
                 {
-                    response.EnsureSuccessStatusCode();
-                    var userinfo = await response.Content.ReadAsAsync<UserDetailsViewModel>();
+                    var userinfo = await response.Content.ReadAsAsync<UserDetailsViewModel>(_formatters);
                     return userinfo;
                 }
             }
         }
 
-            public async Task<string> UpdatePasswordAsync(ChangePasswordModel model)
+        public async Task<string> UpdatePasswordAsync(ChangePasswordModel model)
         {
             using (var httpClient = new HttpClient())
             {
@@ -191,12 +191,6 @@ namespace LuckyMe.CMS.Web.ClientHelpers
         }
 
         #endregion
-
-
-
-
-
-
 
         #region Facebook Methods
 
@@ -364,6 +358,10 @@ namespace LuckyMe.CMS.Web.ClientHelpers
         //GetAllBlobVideos
         public async Task<List<FileInfoViewModel>> GetAllBlobVideosAsync()
         {
+            try
+            {
+
+            
             using (var httpClient = new HttpClient())
             {
                 httpClient.BaseAddress = BaseAddress;
@@ -375,6 +373,13 @@ namespace LuckyMe.CMS.Web.ClientHelpers
                     var result = await response.Content.ReadAsAsync<List<FileInfoViewModel>>(_formatters);
                     return result;
                 }
+            }
+
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
             }
         }
 
@@ -397,7 +402,6 @@ namespace LuckyMe.CMS.Web.ClientHelpers
         }
 
 
-        
         //UploadPhotoToAlbum
         public async Task<string> UploadPhotoToAlbumAsync(BlobFileViewModel photo)
         {
@@ -497,7 +501,8 @@ namespace LuckyMe.CMS.Web.ClientHelpers
                     new AuthenticationHeaderValue("Bearer", AccessToken);
                 using (
                     var response =
-                        await httpClient.PostAsJsonAsync(new Uri(BaseAddress, "/api/Blob/RemovePhotosFromAlbum"), photos))
+                        await
+                            httpClient.PostAsJsonAsync(new Uri(BaseAddress, "/api/Blob/RemovePhotosFromAlbum"), photos))
                 {
                     return response.StatusCode.ToString();
                 }
@@ -505,7 +510,6 @@ namespace LuckyMe.CMS.Web.ClientHelpers
         }
 
 
-     
         public async Task<string> DeleteVideoFromAlbumAsync(BlobFileViewModel video)
         {
             using (var httpClient = new HttpClient())
@@ -524,15 +528,8 @@ namespace LuckyMe.CMS.Web.ClientHelpers
 
         #endregion
 
-
-
-
-
-
-
-
-
         //not implemented
+
         #region DashBoard
 
         public async Task<OverviewViewModel> GetUserOverviewAsync()
@@ -584,7 +581,7 @@ namespace LuckyMe.CMS.Web.ClientHelpers
         }
 
         #endregion
-        
+
         //public async Task<ChangePasswordModel> GetUserCurrentPasswordAsync()
         //{
         //    using (var httpClient = new HttpClient())
@@ -618,7 +615,5 @@ namespace LuckyMe.CMS.Web.ClientHelpers
                 }
             }
         }
-        
-        
     }
 }

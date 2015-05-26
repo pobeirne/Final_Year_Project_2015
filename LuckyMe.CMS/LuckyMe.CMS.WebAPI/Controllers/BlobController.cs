@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Threading.Tasks;
@@ -60,12 +59,12 @@ namespace LuckyMe.CMS.WebAPI.Controllers
         {
            
                 var userid = FormatUserId(User.Identity.GetUserId());
-                if (userid == null) return BadRequest();
+                if (userid == null) return NotFound();
 
-                //Get All photo albums
-                List<string> albumlist1 = await _blobService.GetFileNamesInContainer(userid + "/videos/");
+                //Get All video albums
+                var albumlist1 = await _blobService.GetFileNamesInContainer(userid + "/videos/");
 
-                List<FileInfoViewModel> fileList = new List<FileInfoViewModel>();
+                var fileList = new List<FileInfoViewModel>();
                 foreach (var album in albumlist1)
                 {
                     fileList.AddRange(_blobService.GetAllAlbumFilesInfoAsync(userid, "videos", album).Result);
@@ -79,7 +78,7 @@ namespace LuckyMe.CMS.WebAPI.Controllers
         public async Task<IHttpActionResult> GetAllBlobFiles()
         {
             var userid = FormatUserId(User.Identity.GetUserId());
-            if (userid == null) return BadRequest();
+            if (userid == null) return NotFound();
 
             //Get All photo albums
             var albumlist1 = await _blobService.GetFileNamesInContainer(userid + "/photos/");

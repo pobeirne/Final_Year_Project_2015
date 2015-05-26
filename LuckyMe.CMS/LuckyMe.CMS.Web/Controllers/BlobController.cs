@@ -113,7 +113,7 @@ namespace LuckyMe.CMS.Web.Controllers
 
 
             ////Get data
-            var basequery = await _client.GetAllBlobVideosAsync();
+            var basequery =  await _client.GetAllBlobVideosAsync();
 
 
             //Get data count

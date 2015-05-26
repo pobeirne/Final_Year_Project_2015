@@ -9,7 +9,7 @@
             direction: "ASC"
         }
     ],
-    pageSize: 10,
+    pageSize: 25,
     autoLoad: true,
     autoSync: true,
     storeId: "BlobPhotoStoreId"

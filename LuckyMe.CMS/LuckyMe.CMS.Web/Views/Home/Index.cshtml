@@ -3,3 +3,43 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+<header class="jumbotron hero-spacer">
+    <h1>A Warm Welcome!</h1>
+    <p>
+        My name is Paul OBeirne and this is a Ruby on Rails website developed as part of a college project.
+        The site will allow you to create a new account and take quizs in which your results will be evaluated
+        to determine which set of questions best suits your understanding of the subject material.
+    </p>
+</header>
+
+<div class="row text-center">
+
+    <div class="col-md-6 col-sm-12 hero-feature">
+        <div class="thumbnail">
+            <div class="caption">
+                <h3>Sign up for a new accout</h3>
+                <p>
+                    Sigh up and test your knowledge now!!!
+                </p>
+                <p>
+                    @Html.ActionLink("Register", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" , @class="btn btn-primary"})
+                    
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-6 col-sm-12 hero-feature">
+        <div class="thumbnail">
+            <div class="caption">
+                <h3>Log into your account </h3>
+                <p>
+                    Login and start a new quiz now!!!
+                </p>
+                <p>
+                    @Html.ActionLink("Log in", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink", @class = "btn btn-primary" })
+                </p>
+            </div>
+        </div>
+    </div>
+</div>

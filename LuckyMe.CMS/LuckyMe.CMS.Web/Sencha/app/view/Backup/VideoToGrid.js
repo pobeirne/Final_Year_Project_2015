@@ -4,12 +4,6 @@
     alias: "widget.VideoToGrid",
     id: "VideoToGridId",
 
-    //config:
-    //{
-    //    width: "100%",
-    //    minheight: 600,
-    //    selType: "checkboxmodel"
-    //},
     viewConfig:
     {
         stripeRows: true,
@@ -29,28 +23,11 @@
             title: "Video To Grid",
             store: "Backup.store.Backup.VideoToStore",
 
-            //selType: this.config.selType,
-            //height: this.config.height,
-            //width: this.config.width,
-
-            //selModel:
-            //{
-            //    mode: "MULTI"
-            //},
-
-            //features: [
-            //    {
-            //        ftype: "filters",
-            //        encode: true,
-            //        local: false
-            //    }
-            //],
-
+         
             viewConfig: {
                 plugins: {
                     copy: false,
                     ptype: "gridviewdragdrop",
-                    //dragGroup: "secondGridDDGroup",
                     dropGroup: "firstGridDDGroup"
                 },
                 listeners: {
@@ -87,7 +64,6 @@
                     text: "Name",
                     flex: 1,
                     dataIndex: "Name",
-                    //filter: { type: "string" },
                     renderer: function (value, metadata) {
                         metadata.tdAttr = "data-qtip=\"" + value + "\"";
                         return value;
@@ -98,8 +74,7 @@
                     flex: 1,
                     dataIndex: "Picture",
                     renderer: function (value) {
-                        //return "<a href=\"" + value + "\" target=\"_blank\"> Click to view </a>";
-                        return "<img height=100 width=100% src=\"" + value + "\" />";
+                        return "<img height=73 width=100% src=\"" + value + "\" />";
                     }
                 }
             ],
@@ -134,13 +109,6 @@
                      ]
                  }
             ]
-
-            //bbar: Ext.create("Ext.PagingToolbar", {
-            //    store: "Backup.store.Backup.VideoToStore",
-            //    displayInfo: true,
-            //    displayMsg: "{0} - {1} of {2}",
-            //    emptyMsg: "No topics to display"
-            //})
         });
         this.callParent(arguments);
     }

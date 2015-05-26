@@ -48,11 +48,15 @@ namespace LuckyMe.CMS.WebAPI.Controllers
                 return null;
             }
 
+            var claim = _claimService.GetAllUserClaimsAsync(User.Identity.GetUserId()).Result.Where(x => x.ClaimType == "FacebookAccessToken");
+            var hasClaim = claim.Any();
+
             return new UserDetailsViewModel
             {
                 Name = user.UserName,
                 Email = user.Email,
-                HasRegistered = User.Identity.IsAuthenticated
+                HasRegistered = User.Identity.IsAuthenticated,
+                HasFacebookCliam = hasClaim
             };
         }
 
@@ -142,14 +146,9 @@ namespace LuckyMe.CMS.WebAPI.Controllers
                 return BadRequest(ModelState);
             }
 
-            var entry = new UserClaimDto
-            {
-                UserId = User.Identity.GetUserId(),
-                ClaimType = model.ClaimType,
-                ClaimValue = model.ClaimValue
-            };
-
-            var result = await _claimService.DeleteUserClaimAsync(entry);
+            var basequery = _claimService.GetAllUserClaimsAsync(User.Identity.GetUserId());
+            var claim = basequery.Result.FirstOrDefault(x => x.ClaimType == model.ClaimType);
+            var result = await _claimService.DeleteUserClaimAsync(claim);
 
             if (result) return Ok();
             return BadRequest();

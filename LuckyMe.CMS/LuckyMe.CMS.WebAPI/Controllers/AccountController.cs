@@ -333,10 +333,10 @@ namespace LuckyMe.CMS.WebAPI.Controllers
             var user = new ApplicationUser() { UserName = model.Email, Email = model.Email };
 
             var result = await UserManager.CreateAsync(user, model.Password);
-            if (result.Succeeded)
-            {
-                await OnUserRegisterSuccess();
-            }
+            //if (result.Succeeded)
+            //{
+            //    await OnUserRegisterSuccess();
+            //}
 
             return !result.Succeeded ? GetErrorResult(result) : Ok();
         }

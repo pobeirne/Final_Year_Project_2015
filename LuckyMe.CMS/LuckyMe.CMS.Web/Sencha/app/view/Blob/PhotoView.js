@@ -13,10 +13,10 @@
 
     config: {
         tpl: new Ext.XTemplate(
-            "<div class=\"jumbotron\" style=\"padding:20px;margin:20px;\">",
             "<tpl for=\".\">",
+            "<div class=\"jumbotron\" style=\"padding:20px;margin:20px;\">",
             "<h4>File name:{FileName}</h4>",
-            "<div style=\"height:400px;overflow:hidden;\"><img src=\"{FileUrl}\" alt=\"\" style=\"height:100%;width:100%;\"></div>",
+            "<div style=\"height:450px;\"><img src=\"{FileUrl}\" alt=\"\" style=\"height:100%;width:100%;\"></div>",
             "<h4>Create Date: {LastModified}</h4>",
             "</div>",
             "</tpl>"
@@ -31,7 +31,7 @@
             autoScroll: true,
             bodyPadding: "5 5 5 5",
             store: "Blob.store.BlobPhotoViewStore",
-            itemSelector: "div.studentinfo",
+            itemSelector: "div.jumbotron",
             emptyText: "No images available",
 
             listeners:

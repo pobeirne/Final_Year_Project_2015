@@ -6,23 +6,23 @@
 
     requires: ["Ext.window.MessageBox"],
 
-    constructor: function (config) {
+    constructor: function(config) {
         this.initConfig(config);
         return this.callParent(arguments);
     },
 
     config: {
         tpl: new Ext.XTemplate(
-            "<div class=\"jumbotron\" style=\"padding:20px;margin:20px;\">",
             "<tpl for=\".\">",
+            "<div class=\"jumbotron\" style=\"padding:20px;margin:20px;\">",
             "<h4>File name:{Name}</h4>",
-            "<div style=\"height:400px;overflow:hidden;\"><img src=\"{LargePicture}\" alt=\"\" style=\"height:100%;width:100%;\"></div>",
+            "<div style=\"height:450px;\"><img src=\"{LargePicture}\" alt=\"\" style=\"height:100%;width:100%;\"></div>",
             "<h4>Create Date: {CreateDateTime}</h4>",
             "</div>",
             "</tpl>"
         )
     },
-    initComponent: function () {
+    initComponent: function() {
 
         Ext.apply(this,
         {
@@ -31,13 +31,13 @@
             autoScroll: true,
             bodyPadding: "5 5 5 5",
             store: "Facebook.store.FacebookPhotoViewStore",
-            itemSelector: "div.studentinfo",
+            itemSelector: "div.jumbotron",
             emptyText: "No images available",
             listeners:
             {
                 itemclick:
                 {
-                    fn: function (me, record) {
+                    fn: function(me, record) {
                         Ext.Msg.alert("Item clicked", "You clicked on : " + record.get("Name"));
                     }
                 }

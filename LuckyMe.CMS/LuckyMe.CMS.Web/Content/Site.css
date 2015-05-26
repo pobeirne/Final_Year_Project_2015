@@ -1,19 +1,31 @@
 ﻿html, body
 {
-    height: 100%;
+    height: 90%;
     background-color: #000000;
     background: url("../Content/Images/black_background_1.png") repeat scroll 0% 0% transparent;
+     margin: auto;
+    padding: 0;
 }
 
 
 .x-body {
     background: url("../Content/Images/black_background_1.png") repeat scroll 0% 0% transparent;
+    margin: auto;
+    padding: 0;
 }
 
 /* Set padding to keep content from hitting the edges */
 .body-content {
-    padding-left: 15px;
-    padding-right: 15px;
+    margin-top: 80px;
+    margin-bottom: 80px;
+    padding: 20px;
+    background-color: #ffffff;
+    min-height: 85%;
+    overflow: hidden;
+}
+
+.app-container {
+     width: 94%;
 }
 
 /* Override the default bootstrap behavior where horizontal description lists 
@@ -24,29 +36,43 @@
 }
 
 /* Set width on the form input elements since they're 100% wide by default */
-input,
+/*input,
 select,
 textarea {
     max-width: 280px;
+}*/
+
+#form-control-override {
+    padding-left: 0;
+    padding-right: 0;
+    position: relative;
+    float: left;
+    width: 100%;
 }
 
 #footer{
-    margin-bottom:0px;
+    margin-bottom:80px;
 }
 
 
-.push {
+/*.push {
     height: 50px;
-}
+}*/
+
+
 
 .maincontent
 {
     background-color: #ffffff;
-    padding: 20px;
-    min-height: 85%;
+    padding: 10px;
+    min-height: 80%;
     overflow: hidden;
-    margin-top: 70px;
+    margin-top: 80px;
+    margin-bottom: 40px;
+    overflow: hidden;
 }
+
+
 
 .glyphicon { margin-right:10px; }
 .panel-body { padding:0px; }
@@ -68,4 +94,7 @@ textarea {
      font-weight: bold;
  }
 
-
+  .status-inactive {
+     color: #dc143c;
+     font-weight: bold;
+ }

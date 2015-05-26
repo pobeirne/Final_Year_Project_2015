@@ -2,6 +2,7 @@
 using System.Threading.Tasks;
 using System.Web.Configuration;
 using System.Web.Mvc;
+using LuckyMe.CMS.Common.Models.ViewModels;
 using LuckyMe.CMS.Web.ClientHelpers;
 using LuckyMe.CMS.Web.Filters;
 using LuckyMe.CMS.Web.Models;
@@ -188,7 +189,13 @@ namespace LuckyMe.CMS.Web.Controllers
         [UserValidation]
         public async Task<ActionResult> ManageExternalLogin()
         {
-            ViewBag.HasExternalLogin = false;
+            _curruser = (UserSession) Session["UserSession"];
+            _client.AccessToken = _curruser.Token;
+            var curruser = await _client.GetCurrentUserInfoAsync();
+           
+            ViewBag.HasExternalLogin = curruser.HasFacebookCliam;
+            
+       
             return View();
         }
 
@@ -203,6 +210,9 @@ namespace LuckyMe.CMS.Web.Controllers
         [UserValidation]
         public async Task<ActionResult> DeleteExternalLogin()
         {
+            _curruser = (UserSession)Session["UserSession"];
+            _client.AccessToken = _curruser.Token;
+            var deleted = await _client.DeleteUserClaim("FacebookAccessToken");
             return RedirectToAction("ManageExternalLogin", "Account");
         }
 

@@ -18,7 +18,7 @@
                         }
                         else
                         {
-                            <span class="status-inactive">Active</span>
+                            <span class="status-inactive">InActive</span>
                         }
                     </span>
                 </h3>
@@ -50,10 +50,10 @@
             <div class="panel-footer">
                 @if (ViewBag.HasExternalLogin)
                 {
-                    @Html.ActionLink("Refresh Facebook login", "RefreshExternalLogin", "Account",
-                        routeValues: null, htmlAttributes: new {id = "facebook_link", @class = "btn btn-success"})
+                    @*@Html.ActionLink("Refresh Facebook login", "RefreshExternalLogin", "Account",
+                        routeValues: null, htmlAttributes: new {id = "facebook_link", @class = "btn btn-success"})*@
                     @Html.ActionLink("Delete Facebook login", "DeleteExternalLogin", "Account",
-                        routeValues: null, htmlAttributes: new {id = "facebook_link", @class = "btn btn-danger float-right"})
+                        routeValues: null, htmlAttributes: new {id = "facebook_link", @class = "btn btn-danger "})
                 }
                 else
                 {

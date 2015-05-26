@@ -12,7 +12,7 @@ namespace LuckyMe.CMS.Web.Filters
         {
             if (httpContext.Session == null) return false;
             var user = (UserSession) httpContext.Session["UserSession"];
-            if (user.Token == null) return false;
+            if (user == null) return false;
             var client = new LuckyMeClient()
             {
                 AccessToken = user.Token
@@ -27,8 +27,8 @@ namespace LuckyMe.CMS.Web.Filters
                 new RouteValueDictionary(
                     new
                     {
-                        controller = "Error",
-                        action = "Unauthorised"
+                        controller = "Account",
+                        action = "Login"
                     })
                 );
         }

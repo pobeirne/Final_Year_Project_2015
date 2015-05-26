@@ -24,15 +24,16 @@
 
         launch: function() {
             Ext.create("Ext.tab.Panel", {
+                id: "appContainer",
                 renderTo: Ext.getElementById("app-container"),
                 autoCreateViewPort: false,
-                minHeight: 600,
                 activeTab: 0,
+
                 layout: {
                     type: "hbox",
                     align: "stretch"
                 },
-                id: "appContainer",
+            
                 listeners: {
                     beforerender: function() {
                         Ext.getCmp("appContainer").setHeight(Ext.get("app-container").getHeight);
@@ -44,13 +45,21 @@
                         });
                     }
                 },
+
+                tabBar: {
+                    layout: {
+                        type: "hbox",
+                        align: "stretch"
+                    },
+                    defaults: { flex: 1 }
+                },
+
+
                 items:
                 [
                     {
-                        xtype: "panel",
-                        width: 550,
-                        title: "Video Data Viewer",
-                        collapsible: true,
+                        title: "Video Viewer",
+                        height: 650,
                         items: [
                             {
                                 xtype: "VideoView",
@@ -58,7 +67,7 @@
                                 layout:
                                 {
                                     type: "fit",
-                                    align: "left"
+                                    align: "stretch"
                                 }
                             }
                         ],
@@ -71,20 +80,44 @@
                         })
                     },
                     {
-                        xtype: "VideoGrid",
-                        width: "100%",
-                        layout:
-                        {
-                            type: "fit",
-                            align: "left"
-                        }
+                        title: "Video Grid",
+                        height: 650,
+                        items: [
+                            {
+                                xtype: "VideoGrid",
+                                width: "100%",
+                                layout:
+                                {
+                                    type: "fit",
+                                    align: "stretch"
+                                }
+
+                            }
+                        ],
+                        bbar: Ext.create("Ext.PagingToolbar", {
+                            store: "Facebook.store.FacebookVideoStore",
+                            displayInfo: true,
+                            displayMsg: "{0} - {1} of {2}",
+                            emptyMsg: "No topics to display",
+                            items: [
+                                   {
+                                       text: "Clear Filters",
+                                       itemId: "btnClearFilters",
+                                       handler: function () {
+                                           var grid = Ext.getCmp("FacebookVideoGridId");
+                                           grid.filters.clearFilters(true);
+                                           grid.getStore().clearFilter();
+                                           grid.getStore().reload();
+                                       }
+                                   }
+                            ]
+                        })
                     }
                 ]
             });
             Ext.getBody().unmask();
         }
     });
-
 });
 
 

@@ -16,7 +16,9 @@
 
 </head>
 <body>
+
 @Html.Partial("_TopNavbar")
+
 <div class="container maincontent">
     <div class="row">
         <div class="col-lg-3 col-md-3 col-sm-12">
@@ -40,7 +42,7 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-lg-12">
+                    <div class="col-lg-12 col-md-12 col-sm-12" style="width:98%;">
                         @RenderBody()
                     </div>
                 </div>
@@ -48,6 +50,8 @@
         </div>
     </div>
 </div>
+
+    
 
 @Html.Partial("_Footer")
 
